@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<record-definition prefix="bmm" version="1.0.0" flat="false">
+
+
+    <namespaces>
+        <namespace prefix="bmm" uri="http://www.cidoc-crm.org/rdfs/cidoc-crm" schema="http://www.cidoc-crm.org/rdfs/cidoc-crm/crm.xsd"/>
+    </namespaces>
+
+
+        <attrs>
+            <attr tag="rdf:about"/>
+            <!--<attr tag="rdf:resource"/>-->
+        </attrs>
+
+        <elems>
+        </elems>
+
+    <root tag="bm_object">
+
+        <elem tag="bm_object_id"/>
+        <elem tag="bm_alias_acq_year">
+            <elem tag="sub">
+                <elem tag="bm_acq_year_com"/>
+                <elem tag="bm_acq_year_earliest"/>
+                <elem tag="bm_acq_year_latest"/>
+                <elem tag="bm_acq_year_text"/>
+            </elem>
+        </elem>
+        <elem tag="bm_alias_object_name">
+            <elem tag="_">
+                <elem tag="bm_object_name_note"/>
+                <elem tag="mus_object_name"/>
+                <elem tag="mus_object_name_th_h"/>
+                <elem tag="mus_object_name_th_i"/>
+            </elem>
+        </elem>
+        <elem tag="bm_calc_big_no_expr">
+            <elem tag="_"/>
+        </elem>
+        <elem tag="bm_calc_cm_cat_no_expr"/>
+        <elem tag="bm_calc_gr_catno"/>
+        <elem tag="bm_calc_reg_no_expr">
+            <elem tag="_"/>
+        </elem>
+        <elem tag="bm_codex_object_id">
+            <elem tag="_"/>
+        </elem>
+        <elem tag="bm_exhib_hist">
+            <elem tag="_"/>
+        </elem>
+        <!--<elem tag="bm_object_id"/>-->
+        <elem tag="bm_object_part">
+            <elem tag="_">
+                <elem tag="bm_alias_admin_no">
+                    <elem tag="_">
+                        <elem tag="bm_admin_com"/>
+                        <elem tag="bm_admin_no"/>
+                        <elem tag="bm_admin_type"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_as_event">
+                    <elem tag="_">
+                        <elem tag="bm_as_event"/>
+                        <elem tag="bm_as_event_ass"/>
+                        <elem tag="bm_as_event_com"/>
+                        <elem tag="bm_as_event_date_earliest"/>
+                        <elem tag="bm_as_event_date_latest"/>
+                        <elem tag="bm_as_event_date_text"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_as_place">
+                    <elem tag="_">
+                        <elem tag="bm_as_place"/>
+                        <elem tag="bm_as_place_ass"/>
+                        <elem tag="bm_as_place_com"/>
+                        <elem tag="bm_as_place_site"/>
+                        <elem tag="bm_as_place_th_h"/>
+                        <elem tag="bm_as_place_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_as_title">
+                    <elem tag="_">
+                        <elem tag="bm_as_title">
+                            <elem tag="bm_as_title"/>
+                            <elem tag="bm_as_title_ass"/>
+                            <elem tag="bm_as_title_com"/>
+                        </elem>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_bib_xref">
+                    <elem tag="_">
+                        <elem tag="bm_bib_com"/>
+                        <elem tag="bm_bib_spec"/>
+                        <elem tag="bm_bib_xref"/>
+                        <elem tag="bm_bib_xref_id"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_coll_name">
+                    <elem tag="_">
+                        <elem tag="bm_coll_name"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_denomination">
+                    <elem tag="_">
+                        <elem tag="bm_denomination"/>
+                        <elem tag="bm_denomination_com"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_escapement"/>
+                <elem tag="bm_alias_eth_name">
+                    <elem tag="_">
+                        <elem tag="bm_eth_com"/>
+                        <elem tag="bm_eth_name"/>
+                        <elem tag="bm_eth_name_ass"/>
+                        <elem tag="bm_eth_th_h"/>
+                        <elem tag="bm_eth_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_loc">
+                    <elem tag="_">
+                        <elem tag="bm_loc"/>
+                        <elem tag="bm_loc_avail"/>
+                        <elem tag="bm_loc_com"/>
+                        <elem tag="bm_loc_date"/>
+                        <elem tag="bm_loc_th_h"/>
+                        <elem tag="bm_loc_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_object_production_period">
+                    <elem tag="_">
+                        <elem tag="bm_object_production_period_note"/>
+                        <elem tag="mus_object_production_date_period"/>
+                        <elem tag="mus_object_production_date_period_th_h"/>
+                        <elem tag="mus_object_production_date_period_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_school">
+                    <elem tag="_">
+                        <elem tag="bm_school"/>
+                        <elem tag="bm_school_com"/>
+                        <elem tag="bm_school_th_h"/>
+                        <elem tag="bm_school_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_serial">
+                    <elem tag="_">
+                         <elem tag="bm_serial"/>
+                     </elem>
+                </elem>
+                <elem tag="bm_alias_state">
+                    <elem tag="_">
+                        <elem tag="bm_state"/>
+                        <elem tag="bm_state_ass"/>
+                        <elem tag="bm_state_com"/>
+                        <elem tag="bm_state_th_h"/>
+                        <elem tag="bm_state_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_subject">
+                    <elem tag="_">
+                        <elem tag="bm_subject"/>
+                        <elem tag="bm_subject_com"/>
+                        <elem tag="bm_subject_th_h"/>
+                        <elem tag="bm_subject_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_type_ser">
+                    <elem tag="_">
+                        <elem tag="bm_type_ser"/>
+                        <elem tag="bm_type_ser_com"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_ware">
+                    <elem tag="_">
+                        <elem tag="bm_ware"/>
+                        <elem tag="bm_ware_com"/>
+                        <elem tag="bm_ware_th_h"/>
+                        <elem tag="bm_ware_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_xml_acq_name">
+                    <elem tag="_">
+                        <elem tag="bm_acq_name"/>
+                        <elem tag="bm_acq_name_ass"/>
+                        <elem tag="bm_acq_name_com"/>
+                        <elem tag="bm_acq_name_title"/>
+                        <elem tag="mus_authority-bm_auth_biog_number"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_xml_as_name">
+                    <elem tag="_">
+                        <elem tag="bm_as_name"/>
+                        <elem tag="bm_as_name_ass"/>
+                        <elem tag="bm_as_name_com"/>
+                        <elem tag="mus_authority-bm_auth_blog_number"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_xml_authority">
+                    <elem tag="_">
+                        <elem tag="bm_authority"/>
+                        <elem tag="bm_authority_ass"/>
+                        <elem tag="bm_authority_com"/>
+                        <elem tag="mus_authority-bm_auth_blog_number"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_xml_object_production_person">
+                    <elem tag="_">
+                        <elem tag="bm_object_production_person_note"/>
+                        <elem tag="mus_authority-bm_auth_blog_number"/>
+                        <elem tag="mus_object_production_person"/>
+                        <elem tag="mus_object_production_person_association"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_acquisition_note"/>
+                <elem tag="mus_alias_condition">
+                    <elem tag="mus_condition"/>
+                    <elem tag="mus_condition_check_date"/>
+                    <elem tag="mus_condition_checker"/>
+                    <elem tag="mus_condition_note"/>
+                </elem>
+                <elem tag="mus_alias_dimension">
+                    <elem tag="_">
+                        <elem tag="bm_dimension_value_end"/>
+                        <elem tag="mus_dimension"/>
+                        <elem tag="mus_dimension_measurement_std_unit"/>
+                        <elem tag="mus_dimension_measurement_unit"/>
+                        <elem tag="mus_dimension_notes"/>
+                        <elem tag="mus_dimension_std_add"/>
+                        <elem tag="mus_dimension_std_mul"/>
+                        <elem tag="mus_dimension_value"/>
+                        <elem tag="mus_dimension_value_qualifier"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_alias_field_collection_place">
+                    <elem tag="_">
+                        <elem tag="bm_field_collection_place_site"/>
+                        <elem tag="mus_field_collection_place"/>
+                        <elem tag="mus_field_collection_place_association"/>
+                        <elem tag="mus_field_collection_place_association_th_h"/>
+                        <elem tag="mus_field_collection_place_association_th_i"/>
+                        <elem tag="mus_field_collection_place_note"/>
+                        <elem tag="mus_field_collection_place_th_h"/>
+                        <elem tag="mus_field_collection_place_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_alias_inscription">
+                    <elem tag="_">
+                        <elem tag="bm_inscription_note"/>
+                        <elem tag="mus_inscriber_id"/>
+                        <elem tag="mus_inscription_content"/>
+                        <elem tag="mus_inscription_language"/>
+                        <elem tag="mus_inscription_position"/>
+                        <elem tag="mus_inscription_script"/>
+                        <elem tag="mus_inscription_translation"/>
+                        <elem tag="mus_inscription_transliteration"/>
+                        <elem tag="mus_inscription_type"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_inscription_subject"/>
+                <elem tag="mus_alias_label">
+                    <elem tag="_">
+                        <elem tag="bm_label_com"/>
+                        <elem tag="bm_label_exhib_name"/>
+                        <elem tag="mus_label_text"/>
+                        <elem tag="mus_label_text_date_earliest"/>
+                        <elem tag="mus_label_text_date_latest"/>
+                        <elem tag="mus_label_text_date_text"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_alias_material">
+                    <elem tag="_">
+                        <elem tag="bm_material_note"/>
+                        <elem tag="mus_material"/>
+                        <elem tag="mus_material_th_h"/>
+                        <elem tag="mus_material_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_alias_object_production_date">
+                    <elem tag="_">
+                        <elem tag="bm_object_production_date_note"/>
+                        <elem tag="mus_object_production_date_earliest"/>
+                        <elem tag="mus_object_production_date_latest"/>
+                        <elem tag="mus_object_production_date_text"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_alias_object_production_place">
+                    <elem tag="_">
+                        <elem tag="bm_object_production_place_site"/>
+                        <elem tag="mus_object_production_place_association"/>
+                        <elem tag="mus_object_production_place_note"/>
+                        <elem tag="mus_object_production_place_th_h"/>
+                        <elem tag="mus_object_production_place_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_alias_stratigraphic_unit">
+                    <elem tag="_">
+                        <elem tag="mus_stratigraphic_unit_note"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_alias_technique">
+                    <elem tag="_">
+                        <elem tag="bm_technique_note"/>
+                        <elem tag="mus_technique"/>
+                 		<elem tag="mus_technique_th_h"/>
+                 		<elem tag="mus_technique_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_alias_title">
+                    <elem tag="_">
+                        <elem tag="mus_title"/>
+                        <elem tag="mus_title_translation"/>
+                        <elem tag="mus_title_type"/>
+                    </elem>
+                </elem>
+                <elem tag="mus_authority-mus_auth_type"/>
+                <elem tag="mus_obj_parts"/>
+                <elem tag="mus_physical_description"/>
+            </elem>
+            <elem tag="bm_owning_department"/>
+            <elem tag="bm_prn"/>
+            <elem tag="mus_alias_comments">
+                <elem tag="_">
+                    <elem tag="mus_comments"/>
+               		<elem tag="mus_information_source"/>
+               		<elem tag="mus_information_source_date"/>
+                </elem>
+            </elem>
+            <elem tag="mus_alias_other_number">
+                <elem tag="_">
+                    <elem tag="mus_other_number"/>
+                    <elem tag="mus_other_number_type"/>
+                </elem>
+            </elem>
+            <elem tag="mus_number_of_objects"/>
+        </elem>
+    </root>
+
+
+    <opts>
+    </opts>
+
+    <field-markers>
+    </field-markers>
+
+    <docs>
+        <doc tag="E70.Thing">
+            <para name="Scope note:"><![CDATA[
+                        This general class comprises usable discrete, identifiable, instances of E77 Persistent Item that
+                        are documented as single units.
+
+                        <p>They can be either intellectual products or physical things, and are characterized by relative
+                        stability. They may for instance either have a solid physical form, an electronic encoding, or
+                        they may be logical concept or structure.</p>
+            ]]></para>
+            <para name="Examples:"><![CDATA[
+                  <ul>
+                    <li>my photograph collection (E78)</li>
+                    <li> the bottle of milk in my refrigerator (E22)</li>
+                    <li>the plan of the Strassburger Muenster (E29)</li>
+                    <li>the  thing on the top of Otto Hahn’s desk (E19)</li>
+                    <li>the form of the no-smoking sign (E36)</li>
+                    <li>the cave of Dirou, Mani, Greece (E27)</li>
+                  </ul>
+            ]]></para>
+        </doc>
+    </docs>
+
+</record-definition>

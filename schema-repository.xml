@@ -259,6 +259,15 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
+    <schema prefix="bmm">
+        <version number="1.0.0">
+            <author>Thomas Wikman</author>
+            <message>British Museum, Merlin</message>
+            <date>2014-01-16</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
 
 
 </schemas>
