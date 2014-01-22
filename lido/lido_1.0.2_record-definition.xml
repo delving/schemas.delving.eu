@@ -327,7 +327,7 @@
                 check="DIGITAL_OBJECT"
                 />
         <field-marker
-                name="delving:fullTextObjectUrl"
+                name="delving:deepZoomUrl"
                 xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_master']/lido:linkResource"
                 />
         <!--<field-marker name="OWNER" path="facts/provider"/>-->
