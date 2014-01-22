@@ -4,13 +4,12 @@
 
 
     <namespaces>
-        <namespace prefix="bmm" uri="http://www.cidoc-crm.org/rdfs/cidoc-crm" schema="http://www.cidoc-crm.org/rdfs/cidoc-crm/crm.xsd"/>
+        <namespace prefix="bmm" uri="http://www.britismuseum.org/xml/bmm" schema="http://www.britismuseum.org/xml/bmm.xsd"/>
+        <!--Fake is OK!-->
     </namespaces>
 
 
         <attrs>
-            <attr tag="rdf:about"/>
-            <!--<attr tag="rdf:resource"/>-->
         </attrs>
 
         <elems>
@@ -18,9 +17,8 @@
 
     <root tag="bm_object">
 
-        <elem tag="bm_object_id"/>
         <elem tag="bm_alias_acq_year">
-            <elem tag="sub">
+            <elem tag="_">
                 <elem tag="bm_acq_year_com"/>
                 <elem tag="bm_acq_year_earliest"/>
                 <elem tag="bm_acq_year_latest"/>
@@ -38,7 +36,9 @@
         <elem tag="bm_calc_big_no_expr">
             <elem tag="_"/>
         </elem>
-        <elem tag="bm_calc_cm_cat_no_expr"/>
+        <elem tag="bm_calc_cm_cat_no_expr">
+            <elem tag="_"/>
+        </elem>
         <elem tag="bm_calc_gr_catno"/>
         <elem tag="bm_calc_reg_no_expr">
             <elem tag="_"/>
@@ -49,7 +49,7 @@
         <elem tag="bm_exhib_hist">
             <elem tag="_"/>
         </elem>
-        <!--<elem tag="bm_object_id"/>-->
+        <elem tag="bm_object_id"/>
         <elem tag="bm_object_part">
             <elem tag="_">
                 <elem tag="bm_alias_admin_no">
@@ -64,6 +64,7 @@
                         <elem tag="bm_as_event"/>
                         <elem tag="bm_as_event_ass"/>
                         <elem tag="bm_as_event_com"/>
+                        <elem tag="bm_as_event_date_com"/>
                         <elem tag="bm_as_event_date_earliest"/>
                         <elem tag="bm_as_event_date_latest"/>
                         <elem tag="bm_as_event_date_text"/>
@@ -107,7 +108,14 @@
                         <elem tag="bm_denomination_com"/>
                     </elem>
                 </elem>
-                <elem tag="bm_alias_escapement"/>
+                <elem tag="bm_alias_escapement">
+                    <elem tag="_">
+                        <elem tag="bm_escapement"/>
+                        <elem tag="bm_escapement_com"/>
+                        <elem tag="bm_escapement_th_h"/>
+                        <elem tag="bm_escapement_th_i"/>
+                    </elem>
+                </elem>
                 <elem tag="bm_alias_eth_name">
                     <elem tag="_">
                         <elem tag="bm_eth_com"/>
@@ -115,6 +123,11 @@
                         <elem tag="bm_eth_name_ass"/>
                         <elem tag="bm_eth_th_h"/>
                         <elem tag="bm_eth_th_i"/>
+                    </elem>
+                </elem>
+                <elem tag="bm_alias_inscription_subject">
+                    <elem tag="_">
+                        <elem tag="bm_inscription_subject"/>
                     </elem>
                 </elem>
                 <elem tag="bm_alias_loc">
@@ -145,7 +158,8 @@
                 </elem>
                 <elem tag="bm_alias_serial">
                     <elem tag="_">
-                         <elem tag="bm_serial"/>
+                        <elem tag="bm_serial"/>
+                        <elem tag="bm_serial_com"/>
                      </elem>
                 </elem>
                 <elem tag="bm_alias_state">
@@ -169,6 +183,8 @@
                     <elem tag="_">
                         <elem tag="bm_type_ser"/>
                         <elem tag="bm_type_ser_com"/>
+                        <elem tag="bm_type_ser_th_h"/>
+                        <elem tag="bm_type_ser_th_i"/>
                     </elem>
                 </elem>
                 <elem tag="bm_alias_ware">
@@ -201,6 +217,10 @@
                         <elem tag="bm_authority"/>
                         <elem tag="bm_authority_ass"/>
                         <elem tag="bm_authority_com"/>
+                        <elem tag="bm_regnal_com"/>
+                        <elem tag="bm_regnal_day"/>
+                        <elem tag="bm_regnal_month"/>
+                        <elem tag="bm_regnal_year"/>
                         <elem tag="mus_authority-bm_auth_blog_number"/>
                     </elem>
                 </elem>
@@ -257,7 +277,6 @@
                         <elem tag="mus_inscription_type"/>
                     </elem>
                 </elem>
-                <elem tag="bm_alias_inscription_subject"/>
                 <elem tag="mus_alias_label">
                     <elem tag="_">
                         <elem tag="bm_label_com"/>
@@ -287,6 +306,7 @@
                 <elem tag="mus_alias_object_production_place">
                     <elem tag="_">
                         <elem tag="bm_object_production_place_site"/>
+                        <elem tag="mus_object_production_place"/>
                         <elem tag="mus_object_production_place_association"/>
                         <elem tag="mus_object_production_place_note"/>
                         <elem tag="mus_object_production_place_th_h"/>
@@ -317,25 +337,24 @@
                 <elem tag="mus_obj_parts"/>
                 <elem tag="mus_physical_description"/>
             </elem>
-            <elem tag="bm_owning_department"/>
-            <elem tag="bm_prn"/>
-            <elem tag="mus_alias_comments">
-                <elem tag="_">
-                    <elem tag="mus_comments"/>
-               		<elem tag="mus_information_source"/>
-               		<elem tag="mus_information_source_date"/>
-                </elem>
-            </elem>
-            <elem tag="mus_alias_other_number">
-                <elem tag="_">
-                    <elem tag="mus_other_number"/>
-                    <elem tag="mus_other_number_type"/>
-                </elem>
-            </elem>
-            <elem tag="mus_number_of_objects"/>
         </elem>
+        <elem tag="bm_owning_department"/>
+        <elem tag="bm_prn"/>
+        <elem tag="mus_alias_comments">
+            <elem tag="_">
+                <elem tag="mus_comments"/>
+           		<elem tag="mus_information_source"/>
+           		<elem tag="mus_information_source_date"/>
+            </elem>
+        </elem>
+        <elem tag="mus_alias_other_number">
+            <elem tag="_">
+                <elem tag="mus_other_number"/>
+                <elem tag="mus_other_number_type"/>
+            </elem>
+        </elem>
+        <elem tag="mus_number_of_objects"/>
     </root>
-
 
     <opts>
     </opts>
@@ -344,26 +363,6 @@
     </field-markers>
 
     <docs>
-        <doc tag="E70.Thing">
-            <para name="Scope note:"><![CDATA[
-                        This general class comprises usable discrete, identifiable, instances of E77 Persistent Item that
-                        are documented as single units.
-
-                        <p>They can be either intellectual products or physical things, and are characterized by relative
-                        stability. They may for instance either have a solid physical form, an electronic encoding, or
-                        they may be logical concept or structure.</p>
-            ]]></para>
-            <para name="Examples:"><![CDATA[
-                  <ul>
-                    <li>my photograph collection (E78)</li>
-                    <li> the bottle of milk in my refrigerator (E22)</li>
-                    <li>the plan of the Strassburger Muenster (E29)</li>
-                    <li>the  thing on the top of Otto Hahn’s desk (E19)</li>
-                    <li>the form of the no-smoking sign (E36)</li>
-                    <li>the cave of Dirou, Mani, Greece (E27)</li>
-                  </ul>
-            ]]></para>
-        </doc>
     </docs>
 
 </record-definition>
