@@ -289,11 +289,29 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
+    <schema prefix="crm">
+        <version number="5.1.0">
+            <author>Thomas Wikman</author>
+            <message>CRM/message</message>
+            <date>2013-05-31</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
     <schema prefix="kml">
         <version number="2.1.0">
             <author>Sjoerd Siebinga</author>
 	    <message>First iteration of the KML record definition</message>
             <date>2013-06-05</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
+    <schema prefix="bmm">
+        <version number="1.0.0">
+            <author>Thomas Wikman</author>
+            <message>British Museum, Merlin</message>
+            <date>2014-01-16</date>
             <file name="record-definition.xml" hash=""/>
             <file name="validation.xsd" hash=""/>
         </version>
