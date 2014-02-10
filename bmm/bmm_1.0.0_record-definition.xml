@@ -4,7 +4,7 @@
 
 
     <namespaces>
-        <namespace prefix="bmm" uri="http://www.britismuseum.org/xml/bmm" schema="http://www.britismuseum.org/xml/bmm.xsd"/>
+        <namespace prefix="bmm" uri="http://www.britishmuseum.org/xml/bmm" schema="http://www.britishmuseum.org/xml/bmm.xsd"/>
         <!--Fake is OK!-->
     </namespaces>
 
