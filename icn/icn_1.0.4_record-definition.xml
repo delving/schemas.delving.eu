@@ -160,7 +160,7 @@
         <field-marker name="delving:provider" path="/record/europeana:provider"/>
         <field-marker name="delving:landingPage" path="/record/europeana:isShownAt" check="LANDING_PAGE"/>
         <field-marker name="delving:thumbnail" path="/record/europeana:object" check="THUMBNAIL"/>
-        <field-marker name="delving:imageUrl" path="/record/europeana:isShownBy" check="IMAGE_URL"/>
+        <field-marker name="delving:imageUrl" path="/record/europeana:isShownBy" check="DIGITAL_OBJECT"/>
 
         <field-marker type="search" name="SNIPPET" path="/record/delving:fullText"/>
         <field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>
