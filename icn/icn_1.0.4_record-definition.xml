@@ -140,8 +140,16 @@
         <elem tag="europeana:collectionTitle"/>                        <!-- NOT part of ESE 3.4 -->
         <elem tag="europeana:source"/>                                 <!-- NOT part of ESE 3.4 -->
 
+        <!--there should be other tags made up for these, and then field markers should turn them into delving namespace-->
         <elem tag="delving:deepZoomUrl" fieldType="link"/>
         <elem tag="delving:geohash" fieldType="geohash"/>
+
+        <!--these should definitely not be here, but keeping them for backwards compatibility-->
+        <elem tag="delving:year"/>
+        <elem tag="delving:thumbnail" fieldType="link"/>
+        <elem tag="delving:imageUrl" fieldType="link" function="largeThumbnail"/>
+        <elem tag="delving:fullTextObjectUrl" fieldType="link"/>
+        <elem tag="delving:fullText"/>
     </root>
 
     <field-markers>
@@ -152,7 +160,7 @@
         <field-marker name="delving:provider" path="/record/europeana:provider"/>
         <field-marker name="delving:landingPage" path="/record/europeana:isShownAt" check="LANDING_PAGE"/>
         <field-marker name="delving:thumbnail" path="/record/europeana:object" check="THUMBNAIL"/>
-        <field-marker name="delving:digitalObject" path="/record/europeana:isShownBy" check="DIGITAL_OBJECT"/>
+        <field-marker name="delving:imageUrl" path="/record/europeana:isShownBy" check="IMAGE_URL"/>
 
         <field-marker type="search" name="SNIPPET" path="/record/delving:fullText"/>
         <field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>
