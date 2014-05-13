@@ -98,7 +98,7 @@
             <xs:element ref="europeana:rights" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="europeana:isShownAt" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="europeana:unstored" minOccurs="0" maxOccurs="1"/>
-            <xs:element ref="europeana:object" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="europeana:object" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element ref="europeana:provider" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="europeana:dataProvider" minOccurs="0" maxOccurs="1"/>
             <xs:element ref="europeana:type" minOccurs="0" maxOccurs="1"/>
