@@ -138,7 +138,176 @@
         </mapping-function>
     </functions>
 
+    <attrs>
+        <attr tag="lang"/>
+        <attr tag="mime-type"/>
+        <attr tag="object-type"/>
+        <attr tag="id"/>
+        <attr tag="lang"/>
+        <attr tag="uri"/>
+        <attr tag="pref-label"/>
+
+    </attrs>
+
+    <attr-groups>
+        <attr-group name="base">
+            <string>lang</string>
+            <string>uri</string>
+            <string>pref-label</string>
+        </attr-group>
+    </attr-groups>
+    
+    <elems>
+        <elem tag="dublin_core">
+            <elem tag="dc:contributor" attr-groups="base-three" />
+            <elem tag="dc:coverage" attr-groups="base-three" />
+            <elem tag="dc:creator" attr-groups="base-three" />
+            <elem tag="dc:date" attr-groups="base-three" />
+            <elem tag="dc:description" attrs="lang" />
+            <elem tag="dc:format" attr-groups="base-three" />
+            <elem tag="dc:identifier" attr-groups="base-three" />
+            <elem tag="dc:language" attr-groups="base-three" />
+            <elem tag="dc:publisher" attr-groups="base-three" />
+            <elem tag="dc:relation" attr-groups="base-three" />
+            <elem tag="dc:rights" attr-groups="base-three" />
+            <elem tag="dc:source" attr-groups="base-three" />
+            <elem tag="dc:subject" attr-groups="base-three" />
+            <elem tag="dc:title" required="true" attrs="lang" />
+            <elem tag="dc:type" attr-groups="base-three" />
+        </elem>
+
+        <elem tag="dcterms">
+            <elem tag="dcterms:alternative"/>
+            <elem tag="dcterms:conformsTo"/>
+            <elem tag="dcterms:created"/>
+            <elem tag="dcterms:extent"/>
+            <elem tag="dcterms:hasFormat"/>
+            <elem tag="dcterms:hasPart"/>
+            <elem tag="dcterms:hasVersion"/>
+            <elem tag="dcterms:isFormatOf"/>
+            <elem tag="dcterms:isPartOf"/>
+            <elem tag="dcterms:isReferencedBy"/>
+            <elem tag="dcterms:isReplacedBy"/>
+            <elem tag="dcterms:isRequiredBy"/>
+            <elem tag="dcterms:isVersionOf"/>
+            <elem tag="dcterms:issued"/>
+            <elem tag="dcterms:medium"/>
+            <elem tag="dcterms:provenance"/>
+            <elem tag="dcterms:references"/>
+            <elem tag="dcterms:replaces"/>
+            <elem tag="dcterms:requires"/>
+            <elem tag="dcterms:rightsHolder"/>
+            <elem tag="dcterms:spatial"/>
+            <elem tag="dcterms:tableOfContents"/>
+            <elem tag="dcterms:temporal"/>
+        </elem>
+
+        <elem tag="europeana">
+            <elem tag="europeana:isShownBy" fieldType="link"/>
+            <elem tag="europeana:rights" fieldType="link"/>
+            <elem tag="europeana:isShownAt" fieldType="link"/>
+            <elem tag="europeana:unstored"/>
+            <elem tag="europeana:object" fieldType="link"/>
+            <elem tag="europeana:provider" required="true"/>
+            <elem tag="europeana:dataProvider" required="true"/>
+            <elem tag="europeana:type" required="true"/>
+            <!-- new -->
+            <elem tag="europeana:userTag"/>
+            <elem tag="europeana:hasDigitalObject"/>
+            <elem tag="europeana:year"/>
+        </elem>
+
+    </elems>
+
     <root tag="record">
+
+        <!-- ESE block -->
+        <elem tag="metadata">
+            <elem tag="ese" elems="dc,dcterms,europeana"/>
+            <elem tag="extension">
+
+            </elem>
+        </elem>
+
+        <elem tag="recordInfo">
+
+            <elem tag="delving">
+                <elem tag="delving:creator" unmappable="true"/>
+                <elem tag="delving:title" unmappable="true"/>
+                <elem tag="delving:description" unmappable="true"/>
+                <elem tag="delving:owner"/>
+                <elem tag="delving:provider"/>
+                <elem tag="delving:landingPage" unmappable="true"/>
+                <elem tag="delving:thumbnail" unmappable="true"/>
+                <elem tag="delving:geohash"/>
+                <elem tag="delving:address"/>
+                <elem tag="delving:hubId"/>
+                <elem tag="delving:orgId"/>
+                <elem tag="delving:itemType"/>
+            </elem>
+            <elem tag="europeanaLegacy">
+                <elem tag="europeana:uri" fieldType="string"/> <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD-->
+                <elem tag="europeana:language"/> <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD -->
+                <elem tag="europeana:country"/> <!-- ESE 3.4,  not accepted by the office and not part of the ESE XSD -->
+                <elem tag="europeana:collectionName" required="true"/> <!-- NOT part of ESE 3.4 -->
+                <elem tag="europeana:collectionTitle" required="true"/> <!-- NOT part of ESE 3.4 -->
+                <elem tag="europeana:source"/><!-- NOT part of ESE 3.4 -->
+            </elem>
+        </elem>
+        
+        <!--
+        all digital objects are aggregated in this block
+
+        Note: Replaces =>
+
+        <elem tag="nkr:videoUri" fieldType="string"/>
+        <elem tag="nkr:soundUri" fieldType="string"/>
+        <elem tag="nkr:imageUri" fieldType="string"/>
+        <elem tag="nkr:textUri" fieldType="string"/>
+
+        -->
+        <elem tag="digitalObjects">
+            <elem tag="object" attrs="mime-type, object-type, id" unmappable="true">
+                <elem tag="uri"/>
+                <elem tag="caption"/>
+                <elem tag="rights"/>
+                <elem tag="derivatives">
+                    <elem tag="deepzoom"/>
+                    <elem tag="thumb_100"/>
+                    <elem tag="thumb_220"/>
+                    <elem tag="thumb_600"/>
+                </elem>
+                <elem tag="about" attr-groups="base-three"/>
+            </elem>
+        </elem>
+        
+        <elem tag="locations">
+            <elem tag="location" attrs="id, uri, pref-label">
+                <elem tag="polygon"/> <!--add projection_type: utm or lat-long-->
+                <elem tag="point"/>
+                <elem tag="hierarchicalGeographic" attr-groups="base-">
+                    <elem tag="continent" attr-groups="base-four"/>
+                    <elem tag="country" attr-groups="base-four"/>
+                    <elem tag="province" attr-groups="base-four"/>
+                    <elem tag="region" attr-groups="base-four"/>
+                    <elem tag="state" attr-groups="base-four"/>
+                    <elem tag="territory" attr-groups="base-four"/>
+                    <elem tag="county" attr-groups="base-four"/>
+                    <elem tag="city" attr-groups="base-four"/>
+                    <elem tag="island" attr-groups="base-four"/>
+                    <elem tag="area" attr-groups="base-four"/>
+                    <elem tag="extraterrestrialArea" attr-groups="base-four"/>
+                    <elem tag="citySection" attr-groups="base-four"/>
+                </elem>
+            </elem>
+            
+        </elem>
+        
+        <elem tag="dynamicFields">
+            
+        </elem>
+
+        <!-- old stuff -->
         <elem tag="nkr:municipality"/>
         <elem tag="nkr:municipalityNr"/>
         <elem tag="nkr:aboutPerson"/>
@@ -163,75 +332,13 @@
         <elem tag="nkr:collectionType" required="true"/>
         <elem tag="nkr:category"/>
         <elem tag="nkr:creatorUri" fieldType="string"/>
-        <elem tag="nkr:videoUri" fieldType="string"/>
-        <elem tag="nkr:soundUri" fieldType="string"/>
-        <elem tag="nkr:imageUri" fieldType="string"/>
-        <elem tag="nkr:textUri" fieldType="string"/>
 
-        <elem tag="dc:contributor"/>
-        <elem tag="dc:coverage"/>
-        <elem tag="dc:creator"/>
-        <elem tag="dc:date"/>
-        <elem tag="dc:description"/>
-        <elem tag="dc:format"/>
-        <elem tag="dc:identifier"/>
-        <elem tag="dc:language"/>
-        <elem tag="dc:publisher"/>
-        <elem tag="dc:relation"/>
-        <elem tag="dc:rights"/>
-        <elem tag="dc:source"/>
-        <elem tag="dc:subject"/>
-        <elem tag="dc:title"/>
-        <elem tag="dc:type"/>
 
-        <elem tag="dcterms:alternative"/>
-        <elem tag="dcterms:conformsTo"/>
-        <elem tag="dcterms:created"/>
-        <elem tag="dcterms:extent"/>
-        <elem tag="dcterms:hasFormat"/>
-        <elem tag="dcterms:hasPart"/>
-        <elem tag="dcterms:hasVersion"/>
-        <elem tag="dcterms:isFormatOf"/>
-        <elem tag="dcterms:isPartOf"/>
-        <elem tag="dcterms:isReferencedBy"/>
-        <elem tag="dcterms:isReplacedBy"/>
-        <elem tag="dcterms:isRequiredBy"/>
-        <elem tag="dcterms:isVersionOf"/>
-        <elem tag="dcterms:issued"/>
-        <elem tag="dcterms:medium"/>
-        <elem tag="dcterms:provenance"/>
-        <elem tag="dcterms:references"/>
-        <elem tag="dcterms:replaces"/>
-        <elem tag="dcterms:requires"/>
-        <elem tag="dcterms:spatial"/>
-        <elem tag="dcterms:tableOfContents"/>
-        <elem tag="dcterms:temporal"/>
-        <elem tag="dcterms:rightsHolder"/>
-        <elem tag="dcterms:rightsHolder"/> <!-- NOT part of ESE 3.4 -->
-
-        <elem tag="europeana:isShownBy" fieldType="link"/>
-        <elem tag="europeana:rights" fieldType="link"/>
-        <elem tag="europeana:isShownAt" fieldType="link"/>
-        <elem tag="europeana:unstored"/>
-        <elem tag="europeana:object" fieldType="link"/>
-        <elem tag="europeana:provider" required="true"/>
-        <elem tag="europeana:dataProvider" required="true"/>
-        <elem tag="europeana:type" required="true"/>
-        <elem tag="europeana:uri" fieldType="string" required="true"/> <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD-->
-        <elem tag="europeana:language" required="true"/> <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD -->
-        <elem tag="europeana:country" required="true"/> <!-- ESE 3.4,  not accepted by the office and not part of the ESE XSD -->
-        <elem tag="europeana:collectionName" required="true"/> <!-- NOT part of ESE 3.4 -->
-        <elem tag="europeana:collectionTitle" required="true"/> <!-- NOT part of ESE 3.4 -->
-        <elem tag="europeana:source"/><!-- NOT part of ESE 3.4 -->
-
-        <!-- new -->
-        <elem tag="europeana:userTag"/>
-        <elem tag="europeana:hasDigitalObject"/>
-        <elem tag="europeana:year"/>
     </root>
 
     <field-markers>
 
+        <!-- TODO update the paths -->
         <field-marker name="delving:creator" path="/record/dc:creator"/>
         <field-marker name="delving:title" path="/record/dc:title"/>
         <field-marker name="delving:description" path="/record/dc:description"/>
