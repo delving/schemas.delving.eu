@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<record-definition prefix="nkr" version="1.0">
+<record-definition prefix="nrv" version="1.0.0">
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"
@@ -8,9 +8,9 @@
                    schema="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
         <namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/"
                    schema="http://www.europeana.eu/schemas/ese/ESE-V3.4.xsd"/>
-        <!--todo: review the nkr uri/schema to see if it makes sense.  the old abm one probably didn't-->
-        <namespace prefix="nkr" uri="http://purl.org/abm/sen"
-                   schema="http://norvegiana.no/nkr/sen/nkr.xsd"/>
+        <!--todo: review the nrv uri/schema to see if it makes sense.  the old abm one probably didn't-->
+        <namespace prefix="nrv" uri="http://purl.org/abm/sen"
+                   schema="http://norvegiana.no/nrv/sen/nrv.xsd"/>
         <namespace prefix="delving" uri="http://schemas.delving.eu/"
                    schema="delving-V1.2.xsd"/>
     </namespaces>
@@ -145,20 +145,28 @@
         <attr tag="id"/>
         <attr tag="lang"/>
         <attr tag="uri"/>
-        <attr tag="pref-label"/>
+        <attr tag="prefLabel"/>
+        <attr tag="heading"/>
+        <attr tag="order"/>
 
     </attrs>
 
     <attr-groups>
-        <attr-group name="base">
+        <attr-group name="base-three">
             <string>lang</string>
             <string>uri</string>
-            <string>pref-label</string>
+            <string>prefLabel</string>
+        </attr-group>
+        <attr-group name="base-four">
+            <string>id</string>
+            <string>lang</string>
+            <string>uri</string>
+            <string>prefLabel</string>
         </attr-group>
     </attr-groups>
     
     <elems>
-        <elem tag="dublin_core">
+        <elem tag="dublincore">
             <elem tag="dc:contributor" attr-groups="base-three" />
             <elem tag="dc:coverage" attr-groups="base-three" />
             <elem tag="dc:creator" attr-groups="base-three" />
@@ -223,7 +231,7 @@
 
         <!-- ESE block -->
         <elem tag="metadata">
-            <elem tag="ese" elems="dc,dcterms,europeana"/>
+            <elem tag="ese" elems="dublincore,dcterms,europeana"/>
             <elem tag="extension">
 
             </elem>
@@ -249,8 +257,8 @@
                 <elem tag="europeana:uri" fieldType="string"/> <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD-->
                 <elem tag="europeana:language"/> <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD -->
                 <elem tag="europeana:country"/> <!-- ESE 3.4,  not accepted by the office and not part of the ESE XSD -->
-                <elem tag="europeana:collectionName" required="true"/> <!-- NOT part of ESE 3.4 -->
-                <elem tag="europeana:collectionTitle" required="true"/> <!-- NOT part of ESE 3.4 -->
+                <elem tag="europeana:collectionName"/> <!-- NOT part of ESE 3.4 -->
+                <elem tag="europeana:collectionTitle"/> <!-- NOT part of ESE 3.4 -->
                 <elem tag="europeana:source"/><!-- NOT part of ESE 3.4 -->
             </elem>
         </elem>
@@ -260,10 +268,10 @@
 
         Note: Replaces =>
 
-        <elem tag="nkr:videoUri" fieldType="string"/>
-        <elem tag="nkr:soundUri" fieldType="string"/>
-        <elem tag="nkr:imageUri" fieldType="string"/>
-        <elem tag="nkr:textUri" fieldType="string"/>
+        <elem tag="nrv:videoUri" fieldType="string"/>
+        <elem tag="nrv:soundUri" fieldType="string"/>
+        <elem tag="nrv:imageUri" fieldType="string"/>
+        <elem tag="nrv:textUri" fieldType="string"/>
 
         -->
         <elem tag="digitalObjects">
@@ -282,10 +290,11 @@
         </elem>
         
         <elem tag="locations">
-            <elem tag="location" attrs="id, uri, pref-label">
+            <elem tag="location" attrs="id, uri, prefLabel">
+                <elem tag="text" attrs="heading, order"/>
                 <elem tag="polygon"/> <!--add projection_type: utm or lat-long-->
                 <elem tag="point"/>
-                <elem tag="hierarchicalGeographic" attr-groups="base-">
+                <elem tag="hierarchicalGeographic">
                     <elem tag="continent" attr-groups="base-four"/>
                     <elem tag="country" attr-groups="base-four"/>
                     <elem tag="province" attr-groups="base-four"/>
@@ -308,30 +317,30 @@
         </elem>
 
         <!-- old stuff -->
-        <elem tag="nkr:municipality"/>
-        <elem tag="nkr:municipalityNr"/>
-        <elem tag="nkr:aboutPerson"/>
-        <elem tag="nkr:county"/>
-        <elem tag="nkr:countyNr"/>
-        <elem tag="nkr:country"/>
-        <elem tag="nkr:namedPlace"/>
-        <elem tag="nkr:estateName"/>
-        <elem tag="nkr:estateNr"/>
-        <elem tag="nkr:propertyName"/>
-        <elem tag="nkr:propertyNr"/>
-        <elem tag="nkr:contentProvider" required="true"/>
-        <elem tag="nkr:address"/>
-        <elem tag="nkr:digitised"/>
-        <elem tag="nkr:introduction"/>
-        <elem tag="nkr:classification"/>
-        <elem tag="nkr:utm" function="convertToUTM"/> <!-- full utm33 string 32 V 258644.154187 6648939.72091 SRID=32633;POINT(148013,6964590) -->
-        <elem tag="nkr:polygon_utm"/>
-        <elem tag="nkr:polygon_latLong"/> <!-- 59.907116,10.682953 -->
-        <elem tag="nkr:latLong" fieldType="geohash" function="convertToLATLONG"/>
-        <elem tag="nkr:type"/> <!-- knet, knreise, all -->
-        <elem tag="nkr:collectionType" required="true"/>
-        <elem tag="nkr:category"/>
-        <elem tag="nkr:creatorUri" fieldType="string"/>
+        <elem tag="nrv:municipality"/>
+        <elem tag="nrv:municipalityNr"/>
+        <elem tag="nrv:aboutPerson"/>
+        <elem tag="nrv:county"/>
+        <elem tag="nrv:countyNr"/>
+        <elem tag="nrv:country"/>
+        <elem tag="nrv:namedPlace"/>
+        <elem tag="nrv:estateName"/>
+        <elem tag="nrv:estateNr"/>
+        <elem tag="nrv:propertyName"/>
+        <elem tag="nrv:propertyNr"/>
+        <elem tag="nrv:contentProvider" required="true"/>
+        <elem tag="nrv:address"/>
+        <elem tag="nrv:digitised"/>
+        <elem tag="nrv:introduction"/>
+        <elem tag="nrv:classification"/>
+        <elem tag="nrv:utm" function="convertToUTM"/> <!-- full utm33 string 32 V 258644.154187 6648939.72091 SRID=32633;POINT(148013,6964590) -->
+        <elem tag="nrv:polygon_utm"/>
+        <elem tag="nrv:polygon_latLong"/> <!-- 59.907116,10.682953 -->
+        <elem tag="nrv:latLong" fieldType="geohash" function="convertToLATLONG"/>
+        <elem tag="nrv:type"/> <!-- knet, knreise, all -->
+        <elem tag="nrv:collectionType" required="true"/>
+        <elem tag="nrv:category"/>
+        <elem tag="nrv:creatorUri" fieldType="string"/>
 
 
     </root>
@@ -339,6 +348,7 @@
     <field-markers>
 
         <!-- TODO update the paths -->
+<!--
         <field-marker name="delving:creator" path="/record/dc:creator"/>
         <field-marker name="delving:title" path="/record/dc:title"/>
         <field-marker name="delving:description" path="/record/dc:description"/>
@@ -346,40 +356,41 @@
         <field-marker name="delving:provider" path="/record/europeana:provider"/>
         <field-marker name="delving:landingPage" path="/record/europeana:isShownAt" check="LANDING_PAGE"/>
         <field-marker name="delving:thumbnail" path="/record/europeana:object" check="THUMBNAIL"/>
-        <field-marker name="delving:geohash" path="/record/nkr:latLong" check="GEO_COORDINATE"/>
-        <field-marker name="delving:address" path="/record/nkr:address"/>
+        <field-marker name="delving:geohash" path="/record/nrv:latLong" check="GEO_COORDINATE"/>
+        <field-marker name="delving:address" path="/record/nrv:address"/>
 
-        <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
+        &lt;!&ndash; todo: these should have paths, currently they are checked for presence but not resolved&ndash;&gt;
         <field-marker name="SPEC"/>
         <field-marker name="DEEP_ZOOM_URL" check="DEEP_ZOOM"/>
+-->
 
         <!-- field markers for link checking -->
-        <field-marker path="/record/creatorUri" check="LOD_REFERENCE"/>
-        <field-marker path="/record/videoUri" check="DIGITAL_OBJECT"/>
-        <field-marker path="/record/soundUri" check="DIGITAL_OBJECT"/>
-        <field-marker path="/record/imageUri" check="DIGITAL_OBJECT"/>
-        <field-marker path="/record/textUri" check="DIGITAL_OBJECT"/>
-        <field-marker path="/record/europeana:isShownBy" check="DIGITAL_OBJECT"/>
-        <field-marker path="/record/dc:date" check="DATE"/>
+        <!--<field-marker path="/record/creatorUri" check="LOD_REFERENCE"/>-->
+        <!--<field-marker path="/record/videoUri" check="DIGITAL_OBJECT"/>-->
+        <!--<field-marker path="/record/soundUri" check="DIGITAL_OBJECT"/>-->
+        <!--<field-marker path="/record/imageUri" check="DIGITAL_OBJECT"/>-->
+        <!--<field-marker path="/record/textUri" check="DIGITAL_OBJECT"/>-->
+        <!--<field-marker path="/record/europeana:isShownBy" check="DIGITAL_OBJECT"/>-->
+        <!--<field-marker path="/record/dc:date" check="DATE"/>-->
 
 
-        <field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>
-        <field-marker type="search" name="SNIPPET" path="/record/dcterms:alternative"/>
-        <field-marker type="search" name="SNIPPET" path="/record/europeana:collectionTitle"/>
+        <!--<field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>-->
+        <!--<field-marker type="search" name="SNIPPET" path="/record/dcterms:alternative"/>-->
+        <!--<field-marker type="search" name="SNIPPET" path="/record/europeana:collectionTitle"/>-->
 
-        <field-marker type="fact" name="spec" path="/record/europeana:collectionName"/>
-        <field-marker type="fact" name="name" path="/record/europeana:collectionTitle"/>
-        <field-marker type="fact" name="country" path="/record/europeana:country"/>
-        <field-marker type="fact" name="dataProvider" path="/record/europeana:dataProvider"/>
-        <field-marker type="fact" name="language" path="/record/europeana:language"/>
-        <field-marker type="fact" name="provider" path="/record/europeana:provider"/>
-        <field-marker type="fact" name="rights" path="/record/europeana:rights"/>
-        <field-marker type="fact" name="type" path="/record/europeana:type"/>
+        <!--<field-marker type="fact" name="spec" path="/record/europeana:collectionName"/>-->
+        <!--<field-marker type="fact" name="name" path="/record/europeana:collectionTitle"/>-->
+        <!--<field-marker type="fact" name="country" path="/record/europeana:country"/>-->
+        <!--<field-marker type="fact" name="dataProvider" path="/record/europeana:dataProvider"/>-->
+        <!--<field-marker type="fact" name="language" path="/record/europeana:language"/>-->
+        <!--<field-marker type="fact" name="provider" path="/record/europeana:provider"/>-->
+        <!--<field-marker type="fact" name="rights" path="/record/europeana:rights"/>-->
+        <!--<field-marker type="fact" name="type" path="/record/europeana:type"/>-->
 
     </field-markers>
 
     <assertion-list>
-        <assert xpath="//nkr:latLong/text()">
+        <assert xpath="//nrv:latLong/text()">
             <code>
                 try {
                 org.apache.lucene.spatial.DistanceUtils.parseLatitudeLongitude(it);
@@ -393,7 +404,7 @@
     </assertion-list>
 
     <opts>
-        <opt-list dictionary="HHCat" path="/record/nkr:category" displayName="Category">
+        <opt-list dictionary="HHCat" path="/record/nrv:category" displayName="Category">
             <opt value="Arkeologi"/>
             <opt value="Kulturminner"/>
             <opt value="Historie og samfunn"/>
@@ -407,25 +418,25 @@
         </opt-list>
     </opts>
 
-    <docs>
+<!--    <docs>
 
-        <doc path="/record/nkr:introduction">
+        <doc path="/record/nrv:introduction">
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			Should the input text have both an introductory text and main body of text, map the introduction to nkr:introduction and the main body of text to dc:description. Note that for ESE you will need to ensure the nkr:introduction is mapped to DC:description before providing it to Europeana.	
+			Should the input text have both an introductory text and main body of text, map the introduction to nrv:introduction and the main body of text to dc:description. Note that for ESE you will need to ensure the nrv:introduction is mapped to DC:description before providing it to Europeana.
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional	
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
 
-        <doc path="/record/nkr:classification">
+        <doc path="/record/nrv:classification">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -449,7 +460,7 @@
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -464,13 +475,13 @@
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:creatorUri">
+        <doc path="/record/nrv:creatorUri">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -479,7 +490,7 @@
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -500,7 +511,7 @@
             </paras>
         </doc>
 
-        <doc path="/record/nkr:category">
+        <doc path="/record/nrv:category">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -509,13 +520,13 @@
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:aboutPerson">
+        <doc path="/record/nrv:aboutPerson">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -524,7 +535,7 @@
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -539,7 +550,7 @@
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory to supply either dc:title or dc:description		
+			Mandatory to supply either dc:title or dc:description
                     ]]>
                 </para>
             </paras>
@@ -549,18 +560,18 @@
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			Name of the organisation who supplies data to Europeana indirectly via an aggregator to be recorded and displayed in the portal. 
+			Name of the organisation who supplies data to Europeana indirectly via an aggregator to be recorded and displayed in the portal.
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-		   Mandatory (max 1)				
+		   Mandatory (max 1)
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:contentProvider">
+        <doc path="/record/nrv:contentProvider">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -569,7 +580,7 @@
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -585,7 +596,7 @@ NB. For Europeana this relates particularly to the ownership and custody of the 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -600,7 +611,7 @@ NB. For Europeana this relates particularly to the ownership and custody of the 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-		   Mandatory (max 1)			
+		   Mandatory (max 1)
                     ]]>
                 </para>
             </paras>
@@ -615,7 +626,7 @@ NB. For Europeana this relates particularly to the ownership and custody of the 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -631,7 +642,7 @@ NB. For Europeana this relates particularly to the ownership and custody of the 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -663,7 +674,7 @@ NB. For Europeana this relates particularly to the ownership and custody of the 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory (for drupal schema) (max 1)			
+			Mandatory (for drupal schema) (max 1)
                     ]]>
                 </para>
             </paras>
@@ -679,7 +690,7 @@ NB. For Europeana this relates particularly to the ownership and custody of the 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory (for drupal schema) (max 1)			
+			Mandatory (for drupal schema) (max 1)
                     ]]>
                 </para>
             </paras>
@@ -696,7 +707,7 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory (for drupal schema) (max 1)			
+			Mandatory (for drupal schema) (max 1)
                     ]]>
                 </para>
             </paras>
@@ -712,7 +723,7 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -728,7 +739,7 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -744,7 +755,7 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -755,25 +766,25 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 <para name="Definition">
                     <![CDATA[
 				This date element should be used to contain the most significant date in the life of the digital object or the original physical object in the case of a digitisation. We recommend the use of ISO 8601 starting with the year and hyphenating the day and month parts: YYYY-MM-DD.
-				The values in the date elements will be used by the europeana normalisation process to generate values for europeana:year element. europeana:year will contain a standard four digit year of the Gregorian calendar (e.g. 1523). Before the Common Era, Before Christ or Before Present dates 
-				Currently, the Europeana portal cannot use BC, BCE or BP dates but such dates should be retained in the mapped metadata (i.e. dc:date) in order to be present for future development of the portal. 
-				Textual date values 
-				Textual time periods will display in a result list but cannot be represented in the Timeline or Date facet and should also be provided as numeric dates. 
-				Example where the provider has a specific time period defined: 
-				<localtimeperiod>Roman Britain</localtimeperiod> 
-				Transform and map as e.g. <dc:date>0043</dc:date> and <dc:date>0410</dc:date> 
-				which will generate 
-				<europeana:year>0043</europeana:year> and <europeana:year>0410</europeana:year> 
-				Example where text is used: 
-				<localtimeperiod>17th century</localtimeperiod> 
-				Transform and map also as <dc:date>1601</dc:date> and <dc:date>1700</dc:date> 
-				which will generate: 
+				The values in the date elements will be used by the europeana normalisation process to generate values for europeana:year element. europeana:year will contain a standard four digit year of the Gregorian calendar (e.g. 1523). Before the Common Era, Before Christ or Before Present dates
+				Currently, the Europeana portal cannot use BC, BCE or BP dates but such dates should be retained in the mapped metadata (i.e. dc:date) in order to be present for future development of the portal.
+				Textual date values
+				Textual time periods will display in a result list but cannot be represented in the Timeline or Date facet and should also be provided as numeric dates.
+				Example where the provider has a specific time period defined:
+				<localtimeperiod>Roman Britain</localtimeperiod>
+				Transform and map as e.g. <dc:date>0043</dc:date> and <dc:date>0410</dc:date>
+				which will generate
+				<europeana:year>0043</europeana:year> and <europeana:year>0410</europeana:year>
+				Example where text is used:
+				<localtimeperiod>17th century</localtimeperiod>
+				Transform and map also as <dc:date>1601</dc:date> and <dc:date>1700</dc:date>
+				which will generate:
 				<europeana:year>1601</europeana:year> and <europeana:year>1700</europeana:year>
 							]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -789,7 +800,7 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -804,13 +815,13 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:digitised">
+        <doc path="/record/nrv:digitised">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -819,7 +830,7 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -834,7 +845,7 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -850,7 +861,7 @@ It is derived from dc:date and its refinements. It is used in the Europeana time
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			N/A	
+			N/A
                     ]]>
                 </para>
             </paras>
@@ -874,7 +885,7 @@ It is derived from dc:date and its refinements. It is used in the Europeana time
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory to supply either dc:type or dc:subject or dcterms:spatial or dc:coverage			
+			Mandatory to supply either dc:type or dc:subject or dcterms:spatial or dc:coverage
                     ]]>
                 </para>
             </paras>
@@ -890,7 +901,7 @@ Europeana types using upper case letters: TEXT, IMAGE, SOUND, VIDEO
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory (max 1)			
+			Mandatory (max 1)
                     ]]>
                 </para>
             </paras>
@@ -905,7 +916,7 @@ Europeana types using upper case letters: TEXT, IMAGE, SOUND, VIDEO
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -920,7 +931,7 @@ Europeana types using upper case letters: TEXT, IMAGE, SOUND, VIDEO
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -935,7 +946,7 @@ Europeana types using upper case letters: TEXT, IMAGE, SOUND, VIDEO
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -952,7 +963,7 @@ keep it and repeat the information in europeana:isShownBy.
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -962,7 +973,7 @@ keep it and repeat the information in europeana:isShownBy.
             <paras>
                 <para name="Definition">
                     <![CDATA[
-Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.			
+Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.
 		        ]]>
                 </para>
                 <para name="Requirements">
@@ -979,20 +990,20 @@ Spatial topic and spatial applicability may be a named place or a location speci
                     <![CDATA[
 			(refinement of dc:coverage) It is preferred to use this more specific element for information about the spatial characteristics of the digital object or the original physical object in the case of a digitisation i.e. what the resource represents or depicts in terms of space. This may be a place name, a location, spatial co-ordinates or a named administrative entity. NB Values in this element will appear in the Geographic coverage line of a full result display in Europeana
 Eg.
-<dcterms:spatial>United States</dcterms:spatial> 
-<dcterms:spatial>California</dcterms:spatial> 
+<dcterms:spatial>United States</dcterms:spatial>
+<dcterms:spatial>California</dcterms:spatial>
 <dcterms:spatial>San Francisco</dcterms:spatial>
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory to supply either dc:coverage or dc:subject or dcterms:spatial or dc:type						
+			Mandatory to supply either dc:coverage or dc:subject or dcterms:spatial or dc:type
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:latLong">
+        <doc path="/record/nrv:latLong">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -1000,7 +1011,7 @@ Eg.
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory if you have lat/long  coordinates			
+			Mandatory if you have lat/long  coordinates
                     ]]>
                 </para>
             </paras>
@@ -1010,12 +1021,12 @@ Eg.
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			The nkr:latLong field is the combined lat/long fields - used by the Solr GeoSearch. Format the coordinates in this field: lat,long
+			The nrv:latLong field is the combined lat/long fields - used by the Solr GeoSearch. Format the coordinates in this field: lat,long
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1029,7 +1040,7 @@ Eg.
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1043,28 +1054,28 @@ Eg.
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:address">
+        <doc path="/record/nrv:address">
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			o be given as a text string, if possible  according to a Syntax Encoding Scheme for addresses (yet to be specified),  or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points 
+			o be given as a text string, if possible  according to a Syntax Encoding Scheme for addresses (yet to be specified),  or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:country">
+        <doc path="/record/nrv:country">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -1073,7 +1084,7 @@ Eg.
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1083,18 +1094,18 @@ Eg.
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			The name of the country of the data provider or “Europe” in the case of Europe-wide projects. 
+			The name of the country of the data provider or “Europe” in the case of Europe-wide projects.
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory (max 1)			
+			Mandatory (max 1)
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:county">
+        <doc path="/record/nrv:county">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -1103,13 +1114,13 @@ Eg.
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:countyNr">
+        <doc path="/record/nrv:countyNr">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -1118,61 +1129,61 @@ Eg.
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:estateName">
+        <doc path="/record/nrv:estateName">
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			Gårdsnavn : To be given as a text string, if possible according to a Syntax Encoding Scheme for landed properties (yet to be specified) -  name conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points 
+			Gårdsnavn : To be given as a text string, if possible according to a Syntax Encoding Scheme for landed properties (yet to be specified) -  name conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points
 EXAMPLE: “Hellerud”
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:estateNr">
+        <doc path="/record/nrv:estateNr">
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			Gårdsnummer: conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points 
+			Gårdsnummer: conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points
 EXAMPLE: “314”
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:propertyName">
+        <doc path="/record/nrv:propertyName">
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			Bruksnavn: conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points 
+			Bruksnavn: conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points
 EXAMPLE: “Solbakken”
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:propertyNr">
+        <doc path="/record/nrv:propertyNr">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -1181,28 +1192,28 @@ EXAMPLE: “Solbakken”
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:municipality">
+        <doc path="/record/nrv:municipality">
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			(Kommune) To be given as a text string, if possible according to a Syntax Encoding Scheme for municipalities (yet to be specified), 
+			(Kommune) To be given as a text string, if possible according to a Syntax Encoding Scheme for municipalities (yet to be specified),
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:municipalityNr">
+        <doc path="/record/nrv:municipalityNr">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -1211,13 +1222,13 @@ EXAMPLE: “Solbakken”
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
         </doc>
 
-        <doc path="/record/nkr:namedPlace">
+        <doc path="/record/nrv:namedPlace">
             <paras>
                 <para name="Definition">
                     <![CDATA[
@@ -1226,7 +1237,7 @@ EXAMPLE: “Solbakken”
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1242,7 +1253,7 @@ EXAMPLE: “Solbakken”
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional - except for textual objects where a value has been provided for dc:language.			
+			Optional - except for textual objects where a value has been provided for dc:language.
                     ]]>
                 </para>
             </paras>
@@ -1269,12 +1280,12 @@ EXAMPLE: “Solbakken”
                 <para name="Definition">
                     <![CDATA[
 Map this element for dc:identifier
-For Europeana there is no need to provide a value for this element as it is generated by Europeana for use in their systems.  It is generated algorithmically based on a value in the source data, which is likely to be the identifier in dc:identifier, so you should ensure these are unique to each object submitted.			
+For Europeana there is no need to provide a value for this element as it is generated by Europeana for use in their systems.  It is generated algorithmically based on a value in the source data, which is likely to be the identifier in dc:identifier, so you should ensure these are unique to each object submitted.
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Mandatory (for drupal schema (max 1)			
+			Mandatory (for drupal schema (max 1)
                     ]]>
                 </para>
             </paras>
@@ -1289,7 +1300,7 @@ For Europeana there is no need to provide a value for this element as it is gene
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1304,7 +1315,7 @@ For Europeana there is no need to provide a value for this element as it is gene
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1314,12 +1325,12 @@ For Europeana there is no need to provide a value for this element as it is gene
             <paras>
                 <para name="Definition">
                     <![CDATA[
-Use this element to identify a related resource of which the described resource is a version, edition, or adaptation. Changes in version imply substantive changes in content rather than differences in format.			
+Use this element to identify a related resource of which the described resource is a version, edition, or adaptation. Changes in version imply substantive changes in content rather than differences in format.
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1334,7 +1345,7 @@ Use this element to identify a related resource of which the described resource 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1349,7 +1360,7 @@ Use this element to identify a related resource of which the described resource 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1364,7 +1375,7 @@ Use this element to identify a related resource of which the described resource 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1379,7 +1390,7 @@ Use this element to identify a related resource of which the described resource 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1394,7 +1405,7 @@ Use this element to identify a related resource of which the described resource 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1409,7 +1420,7 @@ Use this element to identify a related resource of which the described resource 
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1420,12 +1431,12 @@ Use this element to identify a related resource of which the described resource 
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			Use this element to identify a related resource that is included either physically or logically in the digital object, eg The identifier for another map which is part of this one: <dcterms:hasPart>Maps.added.22231</dcterms:hasPart> 
+			Use this element to identify a related resource that is included either physically or logically in the digital object, eg The identifier for another map which is part of this one: <dcterms:hasPart>Maps.added.22231</dcterms:hasPart>
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1435,12 +1446,12 @@ Use this element to identify a related resource of which the described resource 
             <paras>
                 <para name="Definition">
                     <![CDATA[
-Use this element to identify a related resource that references, cites, or otherwise points to the digital object, eg. <dcterms:isPartOf>Crace Collection of Maps of London</dcterms:isPartOf>		
+Use this element to identify a related resource that references, cites, or otherwise points to the digital object, eg. <dcterms:isPartOf>Crace Collection of Maps of London</dcterms:isPartOf>
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1455,7 +1466,7 @@ Use this element to identify a related resource that references, cites, or other
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1470,7 +1481,7 @@ Use this element to identify a related resource that references, cites, or other
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1485,7 +1496,7 @@ Use this element to identify a related resource that references, cites, or other
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1495,12 +1506,12 @@ Use this element to identify a related resource that references, cites, or other
             <paras>
                 <para name="Definition">
                     <![CDATA[
-			Use this element to identify another resource that is substantially the same as the digital object being described by the metadata but exists in a different format. Use dcterms:hasVersion for changes in content. Purpose of this element is to give the identifier of the other resource in a different format, not to state the format of the object being described. <dcterms:hasFormat>http://upload.wikimedia.org/wikipedia/en/f/f3/Europeana_logo.png</dcterms:hasFormat> A link to another image format of a tiff image file being described.  
+			Use this element to identify another resource that is substantially the same as the digital object being described by the metadata but exists in a different format. Use dcterms:hasVersion for changes in content. Purpose of this element is to give the identifier of the other resource in a different format, not to state the format of the object being described. <dcterms:hasFormat>http://upload.wikimedia.org/wikipedia/en/f/f3/Europeana_logo.png</dcterms:hasFormat> A link to another image format of a tiff image file being described.
 		        ]]>
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1516,7 +1527,7 @@ Use this element to identify a related resource that references, cites, or other
                 </para>
                 <para name="Requirements">
                     <![CDATA[
-			Optional			
+			Optional
                     ]]>
                 </para>
             </paras>
@@ -1534,7 +1545,7 @@ Use this element to identify a related resource that references, cites, or other
                 </para>
             </paras>
         </doc>
-    </docs>
+    </docs>-->
 
 </record-definition>
 
