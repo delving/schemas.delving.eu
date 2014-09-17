@@ -26,33 +26,33 @@
             <file name="definition-list.xml" hash="A93F4E7BD8806BA4ACE8E73CFDCA19C8"/>
         </version>
     </schema>
-    <schema prefix="nkr">
-        <version number="1.0">
-            <author>Delving</author>
-            <message>from the latest abm version</message>
-            <date>2014-09-11</date>
-            <file name="record-definition.xml" hash=""/>
-            <file name="validation.xsd" hash=""/>
-        </version>
-    </schema>
-    <schema prefix="rce">
-        <version number="1.0">
-            <author>Delving</author>
-            <message>from the latest icn version</message>
-            <date>2014-09-11</date>
-            <file name="record-definition.xml" hash=""/>
-            <file name="validation.xsd" hash=""/>
-        </version>
-    </schema>
-    <schema prefix="brc">
-        <version number="1.0">
-            <author>Delving</author>
-            <message>from the latest tib version</message>
-            <date>2014-09-11</date>
-            <file name="record-definition.xml" hash=""/>
-            <file name="validation.xsd" hash=""/>
-        </version>
-    </schema>
+    <!--<schema prefix="nkr">-->
+        <!--<version number="1.0">-->
+            <!--<author>Delving</author>-->
+            <!--<message>from the latest abm version</message>-->
+            <!--<date>2014-09-11</date>-->
+            <!--<file name="record-definition.xml" hash=""/>-->
+            <!--<file name="validation.xsd" hash=""/>-->
+        <!--</version>-->
+    <!--</schema>-->
+    <!--<schema prefix="rce">-->
+        <!--<version number="1.0">-->
+            <!--<author>Delving</author>-->
+            <!--<message>from the latest icn version</message>-->
+            <!--<date>2014-09-11</date>-->
+            <!--<file name="record-definition.xml" hash=""/>-->
+            <!--<file name="validation.xsd" hash=""/>-->
+        <!--</version>-->
+    <!--</schema>-->
+    <!--<schema prefix="brc">-->
+        <!--<version number="1.0">-->
+            <!--<author>Delving</author>-->
+            <!--<message>from the latest tib version</message>-->
+            <!--<date>2014-09-11</date>-->
+            <!--<file name="record-definition.xml" hash=""/>-->
+            <!--<file name="validation.xsd" hash=""/>-->
+        <!--</version>-->
+    <!--</schema>-->
     <schema prefix="icn">
         <version number="1.0.0">
             <author>Delving</author>
