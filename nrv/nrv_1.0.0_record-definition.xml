@@ -239,6 +239,9 @@
 
         <elem tag="recordInfo">
 
+            <elem tag="info">
+                <elem tag="rights" attrs="uri, prefLabel"/>
+            </elem>
             <elem tag="delving">
                 <elem tag="delving:creator" unmappable="true"/>
                 <elem tag="delving:title" unmappable="true"/>
@@ -279,6 +282,7 @@
                 <elem tag="uri"/>
                 <elem tag="caption"/>
                 <elem tag="rights"/>
+                <elem tag="creator" attr-groups="base-three"/>
                 <elem tag="derivatives">
                     <elem tag="deepzoom"/>
                     <elem tag="thumb_100"/>
@@ -317,30 +321,30 @@
         </elem>
 
         <!-- old stuff -->
-        <elem tag="nrv:municipality"/>
-        <elem tag="nrv:municipalityNr"/>
-        <elem tag="nrv:aboutPerson"/>
-        <elem tag="nrv:county"/>
-        <elem tag="nrv:countyNr"/>
-        <elem tag="nrv:country"/>
-        <elem tag="nrv:namedPlace"/>
-        <elem tag="nrv:estateName"/>
-        <elem tag="nrv:estateNr"/>
-        <elem tag="nrv:propertyName"/>
-        <elem tag="nrv:propertyNr"/>
-        <elem tag="nrv:contentProvider" required="true"/>
-        <elem tag="nrv:address"/>
-        <elem tag="nrv:digitised"/>
-        <elem tag="nrv:introduction"/>
-        <elem tag="nrv:classification"/>
-        <elem tag="nrv:utm" function="convertToUTM"/> <!-- full utm33 string 32 V 258644.154187 6648939.72091 SRID=32633;POINT(148013,6964590) -->
-        <elem tag="nrv:polygon_utm"/>
-        <elem tag="nrv:polygon_latLong"/> <!-- 59.907116,10.682953 -->
-        <elem tag="nrv:latLong" fieldType="geohash" function="convertToLATLONG"/>
-        <elem tag="nrv:type"/> <!-- knet, knreise, all -->
-        <elem tag="nrv:collectionType" required="true"/>
+        <!--<elem tag="nrv:municipality"/>-->
+        <!--<elem tag="nrv:municipalityNr"/>-->
+        <!--<elem tag="nrv:aboutPerson"/>-->
+        <!--<elem tag="nrv:county"/>-->
+        <!--<elem tag="nrv:countyNr"/>-->
+        <!--<elem tag="nrv:country"/>-->
+        <!--<elem tag="nrv:namedPlace"/>-->
+        <!--<elem tag="nrv:estateName"/>-->
+        <!--<elem tag="nrv:estateNr"/>-->
+        <!--<elem tag="nrv:propertyName"/>-->
+        <!--<elem tag="nrv:propertyNr"/>-->
+        <!--<elem tag="nrv:contentProvider" required="true"/>-->
+        <!--<elem tag="nrv:address"/>-->
+        <!--<elem tag="nrv:digitised"/>-->
+        <!--<elem tag="nrv:introduction"/>-->
+        <!--<elem tag="nrv:classification"/>-->
+        <!--<elem tag="nrv:utm" function="convertToUTM"/> &lt;!&ndash; full utm33 string 32 V 258644.154187 6648939.72091 SRID=32633;POINT(148013,6964590) &ndash;&gt;-->
+        <!--<elem tag="nrv:polygon_utm"/>-->
+        <!--<elem tag="nrv:polygon_latLong"/> &lt;!&ndash; 59.907116,10.682953 &ndash;&gt;-->
+        <!--<elem tag="nrv:latLong" fieldType="geohash" function="convertToLATLONG"/>-->
+        <!--<elem tag="nrv:type"/> &lt;!&ndash; knet, knreise, all &ndash;&gt;-->
+        <!--<elem tag="nrv:collectionType" required="true"/>-->
         <elem tag="nrv:category"/>
-        <elem tag="nrv:creatorUri" fieldType="string"/>
+        <!--<elem tag="nrv:creatorUri" fieldType="string"/>-->
 
 
     </root>
@@ -358,11 +362,11 @@
         <field-marker name="delving:thumbnail" path="/record/europeana:object" check="THUMBNAIL"/>
         <field-marker name="delving:geohash" path="/record/nrv:latLong" check="GEO_COORDINATE"/>
         <field-marker name="delving:address" path="/record/nrv:address"/>
-
-        &lt;!&ndash; todo: these should have paths, currently they are checked for presence but not resolved&ndash;&gt;
-        <field-marker name="SPEC"/>
-        <field-marker name="DEEP_ZOOM_URL" check="DEEP_ZOOM"/>
 -->
+        <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
+        <!--<field-marker name="SPEC"/>-->
+        <!--<field-marker name="DEEP_ZOOM_URL" check="DEEP_ZOOM"/>-->
+
 
         <!-- field markers for link checking -->
         <!--<field-marker path="/record/creatorUri" check="LOD_REFERENCE"/>-->
