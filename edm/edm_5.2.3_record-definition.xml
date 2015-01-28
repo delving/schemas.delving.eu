@@ -2,66 +2,114 @@
 <record-definition prefix="edm" version="5.2.3" flat="false">
 
     <namespaces>
-        <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
-        <namespace prefix="dcterms" uri="http://purl.org/dc/terms/" schema="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
-        <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schema="http://www.europeana.eu/schemas/edm/RDF.xsd"/>
-        <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#" schema="http://www.europeana.eu/schemas/edm/OWL.xsd"/>
-        <namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/" schema="http://www.europeana.eu/schemas/edm/EDM-EXTERNAL-MAIN.xsd"/>
-        <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/" schema="http://www.europeana.eu/schemas/edm/ORE.xsd"/>
-        <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#" schema="http://www.europeana.eu/schemas/edm/SKOS.xsd"/>
-        <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/" schema="http://www.europeana.eu/schemas/edm/FOAF.xsd"/>
-        <namespace prefix="rdaGr2" uri="http://RDVocab.info/ElementsGr2/" schema="http://www.europeana.eu/schemas/edm/RDAGR2.xsd"/>
-        <namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#" schema="http://www.europeana.eu/schemas/edm/WGS84.xsd"/>
+        <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/DC.xsd"/>
+        <namespace prefix="dcterms" uri="http://purl.org/dc/terms/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/DCTERMS.xsd"/>
+        <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/RDF.xsd"/>
+        <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/OWL.xsd"/>
+        <namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/EDM-EXTERNAL-MAIN.xsd"/>
+        <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/ORE.xsd"/>
+        <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/SKOS.xsd"/>
+        <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/FOAF.xsd"/>
+        <namespace prefix="rdaGr2" uri="http://RDVocab.info/ElementsGr2/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/RDAGR2.xsd"/>
+        <namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#" schema="https://raw.githubusercontent.com/europeana/corelib/master/corelib-solr-definitions/src/main/resources/eu/WGS84.xsd"/>
     </namespaces>
 
     <attrs>
         <attr tag="rdf:about"/>
         <attr tag="rdf:resource"/>
         <attr tag="rdf:datatype"/>
-        <attr tag="owl:sameAs"/>
+        <!--<attr tag="owl:sameAs"/>-->
         <attr tag="rdf:type"/>
+        <attr tag="xml:lang"/>
     </attrs>
 
     <root tag="RDF">
 
-        <elem tag="edm:ProvidedCHO" attrs="rdf:about, owl:sameAs,rdf:type ">
-            <elem tag="dc:contributor" attrs="rdf:resource"/>
-            <elem tag="dc:coverage" attrs="rdf:resource"/>
-            <elem tag="dc:creator" attrs="rdf:resource"/>
-            <elem tag="dc:date" attrs="rdf:resource"/>
-            <elem tag="dc:description" attrs="rdf:resource"/>
-            <elem tag="dc:format" attrs="rdf:resource"/>
+        <elem tag="ore:Aggregation">
+            <attr tag="rdf:about">
+                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/ore:Aggregation/@rdf:about">
+                    <groovy-code>
+                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
+                        <string>&quot;${baseUrl}/${spec}/${_id}&quot;</string>
+                        <string>}</string>
+                    </groovy-code>
+                </node-mapping>
+
+            </attr>
+            <elem tag="ore:aggregates" attrs="rdf:resource" unmappable="true"/>
+            <elem tag="edm:aggregatedCHO">
+                <attr tag="rdf:resource">
+                    <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/ore:Aggregation/edm:aggregatedCHO/@rdf:resource">
+                        <groovy-code>
+                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
+                            <string>&quot;${baseUrl}/document/${spec}/${_id}&quot;</string>
+                            <string>}</string>
+                        </groovy-code>
+                    </node-mapping>
+                </attr>
+            </elem>
+            <elem tag="edm:dataProvider" attrs="rdf:resource"/>
+            <elem tag="edm:hasView" attrs="rdf:resource"/>
+            <elem tag="edm:isShownBy" attrs="rdf:resource"/>
+            <elem tag="edm:isShownAt" attrs="rdf:resource"/>
+            <elem tag="edm:object" attrs="rdf:resource"/>
+            <elem tag="edm:provider" attrs="rdf:resource"/>
+            <elem tag="dc:rights" attrs="rdf:resource"/>
+            <elem tag="edm:rights" attrs="rdf:resource"/>
+            <elem tag="edm:unstored" attrs="rdf:resource"/>
+        </elem>
+
+        <elem tag="edm:ProvidedCHO">
+            <attr tag="rdf:about">
+                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/ore:Aggregation/edm:aggregatedCHO/edm:ProvidedCHO/@rdf:about">
+                    <groovy-code>
+                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
+                        <string>&quot;${baseUrl}/document/${spec}/${_id}&quot;</string>
+                        <string>}</string>
+                    </groovy-code>
+                </node-mapping>
+            </attr>
+            <elem tag="dc:contributor" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:coverage" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:creator" attrs="xml:lang">
+                <!--<attr tag="rdf:resource">-->
+                    <!---->
+                <!--</attr>-->
+            </elem>
+            <elem tag="dc:date" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:description" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:format" attrs="rdf:resource,xml:lang"/>
             <elem tag="dc:identifier"/>
             <elem tag="dc:language"/>
-            <elem tag="dc:publisher" attrs="rdf:resource"/>
-            <elem tag="dc:relation" attrs="rdf:resource"/>
-            <elem tag="dc:rights" attrs="rdf:resource"/>
-            <elem tag="dc:source" attrs="rdf:resource"/>
-            <elem tag="dc:subject" attrs="rdf:resource"/>
-            <elem tag="dc:title"/>
-            <elem tag="dc:type" attrs="rdf:resource"/>
-            <elem tag="dcterms:alternative"/>
-            <elem tag="dcterms:conformsTo" attrs="rdf:resource"/>
-            <elem tag="dcterms:created" attrs="rdf:resource"/>
-            <elem tag="dcterms:extent" attrs="rdf:resource"/>
-            <elem tag="dcterms:hasFormat" attrs="rdf:resource"/>
-            <elem tag="dcterms:hasPart" attrs="rdf:resource"/>
-            <elem tag="dcterms:hasVersion" attrs="rdf:resource"/>
-            <elem tag="dcterms:isFormatOf" attrs="rdf:resource"/>
-            <elem tag="dcterms:isPartOf" attrs="rdf:resource"/>
-            <elem tag="dcterms:isReferencedBy" attrs="rdf:resource"/>
-            <elem tag="dcterms:isReplacedBy" attrs="rdf:resource"/>
-            <elem tag="dcterms:isRequiredBy" attrs="rdf:resource"/>
-            <elem tag="dcterms:issued" attrs="rdf:resource"/>
-            <elem tag="dcterms:isVersionOf"  attrs="rdf:resource"/>  <!--literal or REL??-->
-            <elem tag="dcterms:medium" attrs="rdf:resource"/>
-            <elem tag="dcterms:provenance" attrs="rdf:resource"/>
-            <elem tag="dcterms:references" attrs="rdf:resource"/>
-            <elem tag="dcterms:replaces" attrs="rdf:resource"/>
-            <elem tag="dcterms:requires" attrs="rdf:resource"/>
-            <elem tag="dcterms:spatial" attrs="rdf:resource"/>
-            <elem tag="dcterms:tableOfContents"/>
-            <elem tag="dcterms:temporal" attrs="rdf:resource"/>
+            <elem tag="dc:publisher" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:relation" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:rights" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:source" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:subject" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dc:title" attrs="xml:lang"/>
+            <elem tag="dc:type" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:alternative" attrs="xml:lang"/>
+            <elem tag="dcterms:conformsTo" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:created" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:extent" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:hasFormat" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:hasPart" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:hasVersion" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:isFormatOf" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:isPartOf" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:isReferencedBy" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:isReplacedBy" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:isRequiredBy" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:issued" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:isVersionOf"  attrs="rdf:resource,xml:lang"/>  <!--literal or REL??-->
+            <elem tag="dcterms:medium" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:provenance" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:references" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:replaces" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:requires" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:spatial" attrs="rdf:resource,xml:lang"/>
+            <elem tag="dcterms:tableOfContents" attrs="xml:lang"/>
+            <elem tag="dcterms:temporal" attrs="rdf:resource,xml:lang"/>
             <elem tag="edm:type"/>
             <elem tag="edm:unstored"/>
             <elem tag="edm:currentLocation" attrs="rdf:resource"/>
@@ -93,26 +141,14 @@
             <elem tag="edm:isNextInSequence" attrs="rdf:resource"/>
         </elem>
 
-        <elem tag="ore:Aggregation" attrs="rdf:about">
-            <elem tag="ore:aggregates" attrs="rdf:resource"/>
-            <elem tag="edm:aggregatedCHO" attrs="rdf:resource"/>
-            <elem tag="edm:dataProvider" attrs="rdf:resource"/>
-            <elem tag="edm:hasView" attrs="rdf:resource"/>
-            <elem tag="edm:isShownBy" attrs="rdf:resource"/>
-            <elem tag="edm:isShownAt" attrs="rdf:resource"/>
-            <elem tag="edm:object" attrs="rdf:resource"/>
-            <elem tag="edm:provider" attrs="rdf:resource"/>
-            <elem tag="dc:rights" attrs="rdf:resource"/>
-            <elem tag="edm:rights" attrs="rdf:resource"/>
-            <elem tag="edm:unstored" attrs="rdf:resource"/>
-        </elem>
+
 
         <elem tag="edm:Agent" attrs="rdf:about">
             <elem tag="edm:wasPresentAt" attrs="rdf:resource"/>
             <elem tag="edm:hasMet" attrs="rdf:resource"/>
             <elem tag="edm:isRelatedTo" attrs="rdf:resource"/>
-            <elem tag="skos:prefLabel"/>
-            <elem tag="skos:altLabel"/>
+            <elem tag="skos:prefLabel" attrs="xml:lang"/>
+            <elem tag="skos:altLabel" attrs="xml:lang"/>
             <elem tag="skos:note"/>
             <elem tag="skos:hiddenLabel"/>
             <elem tag="owl:sameAs" attrs="rdf:resource"/>
@@ -135,9 +171,9 @@
             <elem tag="wgs84_pos:long"/>
             <elem tag="wgs84_pos:alt"/>
             <elem tag="wgs84_pos:lat_long"/>
-            <elem tag="skos:prefLabel"/>
-            <elem tag="skos:altLabel"/>
-            <elem tag="skos:note"/>
+            <elem tag="skos:prefLabel" attrs="xml:lang"/>
+            <elem tag="skos:altLabel" attrs="xml:lang"/>
+            <elem tag="skos:note" attrs="xml:lang"/>
             <elem tag="skos:hiddenLabel"/>
             <elem tag="dcterms:hasPart" attrs="rdf:resource"/>
             <elem tag="dcterms:isPartOf" attrs="rdf:resource"/>
@@ -145,9 +181,9 @@
         </elem>
 
         <elem tag="edm:TimeSpan" attrs="rdf:about">
-            <elem tag="skos:prefLabel"/>
-            <elem tag="skos:altLabel"/>
-            <elem tag="skos:note"/>
+            <elem tag="skos:prefLabel" attrs="xml:lang"/>
+            <elem tag="skos:altLabel" attrs="xml:lang"/>
+            <elem tag="skos:note" attrs="xml:lang"/>
             <elem tag="dcterms:hasPart" attrs="rdf:resource"/>
             <elem tag="dcterms:isPartOf" attrs="rdf:resource"/>
             <elem tag="owl:sameAs" attrs="rdf:resource"/>
@@ -158,13 +194,13 @@
         </elem>
 
         <elem tag="skos:Concept" attrs="rdf:about">
-            <elem tag="skos:prefLabel"/>
-            <elem tag="skos:altLabel"/>
+            <elem tag="skos:prefLabel" attrs="xml:lang"/>
+            <elem tag="skos:altLabel" attrs="xml:lang"/>
             <elem tag="skos:broader" attrs="rdf:resource"/>
             <elem tag="skos:narrower" attrs="rdf:resource"/>
             <elem tag="skos:related" attrs="rdf:resource"/>
-            <elem tag="skos:note"/>
-            <elem tag="skos:hiddenLabel"/>
+            <elem tag="skos:note" attrs="xml:lang"/>
+            <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
             <elem tag="skos:broadMatch" attrs="rdf:resource"/>
             <elem tag="skos:narrowMatch" attrs="rdf:resource"/>
             <elem tag="skos:relatedMatch" attrs="rdf:resource"/>
@@ -488,7 +524,7 @@
         <doc path="/RDF/edm:ProvidedCHO/edm:realizes">
                 <para name="Note">If the CHO described is of type edm:PhysicalThing it may realize an information object.  E.g. a copy of the Gutenberg publication realizes the Bible</para>
                 <para name="Value type">ref</para>
-                <para name="Obligation and Occurrence"> min 0, max unbounde</para>
+                <para name="Obligation and Occurrence"> min 0, max unbounded</para>
         </doc>
         <doc path="/RDF/edm:ProvidedCHO/edm:wasPresentAt">
                 <para name="Note">The identifier of an event at which the described object was present.  E.g. the Stone of Scone was present at the coronation of King James I of England</para>
@@ -504,7 +540,7 @@
         <doc path="/RDF/edm:WebResource/dc:description">
                 <para name="Note">Use for an account or description of this digital representation.</para>
                 <para name="Value type">literal or ref</para>
-                <para name="Obligation and Occurrence">min 0, max unbounde</para>
+                <para name="Obligation and Occurrence">min 0, max unbounded</para>
         </doc>
         <doc path="/RDF/edm:WebResource/dc:rights">
                 <para name="Note">Use for the name of the rights holder of this digital representation if possible or for more general rights information.  Note the difference between this property and the use of the mandatory, controlled edm:rights property below</para>
@@ -514,7 +550,7 @@
         <doc path="/RDF/edm:WebResource/dc:source">
                 <para name="Note">A related resource from which this web resource is derived in whole or in part. This property should no longer be used for the name of the content holder: for this, see edm:dataProvider in the ore:Aggregation table below. </para>
                 <para name="Value type">literal or ref</para>
-                <para name="Obligation and Occurrence"> min 0, max unbounde</para>
+                <para name="Obligation and Occurrence"> min 0, max unbounded</para>
         </doc>
         <doc path="/RDF/edm:WebResource/dcterms:extent">
                 <para name="Note"> The size or duration of the web resourc</para>
@@ -657,7 +693,7 @@
         <doc path="/RDF/edm:Agent/skos:hiddenLabel">
                 <para name="Note">Used for non‐standard forms of the name, such as misspellings, usually in text‐based search functions</para>
                 <para name="Value type">literal</para>
-                <para name="Obligation and Occurrence">min 0, max unbounde</para>
+                <para name="Obligation and Occurrence">min 0, max unbounded</para>
         </doc>
         <doc path="/RDF/edm:Agent/owl:sameAs">
                 <para name="Note">The URI of an agent.</para>
