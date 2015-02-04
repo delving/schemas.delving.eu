@@ -32,6 +32,8 @@
             schemaLocation="http://www.europeana.eu/schemas/edm/ORE.xsd"/>
     <import namespace="http://schemas.delving.eu/"
             schemaLocation="http://schemas.delving.eu/delving-V1.2.xsd"/>
+    <import namespace="http://schemas.delving.eu/brac/"
+            schemaLocation="http://schemas.delving.eu/brac/brac-V1.0.xsd"/>
 
 
     <include schemaLocation="http://www.europeana.eu/schemas/edm/EDM-COMMON-MAIN.xsd"/>
@@ -66,7 +68,7 @@
                 <element name="TimeSpan" type="edm:TimeSpanType"/>
                 <element ref="skos:Concept"/>
                 <element ref="ore:Aggregation"/>
-                <!--<element name="BrabantCloud" type="BrabantCloudType"/>-->
+                <element name="BrabantCloud" type="BrabantCloudType"/>
                 <element name="Delving" type="edm:DelvingType"/>
 
             </choice>
