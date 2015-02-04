@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://schemas.delving.eu/brac/"
+            targetNamespace="http://schemas.delving.eu/brac/"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+
+    <xs:element name="citName" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="citOldId" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="thumbLarge" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="thumbSmall" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="collection" minOccurs="1" maxOccurs="1"/>
+    <xs:element name="creatorRole" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="productionPeriod" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="productionStart" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="productionEnd" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="creatorBirthYear" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="creatorDeathYear" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="formatted" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="year" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="dimension" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="objectNumber" minOccurs="1" maxOccurs="1"/>
+    <xs:element name="objectSoort" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="material" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="place" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="technique" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="color" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="colorHex" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="design" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="exhibition" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="subjectDepicted" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="date" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="collectionPart" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="person" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="region" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="event" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="theme" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="pageStart" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="pageEnd" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="pages" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="vindplaats" minOccurs="0" maxOccurs="unbounded"/>
+    <xs:element name="location" minOccurs="0" maxOccurs="unbounded"/>
+
+
+</xs:schema>

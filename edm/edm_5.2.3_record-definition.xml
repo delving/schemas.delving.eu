@@ -12,7 +12,200 @@
         <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/FOAF.xsd"/>
         <namespace prefix="rdaGr2" uri="http://RDVocab.info/ElementsGr2/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/RDAGR2.xsd"/>
         <namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#" schema="https://raw.githubusercontent.com/europeana/corelib/master/corelib-solr-definitions/src/main/resources/eu/WGS84.xsd"/>
+        <namespace prefix="tib" uri="http://www.brabantcloud.nl/schemas/tib/" schema="TIB-1.0.xsd"/>
+        <namespace prefix="brac" uri="http://www.brabantcloud.nl/schemas/brabantcloud/" schema="brac-1.0.xsd"/>
+        <namespace prefix="delving" uri="http://schemas.delving.eu/" schema="delving-1.0.xsd"/>
     </namespaces>
+
+    <functions>
+        <mapping-function name="createEDMAgentUri">
+            <sample-input>
+                <string>Heidi Rafto</string>
+            </sample-input>
+            <groovy-code>
+                <string>StringBuilder out = new StringBuilder()</string>
+                <string>for (char c : it.toString().chars) {</string>
+                <string>switch (c) {</string>
+                <string>case &apos; &apos;:</string>
+                <string>out.append(&apos;%20&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;[&apos;:</string>
+                <string>out.append(&apos;%5B&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;]&apos;:</string>
+                <string>out.append(&apos;%5D&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;\\&apos;:</string>
+                <string>out.append(&apos;%5C&apos;)</string>
+                <string>break;</string>
+                <string>default:</string>
+                <string>out.append(c);</string>
+                <string>}</string>
+                <string>}</string>
+                <string>identifier = out.toString()</string>
+                <string>&quot;${baseUrl}/agent/${spec}/${identifier}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="createEDMPlaceUri">
+            <groovy-code>
+                <string>StringBuilder out = new StringBuilder()</string>
+                <string>for (char c : it.toString().chars) {</string>
+                <string>switch (c) {</string>
+                <string>case &apos; &apos;:</string>
+                <string>out.append(&apos;%20&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;[&apos;:</string>
+                <string>out.append(&apos;%5B&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;]&apos;:</string>
+                <string>out.append(&apos;%5D&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;\\&apos;:</string>
+                <string>out.append(&apos;%5C&apos;)</string>
+                <string>break;</string>
+                <string>default:</string>
+                <string>out.append(c);</string>
+                <string>}</string>
+                <string>}</string>
+                <string>identifier = out.toString()</string>
+                <string>&quot;${baseUrl}/place/${spec}/${identifier}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="createBrabantCloudUri">
+            <sample-input>
+                <string>Heidi Rafto</string>
+            </sample-input>
+            <groovy-code>
+                <string>StringBuilder out = new StringBuilder()</string>
+                <string>for (char c : it.toString().chars) {</string>
+                <string>switch (c) {</string>
+                <string>case &apos; &apos;:</string>
+                <string>out.append(&apos;%20&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;[&apos;:</string>
+                <string>out.append(&apos;%5B&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;]&apos;:</string>
+                <string>out.append(&apos;%5D&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;\\&apos;:</string>
+                <string>out.append(&apos;%5C&apos;)</string>
+                <string>break;</string>
+                <string>default:</string>
+                <string>out.append(c);</string>
+                <string>}</string>
+                <string>}</string>
+                <string>identifier = out.toString()</string>
+                <string>&quot;${baseUrl}/brabantcloud/${spec}/${identifier}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="createBrabantCloudUri">
+            <sample-input>
+                <string>Heidi Rafto</string>
+            </sample-input>
+            <groovy-code>
+                <string>StringBuilder out = new StringBuilder()</string>
+                <string>for (char c : it.toString().chars) {</string>
+                <string>switch (c) {</string>
+                <string>case &apos; &apos;:</string>
+                <string>out.append(&apos;%20&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;[&apos;:</string>
+                <string>out.append(&apos;%5B&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;]&apos;:</string>
+                <string>out.append(&apos;%5D&apos;)</string>
+                <string>break;</string>
+                <string>case &apos;\\&apos;:</string>
+                <string>out.append(&apos;%5C&apos;)</string>
+                <string>break;</string>
+                <string>default:</string>
+                <string>out.append(c);</string>
+                <string>}</string>
+                <string>}</string>
+                <string>identifier = out.toString()</string>
+                <string>&quot;${baseUrl}/delving/${spec}/${identifier}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="cleanAdlibImageReference">
+            <sample-input>
+                <string>..\..\..\Images PH\OKS 1989-001 [01].JPG</string>
+                <string>../../../Images PH/OKS 1989-001 [01].JPG</string>
+            </sample-input>
+            <groovy-code>
+                <string>it.replaceAll(&apos;; &apos;, &apos;_&apos;).replaceAll(&apos;JPG&apos;, &apos;jpg&apos;).replaceAll(&quot;.*?[\\\\|//]&quot;,
+                    &quot;&quot;).replaceAll(&quot; &quot;, &quot;%20&quot;).replaceAll(&quot;\\[&quot;, &quot;%5B&quot;).replaceAll(&quot;]&quot;,
+                    &quot;%5D&quot;)
+                </string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="deepZoomUrl">
+            <sample-input>
+                <string>D:/Documents/Schilderij/010.jpg</string>
+            </sample-input>
+            <groovy-code>
+                <string>image = it.toString().replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i)\\.jpg|\\.jpeg|\\.tif|\\.tiff|\\.png|\\.gif&apos;,&apos;.tif.dzi&apos;)</string>
+                <string>
+                    &quot;http://media.delving.org/iip/deepzoom/mnt/tib/tiles/${orgId}/${spec}/${image}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="isShownAt">
+            <sample-input>
+                <string>123</string>
+            </sample-input>
+            <groovy-code>
+                <string>&quot;http://www.thuisinbrabant.nl/${spec}/${it}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="largeThumbnail">
+            <sample-input>
+                <string>D:/Documents/Schilderij/010.jpg</string>
+            </sample-input>
+            <groovy-code>
+                <string>&quot;http://media.delving.org/thumbnail/brabantcloud/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i)\\.jpg|\\.jpeg|\\.tif|\\.tiff|\\.png|\\.gif&apos;, &apos;&apos;)}/500&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="lowercase">
+            <sample-input>
+                <string>Bla bla</string>
+                <string>BLA bla bla</string>
+            </sample-input>
+            <groovy-code>
+                <string>&quot;${it.toString().toLowerCase()}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="reverseNames">
+            <sample-input>
+                <string>Sjoerd Siebinga</string>
+                <string>Siebinga, Sjoerd</string>
+                <string>Siebinga, Sjoerd Michiel</string>
+            </sample-input>
+            <groovy-code>
+                <string>parts = it.toString().split(&quot;,&quot;)</string>
+                <string>if (parts.length &gt; 1) {</string>
+                <string>&quot;${parts[1].trim()} ${parts[0]}&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>&quot;${it}&quot;</string>
+                <string>}</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="smallThumbnail">
+            <groovy-code>
+                <string>&quot;http://media.delving.org/thumbnail/${orgId}/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i)\\.jpg|\\.jpeg|\\.tif|\\.tiff|\\.png|\\.gif&apos;, &apos;&apos;)}/180&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="toLocalId">
+            <sample-input>
+                <string>1231231</string>
+                <string>232455</string>
+                <string>12345</string>
+            </sample-input>
+            <groovy-code>
+                <string>&quot;${spec}/${it}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+    </functions>
 
     <attrs>
         <attr tag="rdf:about"/>
@@ -30,7 +223,7 @@
                 <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/ore:Aggregation/@rdf:about">
                     <groovy-code>
                         <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/${spec}/${_id}&quot;</string>
+                        <string>&quot;${baseUrl}/aggregation/${spec}/${_id}&quot;</string>
                         <string>}</string>
                     </groovy-code>
                 </node-mapping>
@@ -209,7 +402,70 @@
             <elem tag="skos:notation" attribute="rdf:datatype"/>  <!--string (+ rdf:datatype attribute)-->
             <elem tag="skos:inScheme" attrs="rdf:resource"/>
         </elem>
-    </root>
+        <elem tag="brac:BrabantCloud">
+            <attr tag="rdf:about">
+                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/brac:BrabantCloud/@rdf:about">
+                    <groovy-code>
+                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
+                        <string>&quot;${baseUrl}/brabantcloud/${spec}/${_id}&quot;</string>
+                        <string>}</string>
+                    </groovy-code>
+                </node-mapping>
+            </attr>
+            <!-- tib -->
+            <elem tag="brac:citName"/>
+            <elem tag="brac:citOldId"/>
+            <elem tag="brac:thumbLarge" fieldType="link" function="largeThumbnail"/>
+            <elem tag="brac:thumbSmall" fieldType="link" function="smallThumbnail"/>
+            <elem tag="brac:collection"/>
+            <elem tag="brac:creatorRole" function="lowercase"/>
+            <elem tag="brac:productionPeriod" fieldType="string"/>
+            <elem tag="brac:productionStart"/>
+            <elem tag="brac:productionEnd"/>
+            <elem tag="brac:creatorBirthYear"/>
+            <elem tag="brac:creatorDeathYear"/>
+            <elem tag="brac:formatted"/>
+            <elem tag="brac:year"/>
+            <elem tag="brac:dimension"/>
+            <elem tag="brac:objectNumber"/>
+            <elem tag="brac:objectSoort" function="lowercase"/>
+            <elem tag="brac:material" function="lowercase"/>
+            <elem tag="brac:place"/>
+            <elem tag="brac:technique" function="lowercase" fieldType="string"/>
+            <elem tag="brac:color" function="lowercase" fieldType="string"/>
+            <elem tag="brac:colorHex" function="lowercase" fieldType="string"/>
+            <elem tag="brac:design" function="lowercase" fieldType="string"/>
+            <elem tag="brac:exhibition" function="lowercase" fieldType="string"/>
+            <elem tag="brac:subjectDepicted" function="lowercase" fieldType="string"/>
+            <elem tag="brac:date"/>
+            <elem tag="brac:collectionPart"/>
+            <elem tag="brac:person"/>
+            <elem tag="brac:region"/>
+            <elem tag="brac:event"/>
+            <elem tag="brac:theme"/>
+            <elem tag="brac:pageStart"/>
+            <elem tag="brac:pageEnd"/>
+            <elem tag="brac:pages"/>
+            <elem tag="brac:vindplaats"/>
+            <elem tag="brac:location"/>
+        </elem>
+        <elem tag="delving:Delving" >
+            <attr tag="rdf:about">
+                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/delving:Delving/@rdf:about">
+                    <groovy-code>
+                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
+                        <string>&quot;${baseUrl}/delving/${spec}/${_id}&quot;</string>
+                        <string>}</string>
+                    </groovy-code>
+                </node-mapping>
+            </attr>
+            <elem tag="delving:year"/> 
+            <elem tag="delving:thumbnail" fieldType="link" function="smallThumbnail"/>
+             <elem tag="delving:deepZoomUrl" fieldType="link" function="deepZoomUrl"/> 
+            <elem tag="delving:fullTextObjectUrl" fieldType="link"/> 
+            <elem tag="delving:fullText"/> <elem tag="delving:geohash"/>
+        </elem>
+    </root>                   
 
 
     <opts>
