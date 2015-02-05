@@ -7,13 +7,13 @@
         <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/RDF.xsd"/>
         <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/OWL.xsd"/>
         <namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/EDM-EXTERNAL-MAIN.xsd"/>
-        <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/ORE.xsd"/>
+        <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/" schema="http://schemas.delving.eu/xsd/external/ORE.xsd"/>/>
         <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/SKOS.xsd"/>
         <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/FOAF.xsd"/>
         <namespace prefix="rdaGr2" uri="http://RDVocab.info/ElementsGr2/" schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/RDAGR2.xsd"/>
         <namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#" schema="https://raw.githubusercontent.com/europeana/corelib/master/corelib-solr-definitions/src/main/resources/eu/WGS84.xsd"/>
         <namespace prefix="tib" uri="http://www.brabantcloud.nl/schemas/tib/" schema="TIB-1.0.xsd"/>
-        <namespace prefix="brac" uri="http://www.brabantcloud.nl/schemas/brabantcloud/" schema="brac-1.0.xsd"/>
+        <namespace prefix="brac" uri="http://schemas.delving.eu/brac/" schema="brac-1.0.xsd"/>
         <namespace prefix="delving" uri="http://schemas.delving.eu/" schema="delving-1.0.xsd"/>
     </namespaces>
 
@@ -343,7 +343,7 @@
             <elem tag="skos:prefLabel" attrs="xml:lang"/>
             <elem tag="skos:altLabel" attrs="xml:lang"/>
             <elem tag="skos:note"/>
-            <elem tag="skos:hiddenLabel"/>
+            <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
             <elem tag="owl:sameAs" attrs="rdf:resource"/>
             <elem tag="foaf:name"/>
             <elem tag="dc:date" attrs="rdf:resource"/>
@@ -402,7 +402,7 @@
             <elem tag="skos:notation" attribute="rdf:datatype"/>  <!--string (+ rdf:datatype attribute)-->
             <elem tag="skos:inScheme" attrs="rdf:resource"/>
         </elem>
-        <elem tag="brac:BrabantCloud">
+        <elem tag="edm:BrabantCloud">
             <attr tag="rdf:about">
                 <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/brac:BrabantCloud/@rdf:about">
                     <groovy-code>
@@ -413,6 +413,18 @@
                 </node-mapping>
             </attr>
             <!-- tib -->
+            <elem tag="ore:isAggregatedBy">
+                <attr tag="rdf:resource">
+                    <node-mapping inputPath="/input/@id"
+                                  outputPath="/edm:RDF/edm:BrabantCloud/ore:isAggregatedBy/@rdf:about">
+                        <groovy-code>
+                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
+                            <string>&quot;${baseUrl}/aggregation/${spec}/${_id}&quot;</string>
+                            <string>}</string>
+                        </groovy-code>
+                    </node-mapping>
+                </attr>
+            </elem>
             <elem tag="brac:citName"/>
             <elem tag="brac:citOldId"/>
             <elem tag="brac:thumbLarge" fieldType="link" function="largeThumbnail"/>
@@ -449,7 +461,7 @@
             <elem tag="brac:vindplaats"/>
             <elem tag="brac:location"/>
         </elem>
-        <elem tag="delving:Delving" >
+        <elem tag="edm:Delving" >
             <attr tag="rdf:about">
                 <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/delving:Delving/@rdf:about">
                     <groovy-code>
@@ -459,6 +471,17 @@
                     </groovy-code>
                 </node-mapping>
             </attr>
+            <elem tag="ore:isAggregatedBy">
+                <attr tag="rdf:resource">
+                    <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/edm:Delving/ore:isAggregatedBy/@rdf:about">
+                                <groovy-code>
+                                    <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
+                                    <string>&quot;${baseUrl}/aggregation/${spec}/${_id}&quot;</string>
+                                    <string>}</string>
+                                </groovy-code>
+                    </node-mapping>
+                </attr>
+            </elem>
             <elem tag="delving:year"/> 
             <elem tag="delving:thumbnail" fieldType="link" function="smallThumbnail"/>
              <elem tag="delving:deepZoomUrl" fieldType="link" function="deepZoomUrl"/> 
