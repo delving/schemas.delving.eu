@@ -243,8 +243,8 @@
             </elem>
             <elem tag="edm:dataProvider" attrs="rdf:resource"/>
             <elem tag="edm:hasView" attrs="rdf:resource"/>
-            <elem tag="edm:isShownBy" attrs="rdf:resource"/>
             <elem tag="edm:isShownAt" attrs="rdf:resource"/>
+            <elem tag="edm:isShownBy" attrs="rdf:resource"/>
             <elem tag="edm:object" attrs="rdf:resource"/>
             <elem tag="edm:provider" attrs="rdf:resource"/>
             <elem tag="dc:rights" attrs="rdf:resource"/>
