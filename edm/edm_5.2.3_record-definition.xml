@@ -43,7 +43,7 @@
                 <string>}</string>
                 <string>}</string>
                 <string>identifier = out.toString()</string>
-                <string>&quot;${baseUrl}/agent/${spec}/${identifier}&quot;</string>
+                <string>&quot;${baseUrl}/resource/agent/${spec}/${identifier}&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="createEDMPlaceUri">
@@ -68,7 +68,7 @@
                 <string>}</string>
                 <string>}</string>
                 <string>identifier = out.toString()</string>
-                <string>&quot;${baseUrl}/place/${spec}/${identifier}&quot;</string>
+                <string>&quot;${baseUrl}/resource/place/${spec}/${identifier}&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="createBrabantCloudUri">
@@ -96,7 +96,7 @@
                 <string>}</string>
                 <string>}</string>
                 <string>identifier = out.toString()</string>
-                <string>&quot;${baseUrl}/brabantcloud/${spec}/${identifier}&quot;</string>
+                <string>&quot;${baseUrl}/resource/brabantcloud/${spec}/${identifier}&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="createBrabantCloudUri">
@@ -124,7 +124,7 @@
                 <string>}</string>
                 <string>}</string>
                 <string>identifier = out.toString()</string>
-                <string>&quot;${baseUrl}/delving/${spec}/${identifier}&quot;</string>
+                <string>&quot;${baseUrl}/resource/delving/${spec}/${identifier}&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="cleanAdlibImageReference">
@@ -223,7 +223,7 @@
                 <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/ore:Aggregation/@rdf:about">
                     <groovy-code>
                         <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/aggregation/${spec}/${_id}&quot;</string>
+                        <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_id}&quot;</string>
                         <string>}</string>
                     </groovy-code>
                 </node-mapping>
@@ -235,7 +235,7 @@
                     <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/ore:Aggregation/edm:aggregatedCHO/@rdf:resource">
                         <groovy-code>
                             <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/document/${spec}/${_id}&quot;</string>
+                            <string>&quot;${baseUrl}/resource/document/${spec}/${_id}&quot;</string>
                             <string>}</string>
                         </groovy-code>
                     </node-mapping>
@@ -407,7 +407,7 @@
                 <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/brac:BrabantCloud/@rdf:about">
                     <groovy-code>
                         <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/brabantcloud/${spec}/${_id}&quot;</string>
+                        <string>&quot;${baseUrl}/resource/brabantcloud/${spec}/${_id}&quot;</string>
                         <string>}</string>
                     </groovy-code>
                 </node-mapping>
@@ -419,7 +419,7 @@
                                   outputPath="/edm:RDF/edm:BrabantCloud/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
                             <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/aggregation/${spec}/${_id}&quot;</string>
+                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_id}&quot;</string>
                             <string>}</string>
                         </groovy-code>
                     </node-mapping>
@@ -466,7 +466,7 @@
                 <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/delving:Delving/@rdf:about">
                     <groovy-code>
                         <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/delving/${spec}/${_id}&quot;</string>
+                        <string>&quot;${baseUrl}/resource/delving/${spec}/${_id}&quot;</string>
                         <string>}</string>
                     </groovy-code>
                 </node-mapping>
@@ -476,7 +476,7 @@
                     <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/edm:Delving/ore:isAggregatedBy/@rdf:about">
                                 <groovy-code>
                                     <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                                    <string>&quot;${baseUrl}/aggregation/${spec}/${_id}&quot;</string>
+                                    <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_id}&quot;</string>
                                     <string>}</string>
                                 </groovy-code>
                     </node-mapping>
