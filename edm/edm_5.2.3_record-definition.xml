@@ -257,7 +257,7 @@
                 <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/ore:Aggregation/edm:aggregatedCHO/edm:ProvidedCHO/@rdf:about">
                     <groovy-code>
                         <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/document/${spec}/${_id}&quot;</string>
+                        <string>&quot;${baseUrl}/resource/document/${spec}/${_id}&quot;</string>
                         <string>}</string>
                     </groovy-code>
                 </node-mapping>
@@ -334,13 +334,13 @@
             <elem tag="edm:isNextInSequence" attrs="rdf:resource"/>
         </elem>
 
-
-
         <elem tag="edm:Agent" attrs="rdf:about">
             <elem tag="edm:wasPresentAt" attrs="rdf:resource"/>
             <elem tag="edm:hasMet" attrs="rdf:resource"/>
             <elem tag="edm:isRelatedTo" attrs="rdf:resource"/>
+            <elem tag="edm:isRelatedTo" attrs="rdf:resource"/>
             <elem tag="skos:prefLabel" attrs="xml:lang"/>
+            <elem tag="skos:altLabel" attrs="xml:lang"/>
             <elem tag="skos:altLabel" attrs="xml:lang"/>
             <elem tag="skos:note"/>
             <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
