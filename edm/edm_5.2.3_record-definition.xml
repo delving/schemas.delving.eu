@@ -450,7 +450,7 @@
                     <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/nave:DimconResource/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>&quot;${baseUrl}/resource/dimcon/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
+                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -485,7 +485,7 @@
                     <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/nave:Museometrie/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>&quot;${baseUrl}/resource/museometrie/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
+                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -511,7 +511,7 @@
                     <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/nave:RijksCollection/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>&quot;${baseUrl}/resource/rijkscollection/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
+                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -539,7 +539,7 @@
                     <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/nave:DimconResource/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>&quot;${baseUrl}/resource/norvegiana/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
+                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
