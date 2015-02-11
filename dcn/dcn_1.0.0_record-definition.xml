@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<record-definition prefix="dcn" version="1.0.0" flat="true">
+
+    <namespaces>
+        <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
+        <namespace prefix="dcterms" uri="http://purl.org/dc/terms/" schema="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
+        <namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-V3.4.xsd"/>
+        <namespace prefix="icn" uri="http://www.icn.nl/schemas/icn/" schema="ICN-V1.0.xsd"/>
+        <namespace prefix="delving" uri="http://schemas.delving.eu/" schema="delving-1.2.xsd"/>
+    </namespaces>
+
+    <functions>
+        <mapping-function name="cleanAdlibImageReference">
+            <sample-input>
+                <string>..\..\..\Images PH\OKS 1989-001 [01].JPG</string>
+                <string>../../../Images PH/OKS 1989-001 [01].JPG</string>
+            </sample-input>
+            <groovy-code>
+                <string>it.replaceAll(&apos;; &apos;, &apos;_&apos;).replaceAll(&apos;JPG&apos;, &apos;jpg&apos;).replaceAll(&quot;.*?[\\\\|//]&quot;, &quot;&quot;).replaceAll(&quot; &quot;, &quot;%20&quot;).replaceAll(&quot;\\[&quot;, &quot;%5B&quot;).replaceAll(&quot;]&quot;, &quot;%5D&quot;)</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="deepZoomUrl">
+            <sample-input>
+                <string>D:/Documents/Schilderij/010.jpg</string>
+            </sample-input>
+            <groovy-code>
+                <string>image = it.toString().replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;jpg|JPG|jpeg&apos;,&apos;tif.dzi&apos;)</string>
+                <string>&quot;http://dimcon.delving.org/iip/deepzoom/mnt/dimcon/tiles/${orgId}/${spec}/${image}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="reverseNames">
+            <sample-input>
+                <string>Sjoerd Siebinga</string>
+                <string>Siebinga, Sjoerd</string>
+                <string>Siebinga, Sjoerd Michiel</string>
+            </sample-input>
+            <groovy-code>
+                <string>parts = it.toString().split(&quot;,&quot;)</string>
+                <string>if (parts.length &gt; 1) {</string>
+                <string>&quot;${parts[1].trim()} ${parts[0]}&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>&quot;${it}&quot;</string>
+                <string>}</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="toLocalId">
+            <sample-input>
+                <string>1231231</string>
+                <string>232455</string>
+                <string>12345</string>
+            </sample-input>
+            <groovy-code>
+                <string>&quot;${spec}/${it}&quot;</string>
+            </groovy-code>
+        </mapping-function>
+    </functions>
+
+    <elems>
+        <elem tag="dublincore">
+            <elem tag="dc:contributor" attr-groups="base-three" />
+            <elem tag="dc:coverage" attr-groups="base-three" />
+            <elem tag="dc:creator" attr-groups="base-three" />
+            <elem tag="dc:date" attr-groups="base-three" />
+            <elem tag="dc:description" attrs="lang" />
+            <elem tag="dc:format" attr-groups="base-three" />
+            <elem tag="dc:identifier" attr-groups="base-three" />
+            <elem tag="dc:language" attr-groups="base-three" />
+            <elem tag="dc:publisher" attr-groups="base-three" />
+            <elem tag="dc:relation" attr-groups="base-three" />
+            <elem tag="dc:rights" attr-groups="base-three" />
+            <elem tag="dc:source" attr-groups="base-three" />
+            <elem tag="dc:subject" attr-groups="base-three" />
+            <elem tag="dc:title" required="true" attrs="lang" />
+            <elem tag="dc:type" attr-groups="base-three" />
+        </elem>
+
+        <elem tag="dcterms">
+            <elem tag="dcterms:alternative"/>
+            <elem tag="dcterms:conformsTo"/>
+            <elem tag="dcterms:created"/>
+            <elem tag="dcterms:extent"/>
+            <elem tag="dcterms:hasFormat"/>
+            <elem tag="dcterms:hasPart"/>
+            <elem tag="dcterms:hasVersion"/>
+            <elem tag="dcterms:isFormatOf"/>
+            <elem tag="dcterms:isPartOf"/>
+            <elem tag="dcterms:isReferencedBy"/>
+            <elem tag="dcterms:isReplacedBy"/>
+            <elem tag="dcterms:isRequiredBy"/>
+            <elem tag="dcterms:isVersionOf"/>
+            <elem tag="dcterms:issued"/>
+            <elem tag="dcterms:medium"/>
+            <elem tag="dcterms:provenance"/>
+            <elem tag="dcterms:references"/>
+            <elem tag="dcterms:replaces"/>
+            <elem tag="dcterms:requires"/>
+            <elem tag="dcterms:rightsHolder"/>
+            <elem tag="dcterms:spatial"/>
+            <elem tag="dcterms:tableOfContents"/>
+            <elem tag="dcterms:temporal"/>
+        </elem>
+
+        <elem tag="europeana">
+            <elem tag="europeana:isShownBy" fieldType="link"/>
+            <elem tag="europeana:rights" fieldType="link"/>
+            <elem tag="europeana:isShownAt" fieldType="link"/>
+            <elem tag="europeana:unstored"/>
+            <elem tag="europeana:object" fieldType="link"/>
+            <elem tag="europeana:provider" required="true"/>
+            <elem tag="europeana:dataProvider" required="true"/>
+            <elem tag="europeana:type" required="true"/>
+            <!-- new -->
+            <elem tag="europeana:userTag"/>
+            <elem tag="europeana:hasDigitalObject"/>
+            <elem tag="europeana:year"/>
+        </elem>
+
+        <elem tag="icn">
+            <elem tag="icn:creatorYearOfBirth"/>
+            <elem tag="icn:creatorYearOfDeath"/>
+            <elem tag="icn:creatorRole"/>
+            <elem tag="icn:technique"/>
+            <elem tag="icn:material"/>
+            <elem tag="icn:location"/>
+            <elem tag="icn:province"/>
+            <elem tag="icn:collectionPart"/>
+        </elem>
+
+        <elem tag="museometrie">
+            <elem tag="icn:acquisitionMeans"/>
+            <elem tag="icn:collectionType"/>
+            <elem tag="icn:acquisitionYear"/>
+            <elem tag="icn:purchasePrice"/>
+            <elem tag="icn:acquiredWithHelpFrom"/>
+            <elem tag="icn:physicalState"/>
+            <elem tag="icn:musipCollectionUri"/>
+            <elem tag="icn:musipCollectionDisplayName" hidden="true"/>
+            <elem tag="icn:musipMuseumUri"/>
+            <elem tag="icn:musipMuseumDisplayName" hidden="true"/>
+            <elem tag="icn:rijksCollection" fieldType="string" />
+            <elem tag="icn:currentLocation"/>
+            <elem tag="icn:legalStatus"/>
+            <elem tag="icn:acceptedStateCharges"/>
+            <elem tag="icn:acceptedStateChargesReason"/>
+            <elem tag="icn:expulsionYear"/>
+            <elem tag="icn:expulsionMeans"/>
+        </elem>
+    </elems>
+
+    <root tag="record">
+
+        <elem tag="metadata">
+            <elem tag="ese" elems="dublincore,dcterms,europeana"/>
+            <elem tag="extension">
+
+            </elem>
+        </elem>
+
+        <elem tag="recordInfo">
+
+            <elem tag="info">
+                <elem tag="rights" attrs="uri, prefLabel"/>
+            </elem>
+            <elem tag="delving">
+                <elem tag="delving:creator" unmappable="true"/>
+                <elem tag="delving:title" unmappable="true"/>
+                <elem tag="delving:description" unmappable="true"/>
+                <elem tag="delving:owner"/>
+                <elem tag="delving:provider"/>
+                <elem tag="delving:landingPage" unmappable="true"/>
+                <elem tag="delving:thumbnail" unmappable="true"/>
+                <elem tag="delving:geohash"/>
+                <elem tag="delving:address"/>
+                <elem tag="delving:hubId"/>
+                <elem tag="delving:orgId"/>
+                <elem tag="delving:itemType"/>
+            </elem>
+            <elem tag="europeanaLegacy">
+                <elem tag="europeana:uri" fieldType="string"/> <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD-->
+                <elem tag="europeana:language"/> <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD -->
+                <elem tag="europeana:country"/> <!-- ESE 3.4,  not accepted by the office and not part of the ESE XSD -->
+                <elem tag="europeana:collectionName"/> <!-- NOT part of ESE 3.4 -->
+                <elem tag="europeana:collectionTitle"/> <!-- NOT part of ESE 3.4 -->
+                <elem tag="europeana:source"/><!-- NOT part of ESE 3.4 -->
+            </elem>
+        </elem>
+
+        <elem tag="digitalObjects">
+            <elem tag="object" attrs="mime-type, object-type, id" unmappable="true">
+                <elem tag="uri"/>
+                <elem tag="caption"/>
+                <elem tag="rights"/>
+                <elem tag="creator" attr-groups="base-three"/>
+                <elem tag="derivatives">
+                    <elem tag="deepzoom"/>   <!-- old delving deepZoomUrl-->
+                    <elem tag="thumb_100"/>
+                    <elem tag="thumb_220"/>
+                    <elem tag="thumb_600"/>
+                    <elem tag="fulltext"/>
+                    <elem tag="colorhex"/>
+                    <elem tag="coler"/>
+                </elem>
+                <elem tag="linkfacts">
+                    <elem tag="spec"/>
+                    <elem tag="local_id"/>
+                    <elem tag="object_numbre"/>
+                </elem>
+                <elem tag="about" attr-groups="base-three"/>
+            </elem>
+        </elem>
+
+        <elem tag="locations">
+            <elem tag="location" attrs="id, uri, prefLabel">
+                <elem tag="text" attrs="heading, order"/>
+                <elem tag="polygon"/> <!--add projection_type: utm or lat-long-->
+                <elem tag="point"/>   <!-- old delving geohash-->
+                <elem tag="hierarchicalGeographic">
+                    <elem tag="continent" attr-groups="base-four"/>
+                    <elem tag="country" attr-groups="base-four"/>
+                    <elem tag="province" attr-groups="base-four"/>
+                    <elem tag="region" attr-groups="base-four"/>
+                    <elem tag="state" attr-groups="base-four"/>
+                    <elem tag="territory" attr-groups="base-four"/>
+                    <elem tag="county" attr-groups="base-four"/>
+                    <elem tag="city" attr-groups="base-four"/>
+                    <elem tag="island" attr-groups="base-four"/>
+                    <elem tag="area" attr-groups="base-four"/>
+                    <elem tag="extraterrestrialArea" attr-groups="base-four"/>
+                    <elem tag="citySection" attr-groups="base-four"/>
+                </elem>
+                <elem tag="about" attr-groups="base-three"/>
+            </elem>
+
+        </elem>
+
+    </root>
+
+    <field-markers>
+        <field-marker name="delving:creator" path="/record/dc:creator"/>
+        <field-marker name="delving:title" path="/record/dc:title"/>
+        <field-marker name="delving:description" path="/record/dc:description"/>
+        <field-marker name="delving:owner" path="/record/europeana:dataProvider"/>
+        <field-marker name="delving:provider" path="/record/europeana:provider"/>
+        <field-marker name="delving:landingPage" path="/record/europeana:isShownAt" check="LANDING_PAGE"/>
+        <field-marker name="delving:thumbnail" path="/record/europeana:object" check="THUMBNAIL"/>
+        <field-marker name="delving:imageUrl" path="/record/europeana:isShownBy" check="DIGITAL_OBJECT"/>
+
+        <field-marker type="search" name="SNIPPET" path="/record/delving:fullText"/>
+        <field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>
+        <field-marker type="search" name="SNIPPET" path="/record/dcterms:alternative"/>
+        <field-marker type="search" name="SNIPPET" path="/record/europeana:collectionTitle"/>
+
+        <field-marker type="fact" name="spec" path="/record/europeana:collectionName"/>
+        <field-marker type="fact" name="name" path="/record/europeana:collectionTitle"/>
+        <field-marker type="fact" name="country" path="/record/europeana:country"/>
+        <field-marker type="fact" name="dataProvider" path="/record/europeana:dataProvider"/>
+        <field-marker type="fact" name="language" path="/record/europeana:language"/>
+        <field-marker type="fact" name="provider" path="/record/europeana:provider"/>
+        <field-marker type="fact" name="rights" path="/record/europeana:rights"/>
+        <field-marker type="fact" name="type" path="/record/europeana:type"/>
+    </field-markers>
+
+    <opts>
+      <opt-list dictionary="LEGAL" path="/record/legalStatus" displayName="Legal Status">
+          <opt value="Eigenaar: Rijks"/>
+          <opt value="Eigenaar: Anders dan Rijk"/>
+          <opt value="Aan de zorg van het Rijk toevertrouwd"/>
+          <opt value="Bruikleen van X"/>
+          <opt value="Onbekend"/>
+      </opt-list>
+      <opt-list dictionary="CHARGES" path="/record/acceptedStateCharges" displayName="Accepted State Charges">
+          <opt value="No"/>
+          <opt value="Yes"/>
+      </opt-list>
+      <opt-list dictionary="EXPULSION" path="/record/expulsionMeans" displayName="Expulsion means">
+          <opt value="Sale"/>
+          <opt value="Destruction"/>
+          <opt value="Gift"/>
+          <opt value="Trade"/>
+      </opt-list>
+    </opts>
+    
+    <docs>
+        <doc path="/record/dc:contributor">
+            <string name="Dublin Core definition">An entity responsible for making contributions to the content of the resource. Examples of a Contributor include a person, an organization or a service. Typically, the name of a Contributor should be used to indicate the entity.</string>
+            <string name="Europeana definition">An entity responsible for making contributions to the resource</string>
+            <string name="Europeana note">The name of contributors to the original analog or born digital object.  This could be a person, an organisation or a service. </string>
+        </doc>
+        <!-- ... -->
+    </docs>
+
+</record-definition>
+
+

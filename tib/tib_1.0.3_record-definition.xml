@@ -25,7 +25,7 @@
             </sample-input>
             <groovy-code>
                 <string>image = it.toString().replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i)\\.jpg|\\.jpeg|\\.tif|\\.tiff|\\.png|\\.gif&apos;,&apos;.tif.dzi&apos;)</string>
-                <string>&quot;http://media.delving.org/iip/deepzoom/mnt/tib/tiles/thuisinbrabant/${spec}/${image}&quot;</string>
+                <string>&quot;http://media.delving.org/iip/deepzoom/mnt/tib/tiles/${orgId}/${spec}/${image}&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="isShownAt">
@@ -71,7 +71,7 @@
         </mapping-function>
         <mapping-function name="smallThumbnail">
             <groovy-code>
-		    <string>&quot;http://media.delving.org/thumbnail/brabantcloud/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i)\\.jpg|\\.jpeg|\\.tif|\\.tiff|\\.png|\\.gif&apos;, &apos;&apos;)}/180&quot;</string>
+		    <string>&quot;http://media.delving.org/thumbnail/${orgId}/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i)\\.jpg|\\.jpeg|\\.tif|\\.tiff|\\.png|\\.gif&apos;, &apos;&apos;)}/180&quot;</string>
 	    </groovy-code>
         </mapping-function>
         <mapping-function name="toLocalId">
@@ -186,8 +186,8 @@
 
         <!-- original delving namespace -->
         <elem tag="delving:year"/>
-        <elem tag="delving:deepZoomUrl" fieldType="link" function="deepZoomUrl"/>
         <elem tag="delving:thumbnail" fieldType="link" function="smallThumbnail"/>
+        <elem tag="delving:deepZoomUrl" fieldType="link" function="deepZoomUrl"/>
         <elem tag="delving:fullTextObjectUrl" fieldType="link"/>
         <elem tag="delving:fullText"/>
         <elem tag="delving:geohash"/>

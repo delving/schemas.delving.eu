@@ -19,8 +19,7 @@
         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
         xmlns:ore="http://www.openarchives.org/ore/terms/"
         xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-        xmlns:brac="http://schemas.delving.eu/brac/"
-        xmlns:delving="http://schemas.delving.eu/"
+        xmlns:nave="http://schemas.delving.eu/nave/terms/"
         elementFormDefault="qualified">
 
     <import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -30,10 +29,8 @@
     <import namespace="http://www.w3.org/2002/07/owl#" schemaLocation="http://www.europeana.eu/schemas/edm/OWL.xsd"/>
     <import namespace="http://www.openarchives.org/ore/terms/"
             schemaLocation="http://schemas.delving.eu/xsd/external/ORE.xsd"/>
-    <import namespace="http://schemas.delving.eu/"
-            schemaLocation="http://schemas.delving.eu/delving-V1.2.xsd"/>
-    <import namespace="http://schemas.delving.eu/brac/"
-            schemaLocation="http://schemas.delving.eu/brac/brac-V1.0.xsd"/>
+    <import namespace="http://schemas.delving.eu/nave/terms/"
+            schemaLocation="http://schemas.delving.eu/nave/terms/nave-1.0.xsd"/>
 
 
     <include schemaLocation="http://www.europeana.eu/schemas/edm/EDM-COMMON-MAIN.xsd"/>
@@ -55,8 +52,7 @@
                 <sch:ns prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
                 <sch:ns prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#"/>
                 <sch:ns prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"/>
-                <sch:ns prefix="brac" uri="http://schemas.delving.eu/brac/"/>
-                <sch:ns prefix="delving" uri="http://schemas.delving.eu/"/>
+                <sch:ns prefix="nave" uri="http://schemas.delving.eu/nave/terms/"/>
             </appinfo>
         </annotation>
         <sequence minOccurs="0" maxOccurs="unbounded">
@@ -68,80 +64,14 @@
                 <element name="TimeSpan" type="edm:TimeSpanType"/>
                 <element ref="skos:Concept"/>
                 <element ref="ore:Aggregation"/>
-                <element name="BrabantCloud" type="edm:BrabantCloudType"/>
-                <element name="Delving" type="edm:DelvingType"/>
-
+                <element ref="nave:BrabantCloudResource"/>
+                <element ref="nave:DelvingResource"/>
+                <element ref="nave:DimconResource"/>
+                <element ref="nave:Museometrie"/>
+                <element ref="nave:NorvegianaResource"/>
+                <element ref="nave:RijksCollection"/>
             </choice>
         </sequence>
-    </complexType>
-
-    <complexType name="DelvingType">
-        <annotation>
-            <documentation>DelvingType contains Delving elements.</documentation>
-        </annotation>
-        <complexContent>
-            <extension base="rdf:AboutType">
-                <sequence minOccurs="0" maxOccurs="unbounded">
-                    <element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
-                    <choice>
-                        <xs:element ref="delving:year" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="delving:thumbnail" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="delving:deepZoomUrl" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="delving:imageUrl" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="delving:fullTextObjectUrl" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="delving:fullText" minOccurs="0" maxOccurs="unbounded"/>
-                    </choice>
-                </sequence>
-            </extension>
-        </complexContent>
-    </complexType>
-
-    <complexType name="BrabantCloudType">
-        <annotation>
-            <documentation>DelvingType contains Delving elements.</documentation>
-        </annotation>
-        <complexContent>
-            <extension base="rdf:AboutType">
-                <sequence>
-                    <element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
-                    <element ref="brac:citName" minOccurs="0" maxOccurs="1"/>
-                    <element ref="brac:citOldId" minOccurs="0" maxOccurs="1"/>
-                    <element ref="brac:thumbLarge" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:thumbSmall" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:collection" minOccurs="1" maxOccurs="1"/>
-                    <element ref="brac:creatorRole" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:productionPeriod" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:productionStart" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:productionEnd" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:creatorBirthYear" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:creatorDeathYear" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:formatted" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:year" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:dimension" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:objectNumber" minOccurs="1" maxOccurs="1"/>
-                    <element ref="brac:objectSoort" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:material" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:place" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:technique" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:color" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:colorHex" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:design" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:exhibition" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:subjectDepicted" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:date" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:collectionPart" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:person" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:region" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:event" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:theme" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:pageStart" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:pageEnd" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:pages" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:vindplaats" minOccurs="0" maxOccurs="unbounded"/>
-                    <element ref="brac:location" minOccurs="0" maxOccurs="unbounded"/>
-                </sequence>
-            </extension>
-        </complexContent>
     </complexType>
 
     <complexType name="ProvidedCHOType">

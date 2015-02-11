@@ -284,10 +284,11 @@
                 <elem tag="rights"/>
                 <elem tag="creator" attr-groups="base-three"/>
                 <elem tag="derivatives">
-                    <elem tag="deepzoom"/>
+                    <elem tag="deepzoom"/>   <!-- old delving deepZoomUrl-->
                     <elem tag="thumb_100"/>
                     <elem tag="thumb_220"/>
                     <elem tag="thumb_600"/>
+                    <elem tag="fulltext"/>
                 </elem>
                 <elem tag="about" attr-groups="base-three"/>
             </elem>
@@ -297,7 +298,7 @@
             <elem tag="location" attrs="id, uri, prefLabel">
                 <elem tag="text" attrs="heading, order"/>
                 <elem tag="polygon"/> <!--add projection_type: utm or lat-long-->
-                <elem tag="point"/>
+                <elem tag="point"/>   <!-- old delving geohash-->
                 <elem tag="hierarchicalGeographic">
                     <elem tag="continent" attr-groups="base-four"/>
                     <elem tag="country" attr-groups="base-four"/>

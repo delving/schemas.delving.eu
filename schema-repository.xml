@@ -162,6 +162,15 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
+    <schema prefix="tibplus">
+        <version number="1.0.0">
+            <author>Delving</author>
+            <message>Initial version</message>
+            <date>2014-12-16</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
     <schema prefix="tib">
         <version number="1.0.0">
             <author>Delving</author>

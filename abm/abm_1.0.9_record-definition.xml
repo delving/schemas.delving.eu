@@ -152,11 +152,11 @@
         <elem tag="abm:contentProvider" required="true"/>
         <elem tag="abm:address"/>
         <elem tag="abm:digitised"/>
-	<elem tag="abm:introduction"/>
-	<elem tag="abm:classification"/>
-        <!-- This is the full utm33 string 32 V 258644.154187 6648939.72091
-      SRID=32633;POINT(148013,6964590)
-      -->
+        <elem tag="abm:introduction"/>
+        <elem tag="abm:classification"/>
+            <!-- This is the full utm33 string 32 V 258644.154187 6648939.72091
+          SRID=32633;POINT(148013,6964590)
+          -->
         <elem tag="abm:utm" function="convertToUTM"/>
         <elem tag="abm:polygon_utm"/>
         <elem tag="abm:polygon_latLong"/>
