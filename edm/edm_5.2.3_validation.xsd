@@ -64,8 +64,8 @@
                 <element name="TimeSpan" type="edm:TimeSpanType"/>
                 <element ref="skos:Concept"/>
                 <element ref="ore:Aggregation"/>
-                <element ref="nave:BrabantCloudResource"/>
                 <element ref="nave:DelvingResource"/>
+                <element ref="nave:BrabantCloudResource"/>
                 <element ref="nave:DimconResource"/>
                 <element ref="nave:Museometrie"/>
                 <element ref="nave:NorvegianaResource"/>

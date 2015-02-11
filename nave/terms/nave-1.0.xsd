@@ -113,45 +113,47 @@
             </xs:annotation>
             <xs:complexContent>
                 <xs:extension base="rdf:AboutType">
-                    <xs:sequence>
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
                         <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
-                       <xs:choice>
-                           <xs:element ref="citName" minOccurs="0" maxOccurs="1"/>
-                           <xs:element ref="citOldId" minOccurs="0" maxOccurs="1"/>
-                           <xs:element ref="collection" minOccurs="1" maxOccurs="1"/>
-                           <xs:element ref="collectionPart" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="color" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="colorHex" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="creatorBirthYear" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="creatorDeathYear" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="creatorRole" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="date" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="design" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="dimension" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="event" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="exhibition" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="formatted" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="location" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="material" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="objectNumber" minOccurs="1" maxOccurs="1"/>
-                           <xs:element ref="objectSoort" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="pageEnd" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="pageStart" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="pages" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="person" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="place" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="productionEnd" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="productionPeriod" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="productionStart" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="region" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="subjectDepicted" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="technique" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="theme" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="thumbLarge" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="thumbSmall" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="vindplaats" minOccurs="0" maxOccurs="unbounded"/>
-                           <xs:element ref="year" minOccurs="0" maxOccurs="unbounded"/>
-                       </xs:choice>
+                        <xs:choice>
+                            <xs:element ref="citName" minOccurs="0" maxOccurs="1"/>
+                            <xs:element ref="citOldId" minOccurs="0" maxOccurs="1"/>
+                            <!-- change to minOccurs 1-->
+                            <xs:element ref="collection" minOccurs="0" maxOccurs="1"/>
+                            <xs:element ref="collectionPart" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="color" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="colorHex" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="creatorBirthYear" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="creatorDeathYear" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="creatorRole" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="date" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="design" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="dimension" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="event" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="exhibition" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="formatted" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="location" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="material" minOccurs="0" maxOccurs="unbounded"/>
+                            <!-- change to minOccurs 1-->
+                            <xs:element ref="objectNumber" minOccurs="0" maxOccurs="1"/>
+                            <xs:element ref="objectSoort" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="pageEnd" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="pageStart" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="pages" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="person" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="place" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="productionEnd" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="productionPeriod" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="productionStart" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="region" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="subjectDepicted" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="technique" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="theme" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="thumbLarge" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="thumbSmall" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="vindplaats" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="year" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:choice>
                     </xs:sequence>
                 </xs:extension>
             </xs:complexContent>
@@ -198,7 +200,8 @@
                             <xs:element ref="creatorYearOfDeath" minOccurs="0" maxOccurs="unbounded"/>
                             <xs:element ref="location" minOccurs="0" maxOccurs="unbounded"/>
                             <xs:element ref="material" minOccurs="0" maxOccurs="unbounded"/>
-                            <xs:element ref="province" minOccurs="1" maxOccurs="1"/>
+                            <!-- change to minOccurs 1-->
+                            <xs:element ref="province" minOccurs="0" maxOccurs="1"/>
                             <xs:element ref="technique" minOccurs="0" maxOccurs="unbounded"/>
                         </xs:choice>
                     </xs:sequence>
@@ -244,8 +247,10 @@
                             <xs:element ref="address" minOccurs="0" maxOccurs="unbounded"/>
                             <xs:element ref="category" minOccurs="0" maxOccurs="unbounded"/>
                             <xs:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
-                            <xs:element ref="collectionType" minOccurs="1" maxOccurs="unbounded"/>
-                            <xs:element ref="contentProvider" minOccurs="1" maxOccurs="unbounded"/>
+                            <!-- change to minOccurs 1-->
+                            <xs:element ref="collectionType" minOccurs="0" maxOccurs="unbounded"/>
+                            <!-- change to minOccurs 1-->
+                            <xs:element ref="contentProvider" minOccurs="0" maxOccurs="unbounded"/>
                             <xs:element ref="country" minOccurs="0" maxOccurs="unbounded"/>
                             <xs:element ref="county" minOccurs="0" maxOccurs="unbounded"/>
                             <xs:element ref="countyNr" minOccurs="0" maxOccurs="unbounded"/>
