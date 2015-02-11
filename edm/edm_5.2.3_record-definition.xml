@@ -200,11 +200,9 @@
 
         <elem tag="ore:Aggregation">
             <attr tag="rdf:about">
-                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/ore:Aggregation/@rdf:about">
+                <node-mapping inputPath="/input" outputPath="/edm:RDF/ore:Aggregation/@rdf:about">
                     <groovy-code>
-                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_id}&quot;</string>
-                        <string>}</string>
+                        <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier}&quot;</string>
                     </groovy-code>
                 </node-mapping>
 
@@ -212,12 +210,10 @@
             <elem tag="ore:aggregates" attrs="rdf:resource" unmappable="true"/>
             <elem tag="edm:aggregatedCHO">
                 <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input/@id"
+                    <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/ore:Aggregation/edm:aggregatedCHO/@rdf:resource">
                         <groovy-code>
-                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/resource/document/${spec}/${_id}&quot;</string>
-                            <string>}</string>
+                            <string>&quot;${baseUrl}/resource/document/${spec}/${_uniqueIdentifier}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -235,12 +231,10 @@
 
         <elem tag="edm:ProvidedCHO">
             <attr tag="rdf:about">
-                <node-mapping inputPath="/input/@id"
+                <node-mapping inputPath="/input"
                               outputPath="/edm:RDF/ore:Aggregation/edm:aggregatedCHO/edm:ProvidedCHO/@rdf:about">
                     <groovy-code>
-                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/resource/document/${spec}/${_id}&quot;</string>
-                        <string>}</string>
+                        <string>&quot;${baseUrl}/resource/document/${spec}/${_uniqueIdentifier}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
@@ -389,23 +383,19 @@
 
         <elem tag="nave:BrabantCloudResource">
             <attr tag="rdf:about">
-                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/nave:BrabantCloud/@rdf:about">
+                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:BrabantCloud/@rdf:about">
                     <groovy-code>
-                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/resource/brabantcloud/${spec}/${_id}&quot;</string>
-                        <string>}</string>
+                        <string>&quot;${baseUrl}/resource/brabantcloud/${spec}/${_uniqueIdentifier}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <!-- tib -->
             <elem tag="ore:isAggregatedBy">
                 <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input/@id"
+                    <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/edm:BrabantCloud/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_id}&quot;</string>
-                            <string>}</string>
+                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -449,22 +439,18 @@
 
         <elem tag="nave:DimconResource">
             <attr tag="rdf:about">
-                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/nave:DimconResource/@rdf:about">
+                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:DimconResource/@rdf:about">
                     <groovy-code>
-                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/resource/dimcon/${spec}/${_id}&quot;</string>
-                        <string>}</string>
+                        <string>&quot;${baseUrl}/resource/dimcon/${spec}/${_uniqueIdentifier}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
                 <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input/@id"
+                    <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/nave:DimconResource/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/resource/dimcon/${spec}/${_id}&quot;</string>
-                            <string>}</string>
+                            <string>&quot;${baseUrl}/resource/dimcon/${spec}/${_uniqueIdentifier}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -484,58 +470,48 @@
             <elem tag="nave:musipCollectionDisplayName" hidden="true"/>
             <elem tag="nave:musipMuseumUri"/>
             <elem tag="nave:musipMuseumDisplayName" hidden="true"/>
-
-
         </elem>
 
         <elem tag="nave:Museometrie">
             <attr tag="rdf:about">
-                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/nave:Museometrie/@rdf:about">
+                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:Museometrie/@rdf:about">
                     <groovy-code>
-                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/resource/museometrie/${spec}/${_id}&quot;</string>
-                        <string>}</string>
+                        <string>&quot;${baseUrl}/resource/museometrie/${spec}/${_uniqueIdentifier}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
                 <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input/@id"
+                    <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/nave:Museometrie/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/resource/museometrie/${spec}/${_id}&quot;</string>
-                            <string>}</string>
+                            <string>&quot;${baseUrl}/resource/museometrie/${spec}/${_uniqueIdentifier}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
+                </elem>
                 <elem tag="nave:currentLocation"/>
                 <elem tag="nave:acquisitionYear"/>
                 <elem tag="nave:acquiredWithHelpFrom"/>
                 <elem tag="nave:physicalState"/>
                 <elem tag="nave:purchasePrice"/>
                 <elem tag="nave:acquisitionMeans"/>
-            </elem>
         </elem>
 
         <elem tag="nave:RijksCollection">
             <attr tag="rdf:about">
-                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/nave:RijksCollection/@rdf:about">
+                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:RijksCollection/@rdf:about">
                     <groovy-code>
-                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/resource/rijkscollection/${spec}/${_id}&quot;</string>
-                        <string>}</string>
+                        <string>&quot;${baseUrl}/resource/rijkscollection/${spec}/${_uniqueIdentifier}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
                 <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input/@id"
+                    <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/nave:RijksCollection/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/resource/rijkscollection/${spec}/${_id}&quot;</string>
-                            <string>}</string>
+                            <string>&quot;${baseUrl}/resource/rijkscollection/${spec}/${_uniqueIdentifier}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -552,22 +528,18 @@
 
         <elem tag="nave:NorvegianaResource">
             <attr tag="rdf:about">
-                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/nave:DimconResource/@rdf:about">
+                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:DimconResource/@rdf:about">
                     <groovy-code>
-                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/resource/norvegiana/${spec}/${_id}&quot;</string>
-                        <string>}</string>
+                        <string>&quot;${baseUrl}/resource/norvegiana/${spec}/${_uniqueIdentifier}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
                 <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input/@id"
+                    <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/nave:DimconResource/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/resource/norvegiana/${spec}/${_id}&quot;</string>
-                            <string>}</string>
+                            <string>&quot;${baseUrl}/resource/norvegiana/${spec}/${_uniqueIdentifier}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -612,22 +584,18 @@
 
         <elem tag="nave:DelvingResource">
             <attr tag="rdf:about">
-                <node-mapping inputPath="/input/@id" outputPath="/edm:RDF/delving:DelvingResource/@rdf:about">
+                <node-mapping inputPath="/input" outputPath="/edm:RDF/delving:DelvingResource/@rdf:about">
                     <groovy-code>
-                        <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                        <string>&quot;${baseUrl}/resource/delving/${spec}/${_id}&quot;</string>
-                        <string>}</string>
+                        <string>&quot;${baseUrl}/resource/delving/${spec}/${_uniqueIdentifier}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
                 <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input/@id"
+                    <node-mapping inputPath="/input"
                                   outputPath="/edm:RDF/edm:DelvingResource/ore:isAggregatedBy/@rdf:about">
                         <groovy-code>
-                            <string>_input[&apos;@id&apos;] * { _id -&gt;</string>
-                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_id}&quot;</string>
-                            <string>}</string>
+                            <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier}&quot;</string>
                         </groovy-code>
                     </node-mapping>
                 </attr>
@@ -675,10 +643,6 @@
             <opt value="Stedsnavn"/>
             <opt value="Fugler"/>
         </opt-list>
-    </opts>
-
-    <opts>
-
     </opts>
 
     <field-markers>

@@ -2,12 +2,20 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://schemas.delving.eu/nave/terms/"
            targetNamespace="http://schemas.delving.eu/nave/terms/"
+           xmlns:ore="http://www.openarchives.org/ore/terms/"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:nave="http://schemas.delving.eu/nave/terms/"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
 
+    <xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+               schemaLocation="http://www.europeana.eu/schemas/edm/RDF.xsd"/>
+    <xs:import namespace="http://www.openarchives.org/ore/terms/"
+               schemaLocation="http://schemas.delving.eu/xsd/external/ORE.xsd"/>
 
     <xs:import namespace="http://www.w3.org/XML/1998/namespace"
                schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+
     <xs:element name="aboutPerson" type="xs:string"/>
     <xs:element name="acceptedStateCharges" type="xs:string"/>
     <xs:element name="acceptedStateChargesReason" type="xs:string"/>
@@ -99,195 +107,195 @@
 
 
     <xs:element name="BrabantCloudResource">
-        <complexType name="BrabantCloudType">
-            <annotation>
-                <documentation>ResourceType that contain the brabantcloud specific elements.</documentation>
-            </annotation>
-            <complexContent>
-                <extension base="rdf:AboutType">
-                    <sequence>
-                        <element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>ResourceType that contain the brabantcloud specific elements.</xs:documentation>
+            </xs:annotation>
+            <xs:complexContent>
+                <xs:extension base="rdf:AboutType">
+                    <xs:sequence>
+                        <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
                        <xs:choice>
-                           <element ref="nave:citName" minOccurs="0" maxOccurs="1"/>
-                           <element ref="nave:citOldId" minOccurs="0" maxOccurs="1"/>
-                           <element ref="nave:collection" minOccurs="1" maxOccurs="1"/>
-                           <element ref="nave:collectionPart" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:color" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:colorHex" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:creatorBirthYear" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:creatorDeathYear" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:creatorRole" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:date" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:design" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:dimension" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:event" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:exhibition" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:formatted" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:location" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:material" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:objectNumber" minOccurs="1" maxOccurs="1"/>
-                           <element ref="nave:objectSoort" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:pageEnd" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:pageStart" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:pages" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:person" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:place" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:productionEnd" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:productionPeriod" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:productionStart" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:region" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:subjectDepicted" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:technique" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:theme" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:thumbLarge" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:thumbSmall" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:vindplaats" minOccurs="0" maxOccurs="unbounded"/>
-                           <element ref="nave:year" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="citName" minOccurs="0" maxOccurs="1"/>
+                           <xs:element ref="citOldId" minOccurs="0" maxOccurs="1"/>
+                           <xs:element ref="collection" minOccurs="1" maxOccurs="1"/>
+                           <xs:element ref="collectionPart" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="color" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="colorHex" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="creatorBirthYear" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="creatorDeathYear" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="creatorRole" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="date" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="design" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="dimension" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="event" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="exhibition" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="formatted" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="location" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="material" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="objectNumber" minOccurs="1" maxOccurs="1"/>
+                           <xs:element ref="objectSoort" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="pageEnd" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="pageStart" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="pages" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="person" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="place" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="productionEnd" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="productionPeriod" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="productionStart" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="region" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="subjectDepicted" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="technique" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="theme" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="thumbLarge" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="thumbSmall" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="vindplaats" minOccurs="0" maxOccurs="unbounded"/>
+                           <xs:element ref="year" minOccurs="0" maxOccurs="unbounded"/>
                        </xs:choice>
-                    </sequence>
-                </extension>
-            </complexContent>
-        </complexType>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
     </xs:element>
 
     <xs:element name="DelvingResource">
-        <complexType name="DelvingType">
-            <annotation>
-                <documentation>DelvingType contains Delving elements.</documentation>
-            </annotation>
-            <complexContent>
-                <extension base="rdf:AboutType">
-                    <sequence minOccurs="0" maxOccurs="unbounded">
-                        <element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
-                        <choice>
-                            <element ref="deepZoomUrl" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="fullText" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="fullTextObjectUrl" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="imageUrl" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="thumbnail" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="year" minOccurs="0" maxOccurs="unbounded"/>
-                        </choice>
-                    </sequence>
-                </extension>
-            </complexContent>
-        </complexType>
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>DelvingType contains Delving elements.</xs:documentation>
+            </xs:annotation>
+            <xs:complexContent>
+                <xs:extension base="rdf:AboutType">
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
+                        <xs:choice>
+                            <xs:element ref="deepZoomUrl" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="fullText" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="fullTextObjectUrl" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="imageUrl" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="thumbnail" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="year" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
     </xs:element>
 
     <xs:element name="DimconResource">
-        <complexType>
-            <annotation>
-                <documentation>ResourceType contains Dimcon elements.</documentation>
-            </annotation>
-            <complexContent>
-                <extension base="rdf:AboutType">
-                    <sequence minOccurs="0" maxOccurs="unbounded">
-                        <element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
-                        <choice>
-                            <element ref="collectionPart" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="collectionType" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="creatorRole" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="creatorYearOfBirth" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="creatorYearOfDeath" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="location" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="material" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="province" minOccurs="1" maxOccurs="1"/>
-                            <element ref="technique" minOccurs="0" maxOccurs="unbounded"/>
-                        </choice>
-                    </sequence>
-                </extension>
-            </complexContent>
-        </complexType>
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>ResourceType contains Dimcon elements.</xs:documentation>
+            </xs:annotation>
+            <xs:complexContent>
+                <xs:extension base="rdf:AboutType">
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
+                        <xs:choice>
+                            <xs:element ref="collectionPart" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="collectionType" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="creatorRole" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="creatorYearOfBirth" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="creatorYearOfDeath" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="location" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="material" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="province" minOccurs="1" maxOccurs="1"/>
+                            <xs:element ref="technique" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
     </xs:element>
 
     <xs:element name="Museometrie">
-        <complexType>
-            <annotation>
-                <documentation>ResourceType contains Museometrie elements.</documentation>
-            </annotation>
-            <complexContent>
-                <extension base="rdf:AboutType">
-                    <sequence minOccurs="0" maxOccurs="unbounded">
-                        <element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
-                        <choice>
-                            <element ref="acquiredWithHelpFrom" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="acquisitionMeans" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="acquisitionYear" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="currentLocation" minOccurs="0" maxOccurs="1"/>
-                            <element ref="physicalState" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="purchasePrice" minOccurs="0" maxOccurs="unbounded"/>
-                        </choice>
-                    </sequence>
-                </extension>
-            </complexContent>
-        </complexType>
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>ResourceType contains Museometrie elements.</xs:documentation>
+            </xs:annotation>
+            <xs:complexContent>
+                <xs:extension base="rdf:AboutType">
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
+                        <xs:choice>
+                            <xs:element ref="acquiredWithHelpFrom" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="acquisitionMeans" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="acquisitionYear" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="currentLocation" minOccurs="0" maxOccurs="1"/>
+                            <xs:element ref="physicalState" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="purchasePrice" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
     </xs:element>
 
     <xs:element name="NorvegianaResource">
-        <complexType>
-            <annotation>
-                <documentation>ResourceType contains Museometrie elements.</documentation>
-            </annotation>
-            <complexContent>
-                <extension base="rdf:AboutType">
-                    <sequence minOccurs="0" maxOccurs="unbounded">
-                        <element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
-                        <choice>
-                            <element ref="aboutPerson" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="address" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="category" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="collectionType" minOccurs="1" maxOccurs="unbounded"/>
-                            <element ref="contentProvider" minOccurs="1" maxOccurs="unbounded"/>
-                            <element ref="country" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="county" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="countyNr" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="creatorUri" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="digitised" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="estateName" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="estateNr" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="imageUri" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="introduction" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="latLong" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="municipality" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="municipalityNr" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="namedPlace" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="polygon_latLong" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="polygon_utm" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="propertyName" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="propertyNr" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="soundUri" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="textUri" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="type" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="utm" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="videoUri" minOccurs="0" maxOccurs="unbounded"/>
-                        </choice>
-                    </sequence>
-                </extension>
-            </complexContent>
-        </complexType>
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>ResourceType contains Museometrie elements.</xs:documentation>
+            </xs:annotation>
+            <xs:complexContent>
+                <xs:extension base="rdf:AboutType">
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
+                        <xs:choice>
+                            <xs:element ref="aboutPerson" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="address" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="category" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="classification" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="collectionType" minOccurs="1" maxOccurs="unbounded"/>
+                            <xs:element ref="contentProvider" minOccurs="1" maxOccurs="unbounded"/>
+                            <xs:element ref="country" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="county" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="countyNr" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="creatorUri" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="digitised" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="estateName" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="estateNr" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="imageUri" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="introduction" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="latLong" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="municipality" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="municipalityNr" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="namedPlace" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="polygon_latLong" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="polygon_utm" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="propertyName" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="propertyNr" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="soundUri" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="textUri" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="type" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="utm" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="videoUri" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
     </xs:element>
 
     <xs:element name="RijksCollection">
-        <complexType>
-            <annotation>
-                <documentation>ResourceType contains RijksCollection elements.</documentation>
-            </annotation>
-            <complexContent>
-                <extension base="rdf:AboutType">
-                    <sequence minOccurs="0" maxOccurs="unbounded">
-                        <element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
-                        <choice>
-                            <element ref="acceptedStateCharges" minOccurs="0" maxOccurs="1"/>
-                            <element ref="acceptedStateChargesReason" minOccurs="0" maxOccurs="unbounded"/>
-                            <element ref="expulsionMeans" minOccurs="0" maxOccurs="1"/>
-                            <element ref="expulsionYear" minOccurs="0" maxOccurs="1"/>
-                            <element ref="legalStatus" minOccurs="0" maxOccurs="1"/>
-                            <element ref="rijksCollection" minOccurs="0" maxOccurs="unbounded"/>
-                        </choice>
-                    </sequence>
-                </extension>
-            </complexContent>
-        </complexType>
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>ResourceType contains RijksCollection elements.</xs:documentation>
+            </xs:annotation>
+            <xs:complexContent>
+                <xs:extension base="rdf:AboutType">
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
+                        <xs:choice>
+                            <xs:element ref="acceptedStateCharges" minOccurs="0" maxOccurs="1"/>
+                            <xs:element ref="acceptedStateChargesReason" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="expulsionMeans" minOccurs="0" maxOccurs="1"/>
+                            <xs:element ref="expulsionYear" minOccurs="0" maxOccurs="1"/>
+                            <xs:element ref="legalStatus" minOccurs="0" maxOccurs="1"/>
+                            <xs:element ref="rijksCollection" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
     </xs:element>
 
 </xs:schema>
