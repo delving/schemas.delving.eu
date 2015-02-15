@@ -761,6 +761,9 @@
         </opt-list>
     </opts>
 
+    <!--not used, but older versions check for it-->
+    <field-markers/>
+
     <docs>
         <doc path="/RDF/edm:ProvidedCHO">
             <para name="Note">
