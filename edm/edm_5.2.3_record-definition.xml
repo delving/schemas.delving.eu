@@ -726,6 +726,8 @@
         </elem>
     </root>
 
+    <field-markers/>
+
     <opts>
         <opt-list dictionary="LEGAL" path="/RDF/nave:RijksCollection/nave:legalStatus" displayName="Legal Status">
             <opt value="Eigenaar: Rijks"/>
