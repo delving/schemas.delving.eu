@@ -308,8 +308,8 @@
     </functions>
 
     <attrs>
-        <attr tag="rdf:about"/>
-        <attr tag="rdf:resource"/>
+        <attr tag="rdf:about" uriCheck="true"/>
+        <attr tag="rdf:resource" uriCheck="true"/>
         <attr tag="rdf:datatype"/>
         <!--<attr tag="owl:sameAs"/>-->
         <attr tag="rdf:type"/>
@@ -318,20 +318,21 @@
 
     <root tag="RDF">
 
+        <!--root to root-->
+        <node-mapping inputPath="/input"/>
+
         <elem tag="ore:Aggregation">
-            <attr tag="rdf:about">
-                <node-mapping inputPath="/input" outputPath="/edm:RDF/ore:Aggregation/@rdf:about">
+            <attr tag="rdf:about" uriCheck="true">
+                <node-mapping inputPath="/input">
                     <groovy-code>
                         <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                     </groovy-code>
                 </node-mapping>
-
             </attr>
             <elem tag="ore:aggregates" attrs="rdf:resource" unmappable="true"/>
             <elem tag="edm:aggregatedCHO">
-                <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input"
-                                  outputPath="/edm:RDF/ore:Aggregation/edm:aggregatedCHO/@rdf:resource">
+                <attr tag="rdf:resource" uriCheck="true">
+                    <node-mapping inputPath="/input">
                         <groovy-code>
                             <string>&quot;${baseUrl}/resource/document/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
@@ -350,9 +351,8 @@
         </elem>
 
         <elem tag="edm:ProvidedCHO">
-            <attr tag="rdf:about">
-                <node-mapping inputPath="/input"
-                              outputPath="/edm:RDF/ore:Aggregation/edm:aggregatedCHO/edm:ProvidedCHO/@rdf:about">
+            <attr tag="rdf:about" uriCheck="true">
+                <node-mapping inputPath="/input">
                     <groovy-code>
                         <string>&quot;${baseUrl}/resource/document/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                     </groovy-code>
@@ -502,8 +502,8 @@
         </elem>
 
         <elem tag="nave:BrabantCloudResource">
-            <attr tag="rdf:about">
-                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:BrabantCloud/@rdf:about">
+            <attr tag="rdf:about" uriCheck="true">
+                <node-mapping inputPath="/input">
                     <groovy-code>
                         <string>&quot;${baseUrl}/resource/brabantcloud/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                     </groovy-code>
@@ -511,9 +511,8 @@
             </attr>
             <!-- tib -->
             <elem tag="ore:isAggregatedBy">
-                <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input"
-                                  outputPath="/edm:RDF/edm:BrabantCloud/ore:isAggregatedBy/@rdf:about">
+                <attr tag="rdf:resource" uriCheck="true">
+                    <node-mapping inputPath="/input">
                         <groovy-code>
                             <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
@@ -524,16 +523,16 @@
             <elem tag="nave:citOldId"/>
             <elem tag="nave:collection"/>
             <elem tag="nave:collectionPart"/>
-            <elem tag="nave:color" function="lowercase" fieldType="string"/>
-            <elem tag="nave:colorHex" function="lowercase" fieldType="string"/>
+            <elem tag="nave:color" function="lowercase"/>
+            <elem tag="nave:colorHex" function="lowercase"/>
             <elem tag="nave:creatorBirthYear"/>
             <elem tag="nave:creatorDeathYear"/>
             <elem tag="nave:creatorRole" function="lowercase"/>
             <elem tag="nave:date"/>
-            <elem tag="nave:design" function="lowercase" fieldType="string"/>
+            <elem tag="nave:design" function="lowercase"/>
             <elem tag="nave:dimension"/>
             <elem tag="nave:event"/>
-            <elem tag="nave:exhibition" function="lowercase" fieldType="string"/>
+            <elem tag="nave:exhibition" function="lowercase"/>
             <elem tag="nave:formatted"/>
             <elem tag="nave:location"/>
             <elem tag="nave:material" function="lowercase"/>
@@ -545,30 +544,29 @@
             <elem tag="nave:person"/>
             <elem tag="nave:place"/>
             <elem tag="nave:productionEnd"/>
-            <elem tag="nave:productionPeriod" fieldType="string"/>
+            <elem tag="nave:productionPeriod"/>
             <elem tag="nave:productionStart"/>
             <elem tag="nave:region"/>
-            <elem tag="nave:subjectDepicted" function="lowercase" fieldType="string"/>
-            <elem tag="nave:technique" function="lowercase" fieldType="string"/>
+            <elem tag="nave:subjectDepicted" function="lowercase"/>
+            <elem tag="nave:technique" function="lowercase"/>
             <elem tag="nave:theme"/>
-            <elem tag="nave:thumbLarge" fieldType="link" function="largeThumbnail"/>
-            <elem tag="nave:thumbSmall" fieldType="link" function="smallThumbnail"/>
+            <elem tag="nave:thumbLarge" function="largeThumbnail" uriCheck="true"/>
+            <elem tag="nave:thumbSmall" function="smallThumbnail" uriCheck="true"/>
             <elem tag="nave:vindplaats"/>
             <elem tag="nave:year"/>
         </elem>
 
         <elem tag="nave:DimconResource">
-            <attr tag="rdf:about">
-                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:DimconResource/@rdf:about">
+            <attr tag="rdf:about" uriCheck="true">
+                <node-mapping inputPath="/input">
                     <groovy-code>
                         <string>&quot;${baseUrl}/resource/dimcon/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
-                <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input"
-                                  outputPath="/edm:RDF/nave:DimconResource/ore:isAggregatedBy/@rdf:about">
+                <attr tag="rdf:resource" uriCheck="true">
+                    <node-mapping inputPath="/input">
                         <groovy-code>
                             <string>&quot;${baseUrl}/resource/dimcon/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
@@ -588,22 +586,21 @@
 
             <elem tag="nave:musipCollectionUri"/>
             <elem tag="nave:musipCollectionDisplayName" hidden="true"/>
-            <elem tag="nave:musipMuseumUri"/>
+            <elem tag="nave:musipMuseumUri" uriCheck="true"/>
             <elem tag="nave:musipMuseumDisplayName" hidden="true"/>
         </elem>
 
         <elem tag="nave:Museometrie">
-            <attr tag="rdf:about">
-                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:Museometrie/@rdf:about">
+            <attr tag="rdf:about" uriCheck="true">
+                <node-mapping inputPath="/input">
                     <groovy-code>
                         <string>&quot;${baseUrl}/resource/museometrie/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
-                <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input"
-                                  outputPath="/edm:RDF/nave:Museometrie/ore:isAggregatedBy/@rdf:about">
+                <attr tag="rdf:resource" uriCheck="true">
+                    <node-mapping inputPath="/input">
                         <groovy-code>
                             <string>&quot;${baseUrl}/resource/museometrie/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
@@ -619,17 +616,16 @@
         </elem>
 
         <elem tag="nave:RijksCollection">
-            <attr tag="rdf:about">
-                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:RijksCollection/@rdf:about">
+            <attr tag="rdf:about" uriCheck="true">
+                <node-mapping inputPath="/input">
                     <groovy-code>
                         <string>&quot;${baseUrl}/resource/rijkscollection/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
-                <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input"
-                                  outputPath="/edm:RDF/nave:RijksCollection/ore:isAggregatedBy/@rdf:about">
+                <attr tag="rdf:resource" uriCheck="true">
+                    <node-mapping inputPath="/input">
                         <groovy-code>
                             <string>&quot;${baseUrl}/resource/rijkscollection/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
@@ -640,24 +636,23 @@
              
             <elem tag="nave:acceptedStateChargesReason"/>
             <!-- subproperty of skos:prefLabel-->
-            <elem tag="nave:rijksCollection" fieldType="string"/>
+            <elem tag="nave:rijksCollection"/>
             <elem tag="nave:expulsionMeans"/>
              <elem tag="nave:expulsionYear"/> 
             <elem tag="nave:legalStatus"/> 
         </elem>
 
         <elem tag="nave:NorvegianaResource">
-            <attr tag="rdf:about">
-                <node-mapping inputPath="/input" outputPath="/edm:RDF/nave:DimconResource/@rdf:about">
+            <attr tag="rdf:about" uriCheck="true">
+                <node-mapping inputPath="/input">
                     <groovy-code>
                         <string>&quot;${baseUrl}/resource/norvegiana/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
-                <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input"
-                                  outputPath="/edm:RDF/nave:DimconResource/ore:isAggregatedBy/@rdf:about">
+                <attr tag="rdf:resource" uriCheck="true">
+                    <node-mapping inputPath="/input">
                         <groovy-code>
                             <string>&quot;${baseUrl}/resource/norvegiana/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
@@ -688,7 +683,7 @@
             <elem tag="nave:polygon_utm"/>
             <elem tag="nave:polygon_latLong"/>
             <!-- 59.907116,10.682953 -->
-            <elem tag="nave:latLong" fieldType="geohash" function="convertToLATLONG"/>
+            <elem tag="nave:latLong" function="convertToLATLONG"/>
 
             <elem tag="nave:type"/>
             <!-- knet, knreise, all -->
@@ -696,26 +691,25 @@
             <elem tag="nave:collectionType"/>
             <elem tag="nave:category"/>
 
-            <elem tag="nave:creatorUri" fieldType="string"/>
-            <elem tag="nave:videoUri" fieldType="string"/>
-            <elem tag="nave:soundUri" fieldType="string"/>
-            <elem tag="nave:imageUri" fieldType="string"/>
-            <elem tag="nave:textUri" fieldType="string"/>
+            <elem tag="nave:creatorUri" uriCheck="true"/>
+            <elem tag="nave:videoUri" uriCheck="true"/>
+            <elem tag="nave:soundUri" uriCheck="true"/>
+            <elem tag="nave:imageUri" uriCheck="true"/>
+            <elem tag="nave:textUri" uriCheck="true"/>
         </elem>
 
 
         <elem tag="nave:DelvingResource">
-            <attr tag="rdf:about">
-                <node-mapping inputPath="/input" outputPath="/edm:RDF/delving:DelvingResource/@rdf:about">
+            <attr tag="rdf:about" uriCheck="true">
+                <node-mapping inputPath="/input">
                     <groovy-code>
                         <string>&quot;${baseUrl}/resource/delving/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                     </groovy-code>
                 </node-mapping>
             </attr>
             <elem tag="ore:isAggregatedBy">
-                <attr tag="rdf:resource">
-                    <node-mapping inputPath="/input"
-                                  outputPath="/edm:RDF/edm:DelvingResource/ore:isAggregatedBy/@rdf:about">
+                <attr tag="rdf:resource" uriCheck="true">
+                    <node-mapping inputPath="/input">
                         <groovy-code>
                             <string>&quot;${baseUrl}/resource/aggregation/${spec}/${_uniqueIdentifier.sanitizeURI()}&quot;</string>
                         </groovy-code>
@@ -723,9 +717,9 @@
                 </attr>
             </elem>
             <elem tag="nave:year"/> 
-            <elem tag="nave:thumbnail" fieldType="link" function="smallThumbnail"/>
-             <elem tag="nave:deepZoomUrl" fieldType="link" function="deepZoomUrl"/> 
-            <elem tag="nave:fullTextObjectUrl" fieldType="link"/> 
+            <elem tag="nave:thumbnail" function="smallThumbnail" uriCheck="true"/>
+             <elem tag="nave:deepZoomUrl" function="deepZoomUrl" uriCheck="true"/> 
+            <elem tag="nave:fullTextObjectUrl" uriCheck="true"/> 
             <elem tag="nave:fullText"/>
              
             <elem tag="delving:geohash"/>
@@ -767,37 +761,8 @@
         </opt-list>
     </opts>
 
-    <field-markers>
-
-        <!--<field-marker name="CREATOR" path="/RDF/dc:creator"/>-->
-        <!--<field-marker name="delving:title" path="/RDF/edm:ProvidedCHO/dc:title"/>-->
-        <!--<field-marker name="DESCRIPTION" path="/RDF/dc:description"/>-->
-        <!--<field-marker name="OWNER" path="/RDF/europeana:dataProvider"/>-->
-        <!--<field-marker name="PROVIDER" path="/RDF/europeana:provider"/>-->
-        <!--<field-marker name="LANDING_PAGE" path="/RDF/europeana:isShownAt"/>-->
-        <!--<field-marker name="THUMBNAIL" path="/RDF/europeana:object"/>-->
-        <!--<field-marker name="GEOHASH" path="/RDF/abm:geo"/>-->
-        <!--<field-marker name="ADDRESS" path="/RDF/abm:address"/>-->
-
-        <!--&lt;!&ndash; todo: these should have paths, currently they are checked for presence but not resolved&ndash;&gt;-->
-        <!--<field-marker name="SPEC"/>-->
-        <!--<field-marker name="DEEP_ZOOM_URL"/>-->
-
-        <!--<field-marker type="search" name="SNIPPET" path="/RDF/dc:subject"/>-->
-        <!--<field-marker type="search" name="SNIPPET" path="/RDF/dcterms:alternative"/>-->
-        <!--<field-marker type="search" name="SNIPPET" path="/RDF/europeana:collectionTitle"/>-->
-
-        <!--<field-marker type="fact" name="spec" path="/RDF/europeana:collectionName"/>-->
-        <!--<field-marker type="fact" name="name" path="/RDF/europeana:collectionTitle"/>-->
-        <!--<field-marker type="fact" name="country" path="/RDF/europeana:country"/>-->
-        <!--<field-marker type="fact" name="dataProvider" path="/RDF/europeana:dataProvider"/>-->
-        <!--<field-marker type="fact" name="language" path="/RDF/europeana:language"/>-->
-        <!--<field-marker type="fact" name="provider" path="/RDF/europeana:provider"/>-->
-        <!--<field-marker type="fact" name="rights" path="/RDF/europeana:rights"/>-->
-        <!--<field-marker type="fact" name="type" path="/RDF/europeana:type"/>-->
-
-    </field-markers>
-
+    <!--not used, but older versions check for it-->
+    <field-markers/>
 
     <docs>
         <doc path="/RDF/edm:ProvidedCHO">
