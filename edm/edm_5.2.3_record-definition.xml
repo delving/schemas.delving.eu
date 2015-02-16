@@ -305,6 +305,15 @@
                 <string>&quot;${spec}/${it}&quot;</string>
             </groovy-code>
         </mapping-function>
+        <mapping-function name="createImageRedirect">
+            <sample-input>
+                <string>http://afrikamuseum.cithosting.nl/imageproxy.asp?server=62.221.199.184&amp;port=12842&amp;filename=afrika/screen/100-1.jpg</string>
+            </sample-input>
+            <groovy-code>
+                <string>resource = java.net.URLEncoder.encode(it)</string>
+                <string>&quot;${baseUrl}/resolve/${resource}&quot;</string>
+            </groovy-code>
+        </mapping-function>
     </functions>
 
     <attrs>
