@@ -634,8 +634,7 @@
             <elem tag="nave:thumbnail" function="smallThumbnail" uriCheck="true"/>
              <elem tag="nave:deepZoomUrl" function="deepZoomUrl" uriCheck="true"/> 
             <elem tag="nave:fullTextObjectUrl" uriCheck="true"/> 
-            <elem tag="nave:fullText"/>
-             
+            <elem tag="nave:fullText"/> 
             <elem tag="delving:geohash"/>
         </elem>
     </root>
