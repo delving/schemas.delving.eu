@@ -545,7 +545,7 @@
             <elem tag="nave:year"/>
         </elem>
 
-        <elem tag="nave:DimconResource">
+        <elem tag="nave:DcnResource">
             <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:creatorYearOfBirth"/>
             <elem tag="nave:creatorYearOfDeath"/>

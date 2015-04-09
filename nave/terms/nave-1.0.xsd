@@ -175,7 +175,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="DimconResource">
+    <xs:element name="DcnResource">
         <xs:complexType>
             <xs:annotation>
                 <xs:documentation>ResourceType contains Dimcon elements.</xs:documentation>
