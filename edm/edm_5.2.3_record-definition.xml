@@ -368,7 +368,7 @@
             </attr>
             <elem tag="dc:contributor" attrs="rdf:resource,xml:lang"/>
             <elem tag="dc:coverage" attrs="rdf:resource,xml:lang"/>
-            <elem tag="dc:creator" attrs="xml:lang"/>
+            <elem tag="dc:creator" attrs="rdf:resource,xml:lang"/>
             <elem tag="dc:date" attrs="rdf:resource,xml:lang"/>
             <elem tag="dc:description" attrs="rdf:resource,xml:lang"/>
             <elem tag="dc:format" attrs="rdf:resource,xml:lang"/>
@@ -402,7 +402,7 @@
             <elem tag="dcterms:replaces" attrs="rdf:resource,xml:lang"/>
             <elem tag="dcterms:requires" attrs="rdf:resource,xml:lang"/>
             <elem tag="dcterms:spatial" attrs="rdf:resource,xml:lang"/>
-            <elem tag="dcterms:tableOfContents" attrs="xml:lang"/>
+            <elem tag="dcterms:tableOfContents" attrs="rdf:resource,xml:lang"/>
             <elem tag="dcterms:temporal" attrs="rdf:resource,xml:lang"/>
             <elem tag="edm:type"/>
             <elem tag="edm:unstored"/>
@@ -421,7 +421,7 @@
         </elem>
 
         <elem tag="edm:WebResource" attrs="rdf:about">
-            <elem tag="dc:description" attrs="rdf:resource"/>
+            <elem tag="dc:description" attrs="rdf:resource,xml:lang"/>
             <elem tag="dc:format" attrs="rdf:resource"/>
             <elem tag="dc:rights" attrs="rdf:resource"/>
             <elem tag="dc:source" attrs="rdf:resource"/>
@@ -443,10 +443,10 @@
             <elem tag="skos:prefLabel" attrs="xml:lang"/>
             <elem tag="skos:altLabel" attrs="xml:lang"/>
             <elem tag="skos:altLabel" attrs="xml:lang"/>
-            <elem tag="skos:note"/>
+            <elem tag="skos:note" attrs="xml:lang"/>
             <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
             <elem tag="owl:sameAs" attrs="rdf:resource"/>
-            <elem tag="foaf:name"/>
+            <elem tag="foaf:name" attrs="xml:lang"/>
             <elem tag="dc:date" attrs="rdf:resource"/>
             <elem tag="dc:identifier" attrs="rdf:resource"/>
             <elem tag="rdaGr2:dateOfBirth"/>
@@ -550,9 +550,9 @@
             <elem tag="nave:creatorYearOfBirth"/>
             <elem tag="nave:creatorYearOfDeath"/>
             <elem tag="nave:creatorRole"/>
-            <elem tag="nave:technique"/>
-            <elem tag="nave:material"/>
-            <elem tag="nave:location"/>
+            <elem tag="nave:technique" attrs="xml:lang"/>
+            <elem tag="nave:material" attrs="xml:lang"/>
+            <elem tag="nave:location" attrs="xml:lang"/>
             <elem tag="nave:province"/>
             <elem tag="nave:collectionPart"/>
             <elem tag="nave:collectionType"/>
@@ -561,7 +561,7 @@
             <elem tag="nave:musipCollectionUri"/>
             <elem tag="nave:musipCollectionDisplayName" hidden="true"/>
             <elem tag="nave:musipMuseumUri" uriCheck="true"/>
-            <elem tag="nave:musipMuseumDisplayName" hidden="true"/>
+            <elem tag="nave:musipMuseumDisplayName" attrs="xml:lang" hidden="true"/>
         </elem>
 
         <elem tag="nave:Museometrie">
@@ -577,7 +577,6 @@
         <elem tag="nave:RijksCollection">
             <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:acceptedStateCharges"/>
-             
             <elem tag="nave:acceptedStateChargesReason"/>
             <!-- subproperty of skos:prefLabel-->
             <elem tag="nave:rijksCollection"/>
