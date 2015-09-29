@@ -107,6 +107,7 @@
             <extension base="edm:BaseProvidedCHOType">
                 <sequence>
                     <element ref="owl:sameAs" maxOccurs="unbounded" minOccurs="0"/>
+                    <!--<element ref="edm:unstored" maxOccurs="unbounded" minOccurs="0"/>-->
                 </sequence>
             </extension>
         </complexContent>

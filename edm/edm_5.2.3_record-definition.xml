@@ -10,6 +10,8 @@
                    schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/RDF.xsd"/>
         <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"
                    schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/OWL.xsd"/>
+        <namespace prefix="ebucore" uri="urn:ebu:metadata-schema:ebuCore_2014"
+                   schema="http://www.ebu.ch/metadata/schemas/EBUCore/20140318/EBU_CORE_20140318.xsd"/>
         <namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/"
                    schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/EDM-EXTERNAL-MAIN.xsd"/>
         <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/"
@@ -18,8 +20,7 @@
                    schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/SKOS.xsd"/>
         <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/"
                    schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/FOAF.xsd"/>
-        <namespace prefix="rdaGr2" uri="http://RDVocab.info/ElementsGr2/"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/RDAGR2.xsd"/>
+        <namespace prefix="rdaGr2" uri="http://rdvocab.info/ElementsGr2/"/>
         <namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#"
                    schema="https://raw.githubusercontent.com/europeana/corelib/master/corelib-solr-definitions/src/main/resources/eu/WGS84.xsd"/>
         <namespace prefix="nave" uri="http://schemas.delving.eu/nave/terms/" schema="nave-1.0.xsd"/>
@@ -349,8 +350,10 @@
             <elem tag="edm:dataProvider" attrs="rdf:resource"/>
             <elem tag="edm:hasView" attrs="rdf:resource"/>
             <elem tag="edm:isShownAt" attrs="rdf:resource"/>
+            <elem tag="edm:landingPage" attrs="rdf:resource"/>
             <elem tag="edm:isShownBy" attrs="rdf:resource"/>
             <elem tag="edm:object" attrs="rdf:resource"/>
+            <elem tag="edm:preview" attrs="rdf:resource"/>
             <elem tag="edm:provider" attrs="rdf:resource"/>
             <elem tag="dc:rights" attrs="rdf:resource"/>
             <elem tag="edm:rights" attrs="rdf:resource"/>
@@ -421,43 +424,78 @@
         </elem>
 
         <elem tag="edm:WebResource" attrs="rdf:about">
+            <elem tag="dc:creator" attrs="rdf:resource,xml:lang"/>
             <elem tag="dc:description" attrs="rdf:resource,xml:lang"/>
             <elem tag="dc:format" attrs="rdf:resource"/>
             <elem tag="dc:rights" attrs="rdf:resource"/>
             <elem tag="dc:source" attrs="rdf:resource"/>
-            <elem tag="dcterms:extent" attrs="rdf:resource"/>
-            <elem tag="dcterms:issued"/>
-            <elem tag="dcterms:created" attrs="rdf:resource"/>
             <elem tag="dcterms:conformsTo" attrs="rdf:resource"/>
-            <elem tag="dcterms:isFormatOf" attrs="rdf:resource"/>
-            <elem tag="edm:rights" attrs="rdf:resource"/>
+            <elem tag="dcterms:created" attrs="rdf:resource"/>
+            <elem tag="dcterms:extent" attrs="rdf:resource"/>
             <elem tag="dcterms:hasPart" attrs="rdf:resource"/>
+            <elem tag="dcterms:isFormatOf" attrs="rdf:resource"/>
+            <elem tag="dcterms:isPartOf" attrs="rdf:resource"/>
+            <elem tag="dcterms:issued"/>
             <elem tag="edm:isNextInSequence" attrs="rdf:resource"/>
+            <elem tag="edm:rights" attrs="rdf:resource"/>
+            <elem tag="owl:sameAs" attrs="rdf:resource"/>
+            <elem tag="edm:codeName" />
+            <elem tag="ebucore:hasMimeType" />
+            <elem tag="ebucore:fileByteSize" />
+            <elem tag="ebucore:duration" />
+            <elem tag="ebucore:width" />
+            <elem tag="ebucore:height" />
+            <elem tag="edm:spatialResolution" />
+            <elem tag="ebucore:SampleSize" />
+            <elem tag="ebucore:SampleRate" />
+            <elem tag="ebucore:bitRate" />
+            <elem tag="ebucore:frameRate" />
+            <elem tag="edm:hasColorSpace" />
+            <elem tag="edm:componentColor" />
+            <elem tag="ebucore:orientation" />
+            <elem tag="ebucore:audiochannelNumber" />
         </elem>
 
         <elem tag="edm:Agent" attrs="rdf:about">
-            <elem tag="edm:wasPresentAt" attrs="rdf:resource"/>
-            <elem tag="edm:hasMet" attrs="rdf:resource"/>
-            <elem tag="edm:isRelatedTo" attrs="rdf:resource"/>
-            <elem tag="edm:isRelatedTo" attrs="rdf:resource"/>
             <elem tag="skos:prefLabel" attrs="xml:lang"/>
             <elem tag="skos:altLabel" attrs="xml:lang"/>
-            <elem tag="skos:altLabel" attrs="xml:lang"/>
-            <elem tag="skos:note" attrs="xml:lang"/>
             <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
-            <elem tag="owl:sameAs" attrs="rdf:resource"/>
-            <elem tag="foaf:name" attrs="xml:lang"/>
+            <elem tag="skos:note" attrs="xml:lang"/>
             <elem tag="dc:date" attrs="rdf:resource"/>
+            <elem tag="dcterms:hasPart" attrs="rdf:resource"/>
             <elem tag="dc:identifier" attrs="rdf:resource"/>
+            <elem tag="dcterms:isPartOf" attrs="rdf:resource"/>
+            <elem tag="edm:begin"/>
+            <elem tag="edm:end"/>
+            <elem tag="edm:hasMet" attrs="rdf:resource"/>
+            <elem tag="edm:isRelatedTo" attrs="rdf:resource"/>
+            <elem tag="edm:wasPresentAt" attrs="rdf:resource"/>
+            <elem tag="foaf:name" attrs="xml:lang"/>
+            <elem tag="rdaGr2:biographicalInformation" attrs="rdf:resource,xml:lang"/>
             <elem tag="rdaGr2:dateOfBirth"/>
             <elem tag="rdaGr2:dateOfDeath"/>
             <elem tag="rdaGr2:dateOfEstablishment"/>
             <elem tag="rdaGr2:dateOfTermination"/>
-            <elem tag="rdaGr2:gender"/>
-            <elem tag="rdaGr2:professionOrOccupation" attrs="rdf:resource"/>
-            <elem tag="rdaGr2:biographicalInformation" attrs="rdf:resource"/>
-            <elem tag="edm:begin"/>
-            <elem tag="edm:end"/>
+            <elem tag="rdaGr2:gender" attrs="xml:lang"/>
+            <elem tag="rdaGr2:placeOfBirth" attrs="rdf:resource"/>
+            <elem tag="rdaGr2:placeOfDeath" attrs="rdf:resource"/>
+            <elem tag="rdaGr2:professionOrOccupation" attrs="rdf:resource,xml:lang"/>
+            <elem tag="owl:sameAs" attrs="rdf:resource"/>
+        </elem>
+
+        <elem tag="edm:Organisation" attrs="rdf:about">
+            <elem tag="dc:identifier" attrs="rdf:resource"/>
+            <elem tag="skos:prefLabel" attrs="xml:lang"/>
+            <elem tag="skos:altLabel" attrs="xml:lang"/>
+            <elem tag="edm:acronym" attrs="xml:lang"/>
+            <elem tag="edm:organisationScope" attrs="rdf:resource,xml:lang"/>
+            <elem tag="edm:organisationDomain" attrs="rdf:resource,xml:lang"/>
+            <elem tag="edm:organisationSector" attrs="rdf:resource,xml:lang"/>
+            <elem tag="edm:geograhpicLevel" attrs="rdf:resource,xml:lang"/>
+            <elem tag="edm:country" attrs="rdf:resource,xml:lang"/>
+            <elem tag="edm:europeanaRole" attrs="rdf:resource,xml:lang"/>
+            <elem tag="foaf:homepage" attrs="rdf:resource,xml:lang"/>
+
         </elem>
 
         <elem tag="edm:Place" attrs="rdf:about">
@@ -465,44 +503,51 @@
             <elem tag="wgs84_pos:long"/>
             <elem tag="wgs84_pos:alt"/>
             <elem tag="wgs84_pos:lat_long"/>
+            <!--todo: ? add polygon-->
             <elem tag="skos:prefLabel" attrs="xml:lang"/>
             <elem tag="skos:altLabel" attrs="xml:lang"/>
+            <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
             <elem tag="skos:note" attrs="xml:lang"/>
-            <elem tag="skos:hiddenLabel"/>
             <elem tag="dcterms:hasPart" attrs="rdf:resource"/>
             <elem tag="dcterms:isPartOf" attrs="rdf:resource"/>
+            <elem tag="edm:isNextInSequence" attrs="rdf:resource"/>
             <elem tag="owl:sameAs" attrs="rdf:resource"/>
         </elem>
 
         <elem tag="edm:TimeSpan" attrs="rdf:about">
             <elem tag="skos:prefLabel" attrs="xml:lang"/>
             <elem tag="skos:altLabel" attrs="xml:lang"/>
+            <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
             <elem tag="skos:note" attrs="xml:lang"/>
             <elem tag="dcterms:hasPart" attrs="rdf:resource"/>
             <elem tag="dcterms:isPartOf" attrs="rdf:resource"/>
-            <elem tag="owl:sameAs" attrs="rdf:resource"/>
-            <elem tag="crm:P79F.beginning_is_qualified_by"/>
-            <elem tag="crm:P80F.end_is_qualified_by"/>
             <elem tag="edm:begin"/>
             <elem tag="edm:end"/>
+            <elem tag="edm:isNextInSequence" attrs="rdf:resource"/>
+            <elem tag="crm:P79F.beginning_is_qualified_by"/>
+            <elem tag="crm:P80F.end_is_qualified_by"/>
+            <elem tag="owl:sameAs" attrs="rdf:resource"/>
         </elem>
+
+
 
         <elem tag="skos:Concept" attrs="rdf:about">
             <elem tag="skos:prefLabel" attrs="xml:lang"/>
             <elem tag="skos:altLabel" attrs="xml:lang"/>
+            <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
             <elem tag="skos:broader" attrs="rdf:resource"/>
             <elem tag="skos:narrower" attrs="rdf:resource"/>
             <elem tag="skos:related" attrs="rdf:resource"/>
-            <elem tag="skos:note" attrs="xml:lang"/>
-            <elem tag="skos:hiddenLabel" attrs="xml:lang"/>
             <elem tag="skos:broadMatch" attrs="rdf:resource"/>
             <elem tag="skos:narrowMatch" attrs="rdf:resource"/>
             <elem tag="skos:relatedMatch" attrs="rdf:resource"/>
             <elem tag="skos:exactMatch" attrs="rdf:resource"/>
             <elem tag="skos:closeMatch" attrs="rdf:resource"/>
+            <elem tag="skos:note" attrs="xml:lang"/>
             <elem tag="skos:notation" attribute="rdf:datatype"/>
-            <!--string (+ rdf:datatype attribute)-->
             <elem tag="skos:inScheme" attrs="rdf:resource"/>
+
+            <!--string (+ rdf:datatype attribute)-->
         </elem>
 
         <elem tag="nave:BrabantCloudResource">
@@ -510,120 +555,120 @@
             <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:citName"/>
             <elem tag="nave:citOldId"/>
-            <elem tag="nave:collection"/>
-            <elem tag="nave:collectionPart"/>
+            <elem tag="nave:collection" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:collectionPart" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:color" function="lowercase"/>
             <elem tag="nave:colorHex" function="lowercase"/>
-            <elem tag="nave:creatorBirthYear"/>
-            <elem tag="nave:creatorDeathYear"/>
+            <elem tag="nave:creatorBirthYear" attrs="xml:lang"/>
+            <elem tag="nave:creatorDeathYear" attrs="xml:lang"/>
             <elem tag="nave:creatorRole" function="lowercase"/>
             <elem tag="nave:date"/>
             <elem tag="nave:design" function="lowercase"/>
             <elem tag="nave:dimension"/>
-            <elem tag="nave:event"/>
+            <elem tag="nave:event" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:exhibition" function="lowercase"/>
             <elem tag="nave:formatted"/>
-            <elem tag="nave:location"/>
+            <elem tag="nave:location" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:material" function="lowercase"/>
             <elem tag="nave:objectNumber"/>
             <elem tag="nave:objectSoort" function="lowercase"/>
             <elem tag="nave:pageEnd"/>
             <elem tag="nave:pageStart"/>
             <elem tag="nave:pages"/>
-            <elem tag="nave:person"/>
-            <elem tag="nave:place"/>
+            <elem tag="nave:person" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:place" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:productionEnd"/>
             <elem tag="nave:productionPeriod"/>
             <elem tag="nave:productionStart"/>
-            <elem tag="nave:region"/>
-            <elem tag="nave:subjectDepicted" function="lowercase"/>
-            <elem tag="nave:technique" function="lowercase"/>
+            <elem tag="nave:region" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:subjectDepicted" attrs="rdf:resource,xml:lang" function="lowercase"/>
+            <elem tag="nave:technique" attrs="rdf:resource,xml:lang" function="lowercase"/>
             <elem tag="nave:theme"/>
             <elem tag="nave:thumbLarge" function="largeThumbnail" uriCheck="true"/>
             <elem tag="nave:thumbSmall" function="smallThumbnail" uriCheck="true"/>
-            <elem tag="nave:vindplaats"/>
+            <elem tag="nave:vindplaats" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:year"/>
         </elem>
 
         <elem tag="nave:DcnResource">
             <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
-            <elem tag="nave:creatorYearOfBirth"/>
-            <elem tag="nave:creatorYearOfDeath"/>
-            <elem tag="nave:creatorRole"/>
-            <elem tag="nave:technique" attrs="xml:lang"/>
-            <elem tag="nave:material" attrs="xml:lang"/>
-            <elem tag="nave:location" attrs="xml:lang"/>
-            <elem tag="nave:province"/>
-            <elem tag="nave:collectionPart"/>
-            <elem tag="nave:collectionType"/>
+            <elem tag="nave:creatorYearOfBirth" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:creatorYearOfDeath" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:creatorRole" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:technique" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:material" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:location" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:province" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:collectionPart" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:collectionType" attrs="rdf:resource,xml:lang"/>
 
 
-            <elem tag="nave:musipCollectionUri"/>
+            <elem tag="nave:musipCollectionUri" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:musipCollectionDisplayName" hidden="true"/>
-            <elem tag="nave:musipMuseumUri" uriCheck="true"/>
+            <elem tag="nave:musipMuseumUri" attrs="rdf:resource,xml:lang" uriCheck="true"/>
             <elem tag="nave:musipMuseumDisplayName" attrs="xml:lang" hidden="true"/>
         </elem>
 
         <elem tag="nave:Museometrie">
             <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
-            <elem tag="nave:currentLocation"/>
-            <elem tag="nave:acquisitionYear"/>
-            <elem tag="nave:acquiredWithHelpFrom"/>
-            <elem tag="nave:physicalState"/>
+            <elem tag="nave:currentLocation" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:acquisitionYear" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:acquiredWithHelpFrom" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:physicalState" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:purchasePrice"/>
-            <elem tag="nave:acquisitionMeans"/>
+            <elem tag="nave:acquisitionMeans" attrs="rdf:resource,xml:lang"/>
         </elem>
 
         <elem tag="nave:RijksCollection">
             <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
-            <elem tag="nave:acceptedStateCharges"/>
-            <elem tag="nave:acceptedStateChargesReason"/>
+            <elem tag="nave:acceptedStateCharges" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:acceptedStateChargesReason" attrs="rdf:resource,xml:lang"/>
             <!-- subproperty of skos:prefLabel-->
-            <elem tag="nave:rijksCollection"/>
-            <elem tag="nave:expulsionMeans"/>
-             <elem tag="nave:expulsionYear"/> 
-            <elem tag="nave:legalStatus"/> 
+            <elem tag="nave:rijksCollection" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:expulsionMeans" attrs="rdf:resource,xml:lang"/>
+             <elem tag="nave:expulsionYear" attrs="rdf:resource,xml:lang"/> 
+            <elem tag="nave:legalStatus" attrs="rdf:resource,xml:lang"/> 
         </elem>
 
         <elem tag="nave:NorvegianaResource">
             <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
-            <elem tag="nave:municipality"/>
-            <elem tag="nave:municipalityNr"/>
-            <elem tag="nave:aboutPerson"/>
-            <elem tag="nave:county"/>
-            <elem tag="nave:countyNr"/>
-            <elem tag="nave:country"/>
-            <elem tag="nave:namedPlace"/>
-            <elem tag="nave:estateName"/>
-            <elem tag="nave:estateNr"/>
-            <elem tag="nave:propertyName"/>
-            <elem tag="nave:propertyNr"/>
+            <elem tag="nave:municipality" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:municipalityNr" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:aboutPerson" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:county" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:countyNr" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:country" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:namedPlace" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:estateName" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:estateNr" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:propertyName" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:propertyNr" attrs="rdf:resource,xml:lang"/>
             <!--required="true"-->
-            <elem tag="nave:contentProvider"/>
-            <elem tag="nave:address"/>
-            <elem tag="nave:digitised"/>
-            <elem tag="nave:introduction"/>
-            <elem tag="nave:classification"/>
+            <elem tag="nave:contentProvider" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:address" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:digitised" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:introduction" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:classification" attrs="rdf:resource,xml:lang"/>
             <!-- This is the full utm33 string 32 V 258644.154187 6648939.72091
           SRID=32633;POINT(148013,6964590)
           -->
-            <elem tag="nave:utm" function="convertToUTM"/>
-            <elem tag="nave:polygon_utm"/>
-            <elem tag="nave:polygon_latLong"/>
+            <elem tag="nave:utm" function="convertToUTM" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:polygon_utm" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:polygon_latLong" attrs="rdf:resource,xml:lang"/>
             <!-- 59.907116,10.682953 -->
-            <elem tag="nave:latLong" function="convertToLATLONG"/>
+            <elem tag="nave:latLong" function="convertToLATLONG" attrs="rdf:resource,xml:lang"/>
 
-            <elem tag="nave:type"/>
+            <elem tag="nave:type" attrs="rdf:resource,xml:lang"/>
             <!-- knet, knreise, all -->
             <!--required="true"-->
-            <elem tag="nave:collectionType"/>
-            <elem tag="nave:category"/>
+            <elem tag="nave:collectionType" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:category" attrs="rdf:resource,xml:lang"/>
 
-            <elem tag="nave:creatorUri" uriCheck="true"/>
-            <elem tag="nave:videoUri" uriCheck="true"/>
-            <elem tag="nave:soundUri" uriCheck="true"/>
-            <elem tag="nave:imageUri" uriCheck="true"/>
-            <elem tag="nave:textUri" uriCheck="true"/>
+            <elem tag="nave:creatorUri" uriCheck="true" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:videoUri" uriCheck="true" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:soundUri" uriCheck="true" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:imageUri" uriCheck="true" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:textUri" uriCheck="true" attrs="rdf:resource,xml:lang"/>
         </elem>
 
 
