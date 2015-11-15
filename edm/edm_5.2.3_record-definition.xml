@@ -3,26 +3,28 @@
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/DC.xsd"/>
+                   schema="http://www.europeana.eu/schemas/edm/DC.xsd"/>
         <namespace prefix="dcterms" uri="http://purl.org/dc/terms/"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/DCTERMS.xsd"/>
+                   schema="http://www.europeana.eu/schemas/edm/DCTERMS.xsd"/>
         <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/RDF.xsd"/>
+                   schema="http://www.europeana.eu/schemas/edm/OWL.xsd"/>
         <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/OWL.xsd"/>
+                   schema="http://www.europeana.eu/schemas/edm/OWL.xsd"/>
         <namespace prefix="ebucore" uri="urn:ebu:metadata-schema:ebuCore_2014"
                    schema="http://www.ebu.ch/metadata/schemas/EBUCore/20140318/EBU_CORE_20140318.xsd"/>
         <namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/EDM-EXTERNAL-MAIN.xsd"/>
+                   schema="http://www.europeana.eu/schemas/edm/EDM-COMMON-MAIN.xsd"/>
         <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/"
-                   schema="http://schemas.delving.eu/xsd/external/ORE.xsd"/>/>
+                   schema="http://www.europeana.eu/schemas/edm/ORE.xsd"/>/>
         <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/SKOS.xsd"/>
+                   schema="http://www.europeana.eu/schemas/edm/SKOS.xsd"/>
         <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/blob/master/corelib-solr-definitions/src/main/resources/eu/FOAF.xsd"/>
+                   schema="http://www.europeana.eu/schemas/edm/FOAF.xsd"/>
         <namespace prefix="rdaGr2" uri="http://rdvocab.info/ElementsGr2/"/>
         <namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#"
-                   schema="https://raw.githubusercontent.com/europeana/corelib/master/corelib-solr-definitions/src/main/resources/eu/WGS84.xsd"/>
+                   schema="http://www.europeana.eu/schemas/edm/WGS84.xsd"/>
+        <namespace prefix="cc" uri="https://creativecommons.org/ns#"
+                   schema="http://www.europeana.eu/schemas/edm/CC.xsd"/>
         <namespace prefix="nave" uri="http://schemas.delving.eu/nave/terms/" schema="nave-1.0.xsd"/>
     </namespaces>
 
@@ -398,7 +400,6 @@
             <elem tag="dcterms:isRequiredBy" attrs="rdf:resource,xml:lang"/>
             <elem tag="dcterms:issued" attrs="rdf:resource,xml:lang"/>
             <elem tag="dcterms:isVersionOf" attrs="rdf:resource,xml:lang"/>
-            <!--literal or REL??-->
             <elem tag="dcterms:medium" attrs="rdf:resource,xml:lang"/>
             <elem tag="dcterms:provenance" attrs="rdf:resource,xml:lang"/>
             <elem tag="dcterms:references" attrs="rdf:resource,xml:lang"/>
@@ -552,7 +553,6 @@
 
         <elem tag="nave:BrabantCloudResource">
             <!-- tib -->
-            <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:citName"/>
             <elem tag="nave:citOldId"/>
             <elem tag="nave:collection" attrs="rdf:resource,xml:lang"/>
@@ -591,7 +591,6 @@
         </elem>
 
         <elem tag="nave:DcnResource">
-            <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:creatorYearOfBirth" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:creatorYearOfDeath" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:creatorRole" attrs="rdf:resource,xml:lang"/>
@@ -610,7 +609,6 @@
         </elem>
 
         <elem tag="nave:Museometrie">
-            <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:currentLocation" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:acquisitionYear" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:acquiredWithHelpFrom" attrs="rdf:resource,xml:lang"/>
@@ -620,7 +618,6 @@
         </elem>
 
         <elem tag="nave:RijksCollection">
-            <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:acceptedStateCharges" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:acceptedStateChargesReason" attrs="rdf:resource,xml:lang"/>
             <!-- subproperty of skos:prefLabel-->
@@ -631,7 +628,6 @@
         </elem>
 
         <elem tag="nave:NorvegianaResource">
-            <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:municipality" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:municipalityNr" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:aboutPerson" attrs="rdf:resource,xml:lang"/>
@@ -673,7 +669,6 @@
 
 
         <elem tag="nave:DelvingResource">
-            <elem tag="ore:isAggregatedBy" attrs="rdf:resource"/>
             <elem tag="nave:year"/> 
             <elem tag="nave:thumbnail" function="smallThumbnail" uriCheck="true"/>
              <elem tag="nave:deepZoomUrl" function="deepZoomUrl" uriCheck="true"/> 

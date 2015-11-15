@@ -14,8 +14,6 @@
                    schema="http://www.ebu.ch/metadata/schemas/EBUCore/20140318/EBU_CORE_20140318.xsd"/>
         <namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/"
                    schema="http://www.europeana.eu/schemas/edm/EDM-COMMON-MAIN.xsd"/>
-        <!--<namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/"-->
-                   <!--schema="http://schemas.delving.eu/xsd/external/ORE.xsd"/>/>-->
         <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/"
                    schema="http://www.europeana.eu/schemas/edm/ORE.xsd"/>/>
         <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"
