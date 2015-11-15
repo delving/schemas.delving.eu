@@ -218,6 +218,13 @@
                 <file name="record-definition.xml" hash=""/>
                 <file name="validation.xsd" hash=""/>
             </version>
+            <version number="5.2.6">
+                <author>Thomas Wikman</author>
+                <message>Updated to 2.5.6</message>
+                <date>2015-11-15</date>
+                <file name="record-definition.xml" hash=""/>
+                <file name="validation.xsd" hash=""/>
+            </version>
     </schema>
     <schema prefix="itin">
         <version number="1.0.0">
