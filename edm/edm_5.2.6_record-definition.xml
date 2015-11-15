@@ -3,30 +3,57 @@
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"
-                   schema="http://www.europeana.eu/schemas/edm/DC.xsd"/>
+                   />
         <namespace prefix="dcterms" uri="http://purl.org/dc/terms/"
-                   schema="http://www.europeana.eu/schemas/edm/DCTERMS.xsd"/>
+                   />
         <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                   schema="http://www.europeana.eu/schemas/edm/OWL.xsd"/>
+                   />
         <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"
-                   schema="http://www.europeana.eu/schemas/edm/OWL.xsd"/>
+                   />
         <namespace prefix="ebucore" uri="urn:ebu:metadata-schema:ebuCore_2014"
-                   schema="http://www.ebu.ch/metadata/schemas/EBUCore/20140318/EBU_CORE_20140318.xsd"/>
+                   />
         <namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/"
-                   schema="http://www.europeana.eu/schemas/edm/EDM-COMMON-MAIN.xsd"/>
+                   />
         <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/"
-                   schema="http://www.europeana.eu/schemas/edm/ORE.xsd"/>/>
+                   />
         <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"
-                   schema="http://www.europeana.eu/schemas/edm/SKOS.xsd"/>
+                   />
         <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/"
-                   schema="http://www.europeana.eu/schemas/edm/FOAF.xsd"/>
+                   />
         <namespace prefix="rdaGr2" uri="http://rdvocab.info/ElementsGr2/"/>
         <namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#"
-                   schema="http://www.europeana.eu/schemas/edm/WGS84.xsd"/>
+                   />
         <namespace prefix="cc" uri="https://creativecommons.org/ns#"
-                   schema="http://www.europeana.eu/schemas/edm/CC.xsd"/>
-        <namespace prefix="nave" uri="http://schemas.delving.eu/nave/terms/" schema="nave-1.0.xsd"/>
+                   />
+        <namespace prefix="nave" uri="http://schemas.delving.eu/nave/terms/"/>
     </namespaces>
+
+    <!--<namespaces>-->
+        <!--<namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/DC.xsd"/>-->
+        <!--<namespace prefix="dcterms" uri="http://purl.org/dc/terms/"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/DCTERMS.xsd"/>-->
+        <!--<namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/OWL.xsd"/>-->
+        <!--<namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/OWL.xsd"/>-->
+        <!--<namespace prefix="ebucore" uri="urn:ebu:metadata-schema:ebuCore_2014"-->
+                   <!--schema="http://www.ebu.ch/metadata/schemas/EBUCore/20140318/EBU_CORE_20140318.xsd"/>-->
+        <!--<namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/EDM-COMMON-MAIN.xsd"/>-->
+        <!--<namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/ORE.xsd"/>-->
+        <!--<namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/SKOS.xsd"/>-->
+        <!--<namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/FOAF.xsd"/>-->
+        <!--<namespace prefix="rdaGr2" uri="http://rdvocab.info/ElementsGr2/"/>-->
+        <!--<namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/WGS84.xsd"/>-->
+        <!--<namespace prefix="cc" uri="https://creativecommons.org/ns#"-->
+                   <!--schema="http://www.europeana.eu/schemas/edm/CC.xsd"/>-->
+        <!--<namespace prefix="nave" uri="http://schemas.delving.eu/nave/terms/" schema="nave-1.0.xsd"/>-->
+    <!--</namespaces>-->
 
     <functions>
         <mapping-function name="convertToUTM">
@@ -762,6 +789,7 @@
 
 
         <doc path="/RDF/ore:Aggregation">
+            <para name="Label">Aggregation</para>
             <para name="Definition">The set of resources related to a single cultural heritage object that collectively
                 represents that object in Europeana. Such set consists of: all descriptions about the object that
                 Europeana collects from (possibly different) content providers, including thumbnails and other forms of
@@ -914,6 +942,7 @@
         <!--  ProvidedCHO-->
 
         <doc path="/RDF/edm:ProvidedCHO">
+            <para name="Label">ProvidedCHO</para>
             <para name="Definition">
                This class comprises the Cultural Heritage objects that Europeana collects descriptions about.
             </para>
@@ -929,6 +958,7 @@
 
         <doc path="/RDF/edm:ProvidedCHO/dc:contributor">
 
+             <para name="Label">Contributor</para>
             <para name="Missing">Missing</para>
 
         </doc>
@@ -1386,7 +1416,7 @@
         </doc>
         <doc path="/RDF/edm:ProvidedCHO/edm:hasMet">
             <para name="URI">http://www.europeana.eu/schemas/edm/hasMet </para>
-            <para name="Label">Has Met </para>
+            <para name="Label">Has Met</para>
             <para name="Definition">edm:hasMet relates a resource with the objects or phenomena that have happened to or have happened together with the resource under consideration. We can abstractly think of history and the present as a series of “meetings” between people and other things in space-time. Therefore we name this relationship as the things the object “has met” in the course of its existence. These meetings are events in the proper sense, in which other people and things participate in any role. </para>
             <para name="Subproperty of">dc:relation </para>
             <para name="Obligation and Occurrence">A resource may have met 0 to many resources. Conversely, a resource may be met by 0 to many resources. </para>
@@ -1517,7 +1547,7 @@
 
         <doc path="/RDF/edm:WebResource">
             <para name="URI">http://www.europeana.eu/schemas/edm/WebResource </para>
-            <para name="Label">Web Resource </para>
+            <para name="Label">Web Resource</para>
             <para name="Definition">Information Resources that have at least one Web Representation and at least a URI. </para>
             <para name="Subclass of">edm:InformationResource </para>
             <para name="Example">A Web Resource containing a description of Mona Lisa </para>
@@ -1576,6 +1606,7 @@
             <para name="Cardinality">0….n</para>
         </doc>
         <doc path="/RDF/edm:WebResource/owl:sameAs">
+            <para name="Label">Same As </para>
             <para name="Note"><![CDATA[Provide the URI of another web representation of the same resource.   <owl:sameAs rdf:resource=”urn:soundcloud:150424305]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
@@ -1709,6 +1740,7 @@
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/edm:ProvidedCHO/owl:sameAs">
+            <para name="Label">Same As</para>
             <para name="Note"><![CDATA[ Use to point to your own (linked data) representation of the object, if you have already minted a URI identifier for it.  It is also possible to provide URIs minted by third-parties for the object.5 <owl:sameAs rdf:resource=“http://www.identifier/SameResourceElsewhere”]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
@@ -1756,26 +1788,31 @@
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/edm:Agent/skos:prefLabel">
+            <para name="Label">Preferred Label</para>
             <para name="Note"><![CDATA[The preferred form of the name of the agent. Although the maximum number of occurences is set at 1, it can be interpreted as 1 per language tag. <skos:prefLabel xml:lang="fr">Courtois neveu aîné</skos:prefLabel> <skos:prefLabel xml:lang="en">Courtois’eldest nephew</skos:prefLabel>]]> </para>
             <para name="Value type">literal</para>
             <para name="Cardinality"> 0…1</para>
         </doc>
         <doc path="/RDF/edm:Agent/skos:altLabel">
+            <para name="Label">Alternative Label</para>
             <para name="Note"><![CDATA[Alternative forms of the name of the agent. <skos:altLabel xml:lang="en">Courtois</skos:altLabel> <skos:altLabel xml:lang="fr">Augte. Courtois aîné</skos:altLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/edm:Agent/skos:note">
+            <para name="Label">Note</para>
             <para name="Note"><![CDATA[A note about the agent e.g. biographical notes. <skos:note> Courtois neveu aîné started a company of the same name manufacturing brass instruments  in Paris in 1803</skos:note> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/edm:Agent/owl:sameAs">
+            <para name="Label">Same As</para>
             <para name="Note"><![CDATA[Another URI of the same agent. <owl:sameAs rdf:resource=“http://www.identifier/sameResourceElsewhere”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….0</para>
         </doc>
         <doc path="/RDF/edm:Agent/foaf:name">
+            <para name="Label">Name</para>
             <para name="Note"><![CDATA[The name of the agent as a simple textual string. <foaf:name>Auguste Courtois</foaf:name> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
@@ -1829,46 +1866,55 @@
             <para name="Cardinality">0….n</para>
         </doc>
         <doc path="/RDF/edm:Agent/rdaGr2:dateOfBirth">
+            <para name="Label">Date of Birth</para>
             <para name="Note"><![CDATA[The date the agent (person) was born.  <rdaGr2:dateOfBirth>1795</rdaGr2:dateOfBirth>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
         <doc path="/RDF/edm:Agent/rdaGr2:dateOfDeath">
+            <para name="Label">Date of Death</para>
             <para name="Note"><![CDATA[The date the agent (person) died. <rdaGr2:dateOfDeath>1895</rdaGr2:dateOfDeath>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
         <doc path="/RDF/edm:Agent/rdaGr2:dateOfEstablishment">
+            <para name="Label">Date of Establishment</para>
             <para name="Note"><![CDATA[The date on which the agent (corporate body) was established or founded. <rdaGr2:dateOfEstablishment>1795</rdaGr2:dateOfEstablishment> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1 </para>
         </doc>
         <doc path="/RDF/edm:Agent/rdaGr2:dateOfTermination">
+            <para name="Label">Date of Termination</para>
             <para name="Note"><![CDATA[The date on which the agent (corporate body) was terminated or dissolved. <rdaGr2:dateOfTermination>1895</rdaGr2:dateOfTermination> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
         <doc path="/RDF/edm:Agent/rdaGr2:gender">
+            <para name="Label">Gender</para>
             <para name="Note"><![CDATA[The gender with which the agent identifies. <rdaGr2:gender>Female</rdaGr2:gender>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1 </para>
         </doc>
         <doc path="/RDF/edm:Agent/rdaGr2:placeOfBirth">
+            <para name="Label">Place of Birth</para>
             <para name="Note"><![CDATA[The town, city, province, state, and/or country in which a person was born. <rdaGr2:placeOfBirth>Lusaka, Northern Rhodesia</rdaGr2:placeOfBirth> <rdaGr2:placeOfBirth rdf:resource=”http://sws.geonames.org/909137/”/> ]]></para>
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….1 </para>
         </doc>
         <doc path="/RDF/edm:Agent/dcterms:rdaGr2:placeOfDeath">
+            <para name="Label">Place of Death</para>
             <para name="Note"><![CDATA[The town, city, province, state, and/or country in which a person died. <rdaGr2:placeOfDeath>London, United Kingdom</rdaGr2:placeOfDeath> <rdaGr2:placeOfDeath rdf:resource=“http://sws.geonames.org/2635167/”/> ]]></para>
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….1 </para>
         </doc>
         <doc path="/RDF/edm:Agent/rdaGr2:professionOrOccupation">
+            <para name="Label">Profession or Occupation</para>
             <para name="Note"><![CDATA[The profession or occupation in which the agent works or has worked. <rdaGr2:professionOrOccupation>Instrument Maker</rdaGr2:professionOrOccupation> ]]></para>
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
         <doc path="/RDF/edm:Agent/rdaGr2:biographicalInformation">
+            <para name="Label">Bibliographical Information</para>
             <para name="Note"><![CDATA[Information pertaining to the life or history of the agent. <rdaGr2:biographicalInformation>Courtois neveu aîné started a company of the same name manufacturing brass instruments  in Paris in 1803</rdaGr2:biographicalInformation>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
@@ -1907,34 +1953,41 @@
 
         <!-- edm:Place -->
         <doc path="/RDF/edm:Place">
+            <para name="Label">Place</para>
             <para name="Note">A spatial location identified by the provider and named according to some vocabulary or local convention.</para>
         </doc>
         <doc path="/RDF/edm:Place/wgs84_pos:lat">
+            <para name="Label">Latitude</para>
             <para name="Note"><![CDATA[The latitude of a spatial thing (decimal degrees). <wgs84_pos:lat>51.5075</wgs84_pos:lat>]]></para>
             <para name="Value type">Floating point</para>
             <para name="Cardinality">0….1 </para>
         </doc>
         <doc path="/RDF/edm:Place/wgs84_pos:long">
+            <para name="Label">Longitude</para>
             <para name="Note"><![CDATA[The longitude of a spatial thing (decimal degrees) <wgs84_pos:long>-0.1231</wgs84_pos:long>]]></para>
             <para name="Value type">Floating point</para>
             <para name="Cardinality">0….1 </para>
         </doc>
         <doc path="/RDF/edm:Place/wgs84_pos:alt">
+            <para name="Label">Altitude</para>
             <para name="Note"><![CDATA[The altitude of a spatial thing (decimal metres above the reference) <wgs84_pos:alt>21</wgs84_pos:alt> ]]></para>
             <para name="Value type">Floating point</para>
             <para name="Cardinality">0….1 </para>
         </doc>
         <doc path="/RDF/edm:Place/skos:prefLabel">
+            <para name="Label">Preferred Label</para>
             <para name="Note"><![CDATA[The preferred form of the name of the place.  Maximum is 1 per language tag.   <skos:prefLabel xml:lang="en">London</skos:prefLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1 </para>
         </doc>
         <doc path="/RDF/edm:Place/skos:altLabel">
+            <para name="Label">Alternative Label</para>
             <para name="Note"><![CDATA[Alternative forms of the name of the place. <skos:altLabel xml:lang="en">Greater London</skos:altLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
         <doc path="/RDF/edm:Place/skos:note">
+            <para name="Label">Note</para>
             <para name="Note"><![CDATA[Information relating to the place. <skos:note xml:lang="en">Pop. 21m</skos:note> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
@@ -1977,6 +2030,7 @@
 
         </doc>
         <doc path="/RDF/edm:Place/owl:sameAs">
+            <para name="Label">Same As</para>
             <para name="Note"><![CDATA[URI of a Place <owl:sameAs rdf:resource=“http://sws.geonames.org/2635167/”/>(London) ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
@@ -1986,20 +2040,24 @@
 
         <!-- edm:TimeSpan -->
         <doc path="/RDF/edm:TimeSpan">
+            <para name="Label">Time Span</para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
         <doc path="/RDF/edm:TimeSpan/skos:prefLabel">
+            <para name="Label">Preferred Label</para>
             <para name="Note"><![CDATA[The preferred form of the name of the timespan or period.  Although the maximum number of occurrences is set at 1, it can be interpreted as 1 per language tag. <skos:prefLabel xml:lang=“en”>Roman Empire</skos:prefLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
         <doc path="/RDF/edm:TimeSpan/skos:altLabel">
+            <para name="Label">Alternative Label</para>
             <para name="Note"><![CDATA[Alternative forms of the name of the timespan or period. <skos:altLabel xml:lang=“fr”>Empire romain (27 avant J.-C.-476 après J.-C.)</skos:altLabel > ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
         <doc path="/RDF/edm:TimeSpan/skos:note">
+            <para name="Label">Note</para>
             <para name="Note"><![CDATA[Information relating to the timespan or period. <skos:note>The Roman Empire (Latin: Imperium Romanum) was the post-Republican period of the ancient Roman civilization, characterised by an autocratic form of government and large territorial holdings around the Mediterranean in Europe, Africa, and Asia.</skos:note> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
@@ -2050,6 +2108,7 @@
 
 
         <doc path="/RDF/edm:TimeSpan/crm:P79F.beginning_is_qualified_by">
+            <para name="Label">Beginning is Qualified By </para>
             <para name="Note">Qualifying information about the start of the timespan – such as degree of certainty,
                 precision, source etc
             </para>
@@ -2058,6 +2117,7 @@
         </doc>
 
         <doc path="/RDF/edm:TimeSpan/crm:P80F.end_is_qualified_by">
+            <para name="Label">End is Qualified By </para>
             <para name="Note">Qualifying information about the end of the timespan – such as degree of certainty,
                 precision, source etc
             </para>
@@ -2099,72 +2159,86 @@
 
         <!-- skos:Concept -->
         <doc path="/RDF/skos:Concept">
+            <para name="Label">Concept</para>
             <para name="Note">A unit of thought or meaning that comes from an organised knowledge base (such as subject terms from a thesaurus or controlled vocabulary) where URIs or local identifiers have been created to represent each concept.  In the cultural heritage world there are many such controlled vocabularies such as the Library of Congress Subject Headings or AAT</para>
 
 
 
         </doc>
         <doc path="/RDF/skos:Concept/skos:prefLabel">
+            <para name="Label">Preferred Label</para>
             <para name="Note"><![CDATA[The preferred form of the name of the concept.  Maximum instance is 1 per language tag. <skos:prefLabel xml:lang="fr">Buccin</skos:prefLabel>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:altLabel">
+            <para name="Label">Alternative Label</para>
             <para name="Note"><![CDATA[Alternative forms of the name of the concept. <skos:altLabel xml:lang="en">Buccin</skos:altLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:broader">
+            <para name="Label">Broader</para>
             <para name="Note"><![CDATA[The identifier of a broader concept in the same thesaurus or controlled vocabulary. <skos:broader rdf:resource=“http://www.mimo-db.eu/InstrumentsKeywords/4369_1”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:narrower">
+            <para name="Label">Narrower</para>
             <para name="Note"><![CDATA[The identifier of a narrower concept. <skos:narrower rdf:resource=“http://narrower.term/”/>]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:related">
+            <para name="Label">Related</para>
             <para name="Note"><![CDATA[The identifier of a related concept <skos:related rdf:resource=“http://related.term/”/  ]]></para>
             <para name="Value type"></para>
             <para name="Cardinality"></para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:note">
+            <para name="Label">Note</para>
             <para name="Note"><![CDATA[Information relating to the concept. <skos:note>The buccin is a visually distinctive trombone popularized in military bands in France between 1810–1845 which subsequently faded into obscurity.</skos:note> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:broadMatch">
+            <para name="Label">Broad Match</para>
             <para name="Note"><![CDATA[The identifier of a broader, narrower or related matching concepts from other concept schemes. <skos:broadMatch rdf:resource=“http://broadMatch.term/”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:narrowMatch">
+            <para name="Label">Narrow Match</para>
             <para name="Note"><![CDATA[The identifier of a broader, narrower or related matching concepts from other concept schemes. <skos:narrowMatch rdf:resource=“http://narrowMatch.term/”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:relatedMatch">
+            <para name="Label">Related Match</para>
             <para name="Note"><![CDATA[The identifier of a broader, narrower or related matching concepts from other concept schemes. <skos:relatedMatch rdf:resource=“http://relatedMatch.term/”/>   ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:exactMatch">
+            <para name="Label">Exact Match</para>
             <para name="Note"><![CDATA[The identifier of close or exactly matching concepts from other concept schemes. <skos:exactMatch rdf:resource=“http://exactMatch.term/”/>  ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:closeMatch">
+            <para name="Label">Close Match</para>
             <para name="Note"><![CDATA[The identifier of close or exactly matching concepts from other concept schemes. <skos:closeMatch rdf:resource=“http://closeMatch.term/”/>    ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:notation">
+            <para name="Label">Notation</para>
             <para name="Note"><![CDATA[The notation in which the concept is represented.  This may not be words in natural language for some knowledge organisation systems e.g. algebra <skos:notation rdf:datatype=“http://www.w3.org/2001/XMLSchema#int”>123</skos:notation> ]]></para>
             <para name="Value type">string (+ rdf: datatype attribute) </para>
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/skos:Concept/skos:inScheme">
+            <para name="Label">In Scheme</para>
             <para name="Note"><![CDATA[The URI of a concept scheme ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
