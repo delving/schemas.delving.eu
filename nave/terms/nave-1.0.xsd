@@ -12,8 +12,8 @@
                schemaLocation="http://www.europeana.eu/schemas/edm/RDF.xsd"/>
     <!--<xs:import namespace="http://www.openarchives.org/ore/terms/"-->
                <!--schemaLocation="http://schemas.delving.eu/xsd/external/ORE.xsd"/>-->
-    <xs:import namespace="http://www.openarchives.org/ore/terms/"
-               schemaLocation="http://www.europeana.eu/schemas/edm/ORE.xsd"/>
+    <!--<xs:import namespace="http://www.openarchives.org/ore/terms/"-->
+               <!--schemaLocation="http://www.europeana.eu/schemas/edm/ORE.xsd"/>-->
 
     <xs:import namespace="http://www.w3.org/XML/1998/namespace"
                schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
@@ -115,7 +115,6 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
-                    <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
                     <xs:element ref="citName" minOccurs="0" maxOccurs="1"/>
                     <xs:element ref="citOldId" minOccurs="0" maxOccurs="1"/>
                     <!-- change to minOccurs 1-->
@@ -165,7 +164,6 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
-                    <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
                     <xs:element ref="deepZoomUrl" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="fullText" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="fullTextObjectUrl" minOccurs="0" maxOccurs="unbounded"/>
@@ -184,7 +182,6 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
-                    <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
                     <xs:element ref="collectionPart" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="collectionType" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="creatorRole" minOccurs="0" maxOccurs="unbounded"/>
@@ -207,7 +204,6 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
-                    <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
                     <xs:element ref="acquiredWithHelpFrom" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="acquisitionMeans" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="acquisitionYear" minOccurs="0" maxOccurs="unbounded"/>
@@ -226,7 +222,6 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
-                    <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
                     <xs:element ref="aboutPerson" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="address" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="category" minOccurs="0" maxOccurs="unbounded"/>
@@ -269,7 +264,6 @@
             </xs:annotation>
                 <xs:sequence minOccurs="0" maxOccurs="unbounded">
                     <xs:choice>
-                        <xs:element ref="ore:isAggregatedBy" minOccurs="1" maxOccurs="1"/>
                         <xs:element ref="acceptedStateCharges" minOccurs="0" maxOccurs="1"/>
                         <xs:element ref="acceptedStateChargesReason" minOccurs="0" maxOccurs="unbounded"/>
                         <xs:element ref="expulsionMeans" minOccurs="0" maxOccurs="1"/>
