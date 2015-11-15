@@ -567,6 +567,7 @@
         <!--</elem>-->
 
         <elem tag="nave:BrabantCloudResource">
+            <elem tag="nave:excludedFromEuropeana"/>
             <!-- tib -->
             <elem tag="nave:citName"/>
             <elem tag="nave:citOldId"/>
@@ -641,6 +642,7 @@
         </elem>
 
         <elem tag="nave:NorvegianaResource">
+            <elem tag="nave:excludedFromEuropeana"/>
             <elem tag="nave:municipality" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:municipalityNr" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:aboutPerson" attrs="rdf:resource,xml:lang"/>

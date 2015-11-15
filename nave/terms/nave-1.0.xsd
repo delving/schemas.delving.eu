@@ -106,6 +106,7 @@
     <xs:element name="videoUri" type="xs:anyURI"/>
     <xs:element name="vindplaats" type="xs:string"/>
     <xs:element name="year" type="xs:string"/>
+    <xs:element name="excludedFromEuropeana" type="xs:boolean"/>
 
 
     <xs:element name="BrabantCloudResource">
@@ -115,6 +116,7 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
+                    <xs:element ref="excludedFromEuropeana" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="citName" minOccurs="0" maxOccurs="1"/>
                     <xs:element ref="citOldId" minOccurs="0" maxOccurs="1"/>
                     <!-- change to minOccurs 1-->
@@ -222,6 +224,7 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
+                    <xs:element ref="excludedFromEuropeana" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="aboutPerson" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="address" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="category" minOccurs="0" maxOccurs="unbounded"/>
