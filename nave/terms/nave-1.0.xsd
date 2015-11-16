@@ -116,7 +116,6 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
-                    <xs:element ref="excludedFromEuropeana" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="citName" minOccurs="0" maxOccurs="1"/>
                     <xs:element ref="citOldId" minOccurs="0" maxOccurs="1"/>
                     <!-- change to minOccurs 1-->
@@ -166,6 +165,7 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
+                    <xs:element ref="excludedFromEuropeana" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="deepZoomUrl" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="fullText" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="fullTextObjectUrl" minOccurs="0" maxOccurs="unbounded"/>
@@ -224,7 +224,6 @@
             </xs:annotation>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
-                    <xs:element ref="excludedFromEuropeana" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="aboutPerson" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="address" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="category" minOccurs="0" maxOccurs="unbounded"/>

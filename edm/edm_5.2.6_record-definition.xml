@@ -594,7 +594,6 @@
         <!--</elem>-->
 
         <elem tag="nave:BrabantCloudResource">
-            <elem tag="nave:excludedFromEuropeana"/>
             <!-- tib -->
             <elem tag="nave:citName"/>
             <elem tag="nave:citOldId"/>
@@ -669,7 +668,6 @@
         </elem>
 
         <elem tag="nave:NorvegianaResource">
-            <elem tag="nave:excludedFromEuropeana"/>
             <elem tag="nave:municipality" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:municipalityNr" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:aboutPerson" attrs="rdf:resource,xml:lang"/>
@@ -710,6 +708,7 @@
         </elem>
 
         <elem tag="nave:DelvingResource">
+            <elem tag="nave:excludedFromEuropeana"/>
             <elem tag="nave:year"/> 
             <elem tag="nave:thumbnail" function="smallThumbnail" uriCheck="true"/>
              <elem tag="nave:deepZoomUrl" function="deepZoomUrl" uriCheck="true"/> 
@@ -2087,6 +2086,7 @@
             <para name="Cardinality">0….n </para>
         </doc>
         <doc path="/RDF/edm:TimeSpan/owl:sameAs">
+            <para name="Label">Same As</para>
             <para name="Note"><![CDATA[The URI of a timespan <owl:sameAs rdf:resource=“http://semium.org/time/roman_empire”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
