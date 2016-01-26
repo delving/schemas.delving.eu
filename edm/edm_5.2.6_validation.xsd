@@ -32,7 +32,7 @@
     <import namespace="http://www.openarchives.org/ore/terms/"
             schemaLocation="http://www.europeana.eu/schemas/edm/ORE.xsd"/>
     <import namespace="http://creativecommons.org/ns#"
-            schemaLocation="http://www.europeana.eu/schemas/edm/CC.xsd"/>
+            schemaLocation="https://raw.githubusercontent.com/europeana/corelib/6a2a893002475aba29930f42e6db25016d47530d/corelib-edm-definitions/src/main/resources/eu/CC.xsd"/>
     <import namespace="http://schemas.delving.eu/nave/terms/"
             schemaLocation="http://schemas.delving.eu/nave/terms/nave-1.0.xsd"/>
 
