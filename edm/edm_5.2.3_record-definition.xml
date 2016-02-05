@@ -23,8 +23,8 @@
         <namespace prefix="rdaGr2" uri="http://rdvocab.info/ElementsGr2/"/>
         <namespace prefix="wgs84_pos" uri="http://www.w3.org/2003/01/geo/wgs84_pos#"
                    schema="http://www.europeana.eu/schemas/edm/WGS84.xsd"/>
-        <namespace prefix="cc" uri="https://creativecommons.org/ns#"
-                   schema="http://www.europeana.eu/schemas/edm/CC.xsd"/>
+        <!--<namespace prefix="cc" uri="https://creativecommons.org/ns#"-->
+                   <!--schema="http://raw.githubusercontent.com/europeana/corelib/6a2a893002475aba29930f42e6db25016d47530d/corelib-edm-definitions/src/main/resources/eu/CC.xsd"/>-->
         <namespace prefix="nave" uri="http://schemas.delving.eu/nave/terms/" schema="nave-1.0.xsd"/>
     </namespaces>
 

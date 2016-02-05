@@ -18,7 +18,6 @@
         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
         xmlns:ore="http://www.openarchives.org/ore/terms/"
         xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-        xmlns:cc="http://creativecommons.org/ns#"
         xmlns:nave="http://schemas.delving.eu/nave/terms/"
         targetNamespace="http://www.europeana.eu/schemas/edm/"
         elementFormDefault="qualified">
@@ -31,8 +30,6 @@
             schemaLocation="http://www.europeana.eu/schemas/edm/OWL.xsd"/>
     <import namespace="http://www.openarchives.org/ore/terms/"
             schemaLocation="http://www.europeana.eu/schemas/edm/ORE.xsd"/>
-    <import namespace="http://creativecommons.org/ns#"
-            schemaLocation="https://raw.githubusercontent.com/europeana/corelib/6a2a893002475aba29930f42e6db25016d47530d/corelib-edm-definitions/src/main/resources/eu/CC.xsd"/>
     <import namespace="http://schemas.delving.eu/nave/terms/"
             schemaLocation="http://schemas.delving.eu/nave/terms/nave-1.0.xsd"/>
 
@@ -67,7 +64,6 @@
                 <element name="TimeSpan" type="edm:TimeSpanType"/>
                 <element ref="skos:Concept"/>
                 <element ref="ore:Aggregation"/>
-                <element ref="cc:License"/>
                 <element ref="nave:DelvingResource"/>
                 <element ref="nave:BrabantCloudResource"/>
                 <element ref="nave:DcnResource"/>
@@ -108,7 +104,6 @@
             </annotation>
             <extension base="edm:BaseProvidedCHOType">
                 <sequence>
-                    <element ref="edm:type" maxOccurs="1" minOccurs="1"/>
                     <element ref="owl:sameAs" maxOccurs="unbounded" minOccurs="0"/>
                 </sequence>
             </extension>
