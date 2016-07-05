@@ -25,6 +25,9 @@
     <xs:element name="acquisitionMeans" type="xs:string"/>
     <xs:element name="acquisitionYear" type="xs:string"/>
     <xs:element name="address" type="xs:string"/>
+    <xs:element name="allowDeepZoom" type="xs:string"/>
+    <xs:element name="allowLinkedOpenData" type="xs:string"/>
+    <xs:element name="allowSourceDownload" type="xs:string"/>
     <xs:element name="category" type="xs:string"/>
     <xs:element name="citName" type="xs:string"/>
     <xs:element name="citOldId" type="xs:string"/>
@@ -58,6 +61,7 @@
     <xs:element name="exhibition" type="xs:string"/>
     <xs:element name="expulsionMeans" type="xs:string"/>
     <xs:element name="expulsionYear" type="xs:string"/>
+    <xs:element name="featured" type="xs:string"/>
     <xs:element name="formatted" type="xs:string"/>
     <xs:element name="fullText" type="xs:string"/>
     <xs:element name="fullTextObjectUrl" type="xs:anyURI"/>
@@ -66,6 +70,7 @@
     <xs:element name="introduction" type="xs:string"/>
     <xs:element name="language" type="xs:string"/>
     <xs:element name="latLong" type="xs:string"/>
+    <xs:element name="linkedObjectNumber" type="xs:string"/>
     <xs:element name="legalStatus" type="xs:string"/>
     <xs:element name="location" type="xs:string"/>
     <xs:element name="material" type="xs:string"/>
@@ -74,6 +79,9 @@
     <xs:element name="namedPlace" type="xs:string"/>
     <xs:element name="objectNumber" type="xs:string"/>
     <xs:element name="objectSoort" type="xs:string"/>
+    <xs:element name="objectType" type="xs:string"/>
+    <xs:element name="originalSourceName" type="xs:string"/>
+    <xs:element name="originalSourcePath" type="xs:string"/>
     <xs:element name="pageEnd" type="xs:string"/>
     <xs:element name="pageStart" type="xs:string"/>
     <xs:element name="pages" type="xs:string"/>
@@ -88,8 +96,10 @@
     <xs:element name="propertyName" type="xs:string"/>
     <xs:element name="propertyNr" type="xs:string"/>
     <xs:element name="province" type="xs:string"/>
+    <xs:element name="public" type="xs:string"/>
     <xs:element name="purchasePrice" type="xs:string"/>
     <xs:element name="region" type="xs:string"/>
+    <xs:element name="religion" type="xs:string"/>
     <xs:element name="rijksCollection" type="xs:string"/>
     <xs:element name="soundUri" type="xs:anyURI"/>
     <xs:element name="source" type="xs:string"/>
@@ -172,6 +182,19 @@
                     <xs:element ref="imageUrl" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="thumbnail" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="year" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="objectNumber" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="objectType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="collection" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="collectionPart" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="collectionType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="dimension" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="technique" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="material" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="featured" minOccurs="1" maxOccurs="1"/>
+                    <xs:element ref="allowDeepZoom" minOccurs="1" maxOccurs="1"/>
+                    <xs:element ref="allowLinkedOpenData" minOccurs="1" maxOccurs="1"/>
+                    <xs:element ref="allowSourceDownload" minOccurs="1" maxOccurs="1"/>
+                    <xs:element ref="public" minOccurs="1" maxOccurs="1"/>
                 </xs:choice>
             </xs:sequence>
         </xs:complexType>

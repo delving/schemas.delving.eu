@@ -378,7 +378,7 @@
             <elem tag="edm:dataProvider" attrs="rdf:resource"/>
             <elem tag="edm:hasView" attrs="rdf:resource"/> <!-- ref only -->
             <elem tag="edm:isShownAt" attrs="rdf:resource"/> <!-- ref only -->
-            <elem tag="edm:isShownBy" attrs="rdf:resource"/> <!-- ref only -->
+            <elem tag="edm:isShownBy" attrs="rdf:resource" /> <!-- ref only -->
             <elem tag="edm:object" attrs="rdf:resource"/> <!-- ref only -->
             <elem tag="edm:provider" attrs="rdf:resource"/>
             <elem tag="dc:rights" attrs="rdf:resource"/>
@@ -517,6 +517,7 @@
             <elem tag="rdaGr2:placeOfBirth" attrs="rdf:resource"/>
             <elem tag="rdaGr2:placeOfDeath" attrs="rdf:resource"/>
             <elem tag="rdaGr2:professionOrOccupation" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:religion" attrs="rdf:resource,xml:lang"/>
             <elem tag="owl:sameAs" attrs="rdf:resource"/>  <!-- ref only -->
         </elem>
 
@@ -715,6 +716,49 @@
             <elem tag="nave:fullTextObjectUrl" uriCheck="true"/> 
             <elem tag="nave:fullText"/> 
             <elem tag="delving:geohash"/>
+            <elem tag="nave:objectNumber"/>
+            <elem tag="nave:objectType" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:collection" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:collectionPart" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:collectionType" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:dimension"/>
+            <elem tag="nave:technique" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:material" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:featured"> <!-- boolean -->
+                <node-mapping inputPath="/constant" >
+                    <groovy-code>
+                        <string>false</string>
+                    </groovy-code>
+                </node-mapping>
+            </elem>
+            <elem tag="nave:allowDeepZoom"> <!-- boolean -->
+                <node-mapping inputPath="/constant">
+                    <groovy-code>
+                        <string>true</string>
+                    </groovy-code>
+                </node-mapping>
+            </elem>
+            <elem tag="nave:allowLinkedOpenData"> <!-- boolean -->
+                <node-mapping inputPath="/constant">
+                    <groovy-code>
+                        <string>true</string>
+                    </groovy-code>
+                </node-mapping>
+            </elem>
+            <elem tag="nave:allowSourceDownload">    <!-- boolean -->
+                <node-mapping inputPath="/constant">
+                    <groovy-code>
+                        <string>false</string>
+                    </groovy-code>
+                </node-mapping>
+            </elem>
+            <elem tag="nave:public"> <!-- boolean -->
+                <node-mapping inputPath="/constant">
+                    <groovy-code>
+                        <string>true</string>
+                    </groovy-code>
+                </node-mapping>
+            </elem>
         </elem>
     </root>
 
