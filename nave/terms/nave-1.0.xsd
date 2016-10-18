@@ -19,18 +19,24 @@
                schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
 
     <xs:element name="aboutPerson" type="xs:string"/>
+    <xs:element name="agentType" type="xs:string"/>
+    <xs:element name="allowDeepZoom" type="xs:boolean"/>
+    <xs:element name="allowLinkedOpenData" type="xs:boolean"/>
+    <xs:element name="allowSourceDownload" type="xs:boolean"/>
+    <xs:element name="allowPublicWebView" type="xs:boolean"/>
     <xs:element name="acceptedStateCharges" type="xs:string"/>
     <xs:element name="acceptedStateChargesReason" type="xs:string"/>
     <xs:element name="acquiredWithHelpFrom" type="xs:string"/>
     <xs:element name="acquisitionMeans" type="xs:string"/>
     <xs:element name="acquisitionYear" type="xs:string"/>
     <xs:element name="address" type="xs:string"/>
-    <xs:element name="allowDeepZoom" type="xs:string"/>
-    <xs:element name="allowLinkedOpenData" type="xs:string"/>
-    <xs:element name="allowSourceDownload" type="xs:string"/>
     <xs:element name="category" type="xs:string"/>
+    <xs:element name="archiveNr" type="xs:string"/>
+    <xs:element name="bibliography" type="xs:string"/>
+    <xs:element name="cemetary" type="xs:string"/>
     <xs:element name="citName" type="xs:string"/>
     <xs:element name="citOldId" type="xs:string"/>
+    <xs:element name="city" type="xs:string"/>
     <xs:element name="classification" type="xs:string"/>
     <xs:element name="collection" type="xs:string"/>
     <xs:element name="collectionName" type="xs:string"/>
@@ -39,7 +45,12 @@
     <xs:element name="collectionType" type="xs:string"/>
     <xs:element name="color" type="xs:string"/>
     <xs:element name="colorHex" type="xs:string"/>
+    <xs:element name="condition" type="xs:string"/>
+    <xs:element name="conditionNote" type="xs:string"/>
+    <xs:element name="copyright" type="xs:string"/>
+    <xs:element name="copyrightNote" type="xs:string"/>
     <xs:element name="contentProvider" type="xs:string"/>
+    <xs:element name="continent" type="xs:string"/>
     <xs:element name="country" type="xs:string"/>
     <xs:element name="county" type="xs:string"/>
     <xs:element name="countyNr" type="xs:string"/>
@@ -51,10 +62,13 @@
     <xs:element name="creatorYearOfDeath" type="xs:string"/>
     <xs:element name="currentLocation" type="xs:string"/>
     <xs:element name="date" type="xs:string"/>
+    <xs:element name="dateNote" type="xs:string"/>
+    <xs:element name="dateOfBurial" type="xs:string"/>
     <xs:element name="deepZoomUrl" type="xs:anyURI"/>
     <xs:element name="design" type="xs:string"/>
     <xs:element name="digitised" type="xs:string"/>
     <xs:element name="dimension" type="xs:string"/>
+    <xs:element name="dimensionNote" type="xs:string"/>
     <xs:element name="estateName" type="xs:string"/>
     <xs:element name="estateNr" type="xs:string"/>
     <xs:element name="event" type="xs:string"/>
@@ -62,11 +76,16 @@
     <xs:element name="expulsionMeans" type="xs:string"/>
     <xs:element name="expulsionYear" type="xs:string"/>
     <xs:element name="featured" type="xs:string"/>
+    <xs:element name="firstName" type="xs:string"/>
     <xs:element name="formatted" type="xs:string"/>
     <xs:element name="fullText" type="xs:string"/>
     <xs:element name="fullTextObjectUrl" type="xs:anyURI"/>
     <xs:element name="imageUri" type="xs:anyURI"/>
     <xs:element name="imageUrl" type="xs:string"/>
+    <xs:element name="inventoryNr" type="xs:string"/>
+    <xs:element name="isbn" type="xs:string"/>
+    <xs:element name="issn" type="xs:string"/>
+    <xs:element name="issueNr" type="xs:string"/>
     <xs:element name="introduction" type="xs:string"/>
     <xs:element name="language" type="xs:string"/>
     <xs:element name="latLong" type="xs:string"/>
@@ -77,6 +96,7 @@
     <xs:element name="municipality" type="xs:string"/>
     <xs:element name="municipalityNr" type="xs:string"/>
     <xs:element name="namedPlace" type="xs:string"/>
+    <xs:element name="notes" type="xs:string"/>
     <xs:element name="objectNumber" type="xs:string"/>
     <xs:element name="objectSoort" type="xs:string"/>
     <xs:element name="objectType" type="xs:string"/>
@@ -86,28 +106,40 @@
     <xs:element name="pageStart" type="xs:string"/>
     <xs:element name="pages" type="xs:string"/>
     <xs:element name="person" type="xs:string"/>
+    <xs:element name="physicalDetails" type="xs:string"/>
     <xs:element name="physicalState" type="xs:string"/>
     <xs:element name="place" type="xs:string"/>
+    <xs:element name="placeOfBurial" type="xs:string"/>
     <xs:element name="polygon_latLong" type="xs:string"/>
     <xs:element name="polygon_utm" type="xs:string"/>
+    <xs:element name="postalCode" type="xs:string"/>
     <xs:element name="productionEnd" type="xs:string"/>
     <xs:element name="productionPeriod" type="xs:string"/>
     <xs:element name="productionStart" type="xs:string"/>
+    <xs:element name="productionPlace" type="xs:string"/>
     <xs:element name="propertyName" type="xs:string"/>
     <xs:element name="propertyNr" type="xs:string"/>
     <xs:element name="province" type="xs:string"/>
     <xs:element name="public" type="xs:string"/>
     <xs:element name="purchasePrice" type="xs:string"/>
+    <xs:element name="recordSyncURI" type="xs:anyURI"/>
     <xs:element name="region" type="xs:string"/>
     <xs:element name="religion" type="xs:string"/>
+    <xs:element name="relationNote" type="xs:string"/>
     <xs:element name="rijksCollection" type="xs:string"/>
+    <xs:element name="resourceSortOrder" type="xs:string"/>
     <xs:element name="soundUri" type="xs:anyURI"/>
     <xs:element name="source" type="xs:string"/>
+    <xs:element name="street" type="xs:string"/>
+    <xs:element name="streetNr" type="xs:string"/>
     <xs:element name="subjectDepicted" type="xs:string"/>
+    <xs:element name="surname" type="xs:string"/>
+    <xs:element name="surnamePrefix" type="xs:string"/>
     <xs:element name="technique" type="xs:string"/>
     <xs:element name="textUri" type="xs:anyURI"/>
     <xs:element name="theme" type="xs:string"/>
     <xs:element name="thumbLarge" type="xs:string"/>
+    <xs:element name="thumbMedium" type="xs:string"/>
     <xs:element name="thumbSmall" type="xs:string"/>
     <xs:element name="thumbnail" type="xs:anyURI"/>
     <xs:element name="type" type="xs:string"/>
@@ -115,6 +147,7 @@
     <xs:element name="utm" type="xs:string"/>
     <xs:element name="videoUri" type="xs:anyURI"/>
     <xs:element name="vindplaats" type="xs:string"/>
+    <xs:element name="volume" type="xs:string"/>
     <xs:element name="year" type="xs:string"/>
     <xs:element name="excludedFromEuropeana" type="xs:boolean"/>
 
