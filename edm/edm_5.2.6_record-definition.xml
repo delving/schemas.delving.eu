@@ -500,25 +500,10 @@
             <elem tag="nave:thumbMedium" />
             <elem tag="nave:thumbLarge" />
             <elem tag="nave:allowDeepZoom"> <!-- boolean -->
-                <node-mapping inputPath="/constant">
-                    <groovy-code>
-                        <string>true</string>
-                    </groovy-code>
-                </node-mapping>
             </elem>
             <elem tag="nave:allowSourceDownload"> <!-- boolean -->
-                <node-mapping inputPath="/constant">
-                    <groovy-code>
-                        <string>true</string>
-                    </groovy-code>
-                </node-mapping>
             </elem>
             <elem tag="nave:allowPublicWebView"> <!-- boolean -->
-                <node-mapping inputPath="/constant">
-                    <groovy-code>
-                        <string>true</string>
-                    </groovy-code>
-                </node-mapping>
             </elem>
         </elem>
 
