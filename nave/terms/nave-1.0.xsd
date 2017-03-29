@@ -80,6 +80,7 @@
     <xs:element name="formatted" type="xs:string"/>
     <xs:element name="fullText" type="xs:string"/>
     <xs:element name="fullTextObjectUrl" type="xs:anyURI"/>
+    <xs:element name="geojson" type="xs:string"/>
     <xs:element name="imageUri" type="xs:anyURI"/>
     <xs:element name="imageUrl" type="xs:string"/>
     <xs:element name="inventoryNr" type="xs:string"/>
