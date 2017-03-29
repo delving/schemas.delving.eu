@@ -499,6 +499,7 @@
             <elem tag="nave:thumbSmall" />
             <elem tag="nave:thumbMedium" />
             <elem tag="nave:thumbLarge" />
+            <elem tag="nave:sourceDownload" />
             <elem tag="nave:allowDeepZoom"> <!-- boolean -->
             </elem>
             <elem tag="nave:allowSourceDownload"> <!-- boolean -->
@@ -525,6 +526,7 @@
             <elem tag="edm:isRelatedTo" attrs="rdf:resource"/> <!-- ref only -->
             <elem tag="foaf:name" attrs="xml:lang"/>
             <elem tag="rdaGr2:biographicalInformation" attrs="xml:lang"/>
+            <elem tag="nave:bibliographicalInformation" attrs="xml:lang"/>
             <elem tag="rdaGr2:dateOfBirth"/>
             <elem tag="rdaGr2:dateOfDeath"/>
             <elem tag="rdaGr2:dateOfEstablishment"/>
@@ -537,7 +539,6 @@
             <elem tag="owl:sameAs" attrs="rdf:resource"/>  <!-- ref only -->
             <!-- delving specific --> 
             <elem tag="nave:agentType" attrs="rdf:resource,xml:lang"/>
-            <elem tag="nave:bibliography" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:firstName" attrs="xml:lang"/>
             <elem tag="nave:surname" attrs="xml:lang"/>
             <elem tag="nave:surnamePrefix" attrs="xml:lang"/>
@@ -545,6 +546,13 @@
             <elem tag="nave:placeOfBurial" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:cemetary" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:relationNote" attrs="xml:lang"/>
+            <elem tag="nave:creatorLabel" attrs="xml:lang"/>
+            <elem tag="nave:publisherLabel" attrs="xml:lang"/>
+            <elem tag="nave:depictedSubjectLabel" attrs="xml:lang"/>
+            <elem tag="nave:organisationLabel" attrs="xml:lang"/>
+            <elem tag="nave:deceasedLabel" attrs="xml:lang"/>
+            <elem tag="nave:relatedToDeceasedLabel" attrs="xml:lang"/>
+            <elem tag="nave:periodOfLife" attrs="xml:lang"/>
         </elem>
 
         <!--<elem tag="edm:Organisation" attrs="rdf:about">-->
@@ -588,6 +596,7 @@
             <elem tag="nave:streetNr" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:postalCode" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:address" attrs="xml:lang" />
+            <elem tag="nave:specificationPlace" attrs="xml:lang" />
         </elem>
 
 
@@ -641,35 +650,39 @@
             <elem tag="nave:citName"/>
             <elem tag="nave:citOldId"/>
             <elem tag="nave:collection" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:collectionType" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:collectionPart" attrs="rdf:resource,xml:lang"/>
-            <elem tag="nave:color" function="lowercase"/>
-            <elem tag="nave:colorHex" function="lowercase"/>
+            <elem tag="nave:color" />
+            <elem tag="nave:colorHex" />
             <elem tag="nave:condition" />
             <elem tag="nave:conditionNote" />
             <elem tag="nave:copyright" />
             <elem tag="nave:copyrightNote" />
             <elem tag="nave:creatorBirthYear" attrs="xml:lang"/>
             <elem tag="nave:creatorDeathYear" attrs="xml:lang"/>
-            <elem tag="nave:creatorRole" function="lowercase"/>
+            <elem tag="nave:creatorRole"/>
             <elem tag="nave:date"/>
             <elem tag="nave:dateNote"/>
             <elem tag="nave:design" function="lowercase"/>
             <elem tag="nave:dimension"/>
             <elem tag="nave:dimensionNote"/>
+            <elem tag="nave:documentation"/>
             <elem tag="nave:event" attrs="rdf:resource,xml:lang"/>
-            <elem tag="nave:exhibition" function="lowercase"/>
+            <elem tag="nave:exhibition" />
             <elem tag="nave:formatted"/>
+            <elem tag="nave:geojson"/>
             <elem tag="nave:inventoryNr"/>
             <elem tag="nave:issn"/>
             <elem tag="nave:isbn"/>
             <elem tag="nave:issueNr"/>
             <elem tag="nave:location" attrs="rdf:resource,xml:lang"/>
-            <elem tag="nave:material" function="lowercase"/>
+            <elem tag="nave:material" />
             <elem tag="nave:notes"/>
             <elem tag="nave:objectNumber"/>
-            <elem tag="nave:objectSoort" function="lowercase"/>
+            <elem tag="nave:objectSoort" />
             <elem tag="nave:pageEnd"/>
             <elem tag="nave:pageStart"/>
+            <elem tag="nave:numberOfPages"/>
             <elem tag="nave:pages"/>
             <elem tag="nave:person" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:place" attrs="rdf:resource,xml:lang"/>
@@ -679,8 +692,13 @@
             <elem tag="nave:productionStart"/>
             <elem tag="nave:physicalDetails"/>
             <elem tag="nave:region" attrs="rdf:resource,xml:lang"/>
-            <elem tag="nave:subjectDepicted" attrs="rdf:resource,xml:lang" function="lowercase"/>
-            <elem tag="nave:technique" attrs="rdf:resource,xml:lang" function="lowercase"/>
+            <elem tag="nave:rightsNote" attrs="xml:lang"/>
+            <elem tag="nave:condition" attrs="xml:lang"/>
+            <elem tag="nave:conditionNote" attrs="xml:lang"/>
+            <elem tag="nave:subjectAatLink" attrs="rdf:resource"/>
+            <elem tag="nave:subjectAatLabel" attrs="xml:lang"/>
+            <elem tag="nave:subjectDepicted" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:technique" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:theme"/>
             <elem tag="nave:thumbLarge" function="largeThumbnail" uriCheck="true"/>
             <elem tag="nave:thumbSmall" function="smallThumbnail" uriCheck="true"/>
@@ -768,9 +786,9 @@
             <elem tag="nave:excludedFromEuropeana"/>
             <elem tag="nave:year"/>
             <elem tag="nave:thumbnail" function="smallThumbnail" uriCheck="true"/>
-             <elem tag="nave:deepZoomUrl" function="deepZoomUrl" uriCheck="true"/> 
-            <elem tag="nave:fullTextObjectUrl" uriCheck="true"/> 
-            <elem tag="nave:fullText"/> 
+            <elem tag="nave:deepZoomUrl" function="deepZoomUrl" uriCheck="true"/>
+            <elem tag="nave:fullTextObjectUrl" uriCheck="true"/>
+            <elem tag="nave:fullText"/>
             <elem tag="delving:geohash"/>
             <elem tag="nave:objectNumber"/>
             <elem tag="nave:objectType" attrs="rdf:resource,xml:lang"/>
@@ -780,7 +798,6 @@
             <elem tag="nave:dimension"/>
             <elem tag="nave:technique" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:material" attrs="rdf:resource,xml:lang"/>
-            <elem tag="nave:recordSyncURI" />
             <elem tag="nave:featured"> <!-- boolean -->
                 <node-mapping inputPath="/constant" >
                     <groovy-code>
@@ -788,10 +805,24 @@
                     </groovy-code>
                 </node-mapping>
             </elem>
+            <elem tag="nave:allowDeepZoom"> <!-- boolean -->
+                <node-mapping inputPath="/constant">
+                    <groovy-code>
+                        <string>true</string>
+                    </groovy-code>
+                </node-mapping>
+            </elem>
             <elem tag="nave:allowLinkedOpenData"> <!-- boolean -->
                 <node-mapping inputPath="/constant">
                     <groovy-code>
                         <string>true</string>
+                    </groovy-code>
+                </node-mapping>
+            </elem>
+            <elem tag="nave:allowSourceDownload">    <!-- boolean -->
+                <node-mapping inputPath="/constant">
+                    <groovy-code>
+                        <string>false</string>
                     </groovy-code>
                 </node-mapping>
             </elem>
