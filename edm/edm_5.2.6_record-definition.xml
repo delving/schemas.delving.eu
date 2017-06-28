@@ -789,7 +789,7 @@
             <elem tag="nave:deepZoomUrl" function="deepZoomUrl" uriCheck="true"/>
             <elem tag="nave:fullTextObjectUrl" uriCheck="true"/>
             <elem tag="nave:fullText"/>
-            <elem tag="delving:geohash"/>
+            <elem tag="nave:geoHash"/>
             <elem tag="nave:objectNumber"/>
             <elem tag="nave:objectType" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:collection" attrs="rdf:resource,xml:lang"/>

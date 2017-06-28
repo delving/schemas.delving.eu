@@ -81,6 +81,7 @@
     <xs:element name="fullText" type="xs:string"/>
     <xs:element name="fullTextObjectUrl" type="xs:anyURI"/>
     <xs:element name="geojson" type="xs:string"/>
+    <xs:element name="geoHash" type="xs:string"/>
     <xs:element name="imageUri" type="xs:anyURI"/>
     <xs:element name="imageUrl" type="xs:string"/>
     <xs:element name="inventoryNr" type="xs:string"/>
@@ -101,6 +102,7 @@
     <xs:element name="objectNumber" type="xs:string"/>
     <xs:element name="objectSoort" type="xs:string"/>
     <xs:element name="objectType" type="xs:string"/>
+    <xs:element name="objectName" type="xs:string"/>
     <xs:element name="originalSourceName" type="xs:string"/>
     <xs:element name="originalSourcePath" type="xs:string"/>
     <xs:element name="pageEnd" type="xs:string"/>
