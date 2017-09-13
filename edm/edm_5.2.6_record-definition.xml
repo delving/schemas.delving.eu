@@ -553,6 +553,13 @@
             <elem tag="nave:deceasedLabel" attrs="xml:lang"/>
             <elem tag="nave:relatedToDeceasedLabel" attrs="xml:lang"/>
             <elem tag="nave:periodOfLife" attrs="xml:lang"/>
+            <elem tag="nave:deceasedNote" attrs="xml:lang"/>
+            <elem tag="nave:corporativeAuthorLabel" attrs="xml:lang"/>
+            <elem tag="nave:relationType" attrs="xml:lang"/>
+            <elem tag="nave:relationFirstName" attrs="xml:lang"/>
+            <elem tag="nave:relationSurname" attrs="xml:lang"/>
+            <elem tag="nave:relationSurnamePrefix" attrs="xml:lang"/>
+            <elem tag="nave:placeOfPublication" attrs="xml:lang"/>
         </elem>
 
         <!--<elem tag="edm:Organisation" attrs="rdf:about">-->
@@ -677,9 +684,16 @@
             <elem tag="nave:issueNr"/>
             <elem tag="nave:location" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:material" />
+            <elem tag="nave:materialAatLabel" />
+            <elem tag="nave:materialAatLink" />
             <elem tag="nave:notes"/>
+            <elem tag="nave:note1" />
+            <elem tag="nave:note2" />
             <elem tag="nave:objectNumber"/>
             <elem tag="nave:objectSoort" />
+            <elem tag="nave:objectCategory" />
+            <elem tag="nave:objectnameAatLabel" />
+            <elem tag="nave:objectnameAatLink" />
             <elem tag="nave:pageEnd"/>
             <elem tag="nave:pageStart"/>
             <elem tag="nave:numberOfPages"/>
