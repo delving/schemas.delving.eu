@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<record-definition prefix="edm" version="5.2.6" flat="false">
+<record-definition prefix="na" version="5.2.6" flat="false">
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"
