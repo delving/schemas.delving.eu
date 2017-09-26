@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<record-definition prefix="na" version="5.2.6" flat="false">
+<record-definition prefix="nat" version="5.2.6" flat="false">
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"
@@ -350,7 +350,7 @@
         <attr tag="xml:lang"/>
     </attrs>
 
-    <root tag="RDF">
+    <root tag="edm:RDF">
 
         <!--edm:ProvidedCHO-->
 
@@ -656,38 +656,6 @@
     <field-markers/>
 
     <opts>
-        <opt-list dictionary="LEGAL" path="/RDF/nave:RijksCollection/nave:legalStatus" displayName="Legal Status">
-            <opt value="Eigenaar: Rijks"/>
-            <opt value="Eigenaar: Anders dan Rijk"/>
-            <opt value="Aan de zorg van het Rijk toevertrouwd"/>
-            <opt value="Bruikleen van X"/>
-            <opt value="Onbekend"/>
-        </opt-list>
-        <opt-list dictionary="CHARGES" path="/RDF/nave:RijksCollection/nave:acceptedStateCharges"
-                  displayName="Accepted State Charges">
-            <opt value="No"/>
-            <opt value="Yes"/>
-        </opt-list>
-        <opt-list dictionary="EXPULSION" path="/RDF/nave:RijksCollection/nave:expulsionMeans"
-                  displayName="Expulsion means">
-            <opt value="Sale"/>
-            <opt value="Destruction"/>
-            <opt value="Gift"/>
-            <opt value="Trade"/>
-        </opt-list>
-        <opt-list dictionary="HHCat" path="/RDF/nave:NorvegianaResource/nave:category"
-                  displayName="Norvegiana Category">
-            <opt value="Arkeologi"/>
-            <opt value="Kulturminner"/>
-            <opt value="Historie og samfunn"/>
-            <opt value="Arkitektur"/>
-            <opt value="Dyr"/>
-            <opt value="Planter"/>
-            <opt value="Verneområder"/>
-            <opt value="Kunst"/>
-            <opt value="Stedsnavn"/>
-            <opt value="Fugler"/>
-        </opt-list>
     </opts>
 
     <docs>
@@ -714,7 +682,7 @@
 			<!--<![CDATA[]]>-->
 
 			<!--*kolla igenom subprops/superprops-->
-            <!--*"/RDF/skos:Concept/skos:related" ej value type/card.-->
+            <!--*"/edm:RDFskos:Concept/skos:related" ej value type/card.-->
             <!--&lt;!&ndash;done to here&ndash;&gt;-->
 
 
@@ -722,7 +690,7 @@
         <!--  ore:Aggregation, done-->
 
 
-        <doc path="/RDF/ore:Aggregation">
+        <doc path="/edm:RDF/ore:Aggregation">
             <para name="Label">Aggregation</para>
             <para name="Definition">The set of resources related to a single cultural heritage object that collectively
                 represents that object in Europeana. Such set consists of: all descriptions about the object that
@@ -739,7 +707,7 @@
                 http://pro.europeana.eu/edm-documentation
             </para>
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:aggregatedCHO">
+        <doc path="/edm:RDF/ore:Aggregation/edm:aggregatedCHO">
             <para name="URI">http://www.europeana.eu/schemas/edm/aggregatedCHO </para>
             <para name="Label">Aggregated Cultural Heritage Object </para>
             <para name="Definition">This property associates an ORE aggregation with the cultural heritage object(s) (CHO for short) it is about.</para>
@@ -753,7 +721,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">1….1 </para>
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:dataProvider">
+        <doc path="/edm:RDF/ore:Aggregation/edm:dataProvider">
             <para name="URI">http://www.europeana.eu/schemas/edm/dataProvider </para>
             <para name="Label">Data Provider </para>
             <para name="Definition">The name or identifier of the organization who contributes data indirectly to an aggregation service (e.g. Europeana). Note: This property also exists in the ESE namespace </para>
@@ -767,7 +735,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">1….1 </para>
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:hasView">
+        <doc path="/edm:RDF/ore:Aggregation/edm:hasView">
             <para name="URI">http://www.europeana.eu/schemas/edm/hasView </para>
             <para name="Label">Has View </para>
             <para name="Definition">This property relates a ORE aggregation about a CHO with a web resource providing a view of that CHO. Examples of view are: a thumbnail, a textual abstract and a table of contents. The ORE aggregation may be a Europeana aggregation, in which case the view is an object owned by Europeana (i.e., an instance of edm:EuropeanaObject) or an aggregation contributed by a content provider. In order to capture both these cases, the domain of edm:hasView is ore:Aggregation and its range is edm:WebResource</para>
@@ -782,7 +750,7 @@
             <para name="Cardinality">0….n</para>
 
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:isShownBy">
+        <doc path="/edm:RDF/ore:Aggregation/edm:isShownBy">
             <para name="URI">http://www.europeana.eu/schemas/edm/isShownBy </para>
             <para name="Label">Is Shown By  </para>
             <para name="Definition">An unambiguous URL reference to the digital object on the provider’s web site in the best available resolution/quality. See also edm:isShownAt. Note: This property also exists in the ESE namespace </para>
@@ -796,7 +764,7 @@
             <para name="Cardinality">0….1 </para>
 
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:isShownAt">
+        <doc path="/edm:RDF/ore:Aggregation/edm:isShownAt">
             <para name="URI">http://www.europeana.eu/schemas/edm/isShownAt </para>
             <para name="Label">Is Shown At  </para>
             <para name="Definition">An unambiguous URL reference to the digital object on the provider’s web site in its full information context.  See also edm:isShownBy Note: This property also exists in the ESE namespace </para>
@@ -809,7 +777,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:object">
+        <doc path="/edm:RDF/ore:Aggregation/edm:object">
             <para name="URI">http://www.europeana.eu/schemas/edm/object </para>
             <para name="Label">Object </para>
             <para name="Definition">The URL of a suitable source image in the best resolution available on the web site of the data provider from which small images could be generated for use in a portal.  This will often be the same URL as given in edm:isShownBy. Note: This property also exists in the ESE namespace </para>
@@ -823,7 +791,7 @@
             <para name="Cardinality">0….1 </para>
 
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:provider">
+        <doc path="/edm:RDF/ore:Aggregation/edm:provider">
             <para name="URI">http://www.europeana.eu/schemas/edm/provider </para>
             <para name="Label">Provider </para>
             <para name="Definition">The name or identifier of the organization who delivers data directly to an aggregation service (e.g. Europeana) Note: This property also exists in the ESE namespace</para>
@@ -836,7 +804,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">1….1 </para>
         </doc>
-        <doc path="/RDF/ore:Aggregation/dc:rights">
+        <doc path="/edm:RDF/ore:Aggregation/dc:rights">
             <para name="URI">http://purl.org/dc/elements/1.1/rights </para>
             <para name="Label">Rights</para>
             <para name="Definition">Information about rights held in and over the resource. </para>
@@ -848,7 +816,7 @@
             <para name="Cardinality">0….n</para>
 
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:rights">
+        <doc path="/edm:RDF/ore:Aggregation/edm:rights">
             <para name="URI">http://www.europeana.eu/schemas/edm/rights </para>
             <para name="Label">Standardized  Rights Statement </para>
             <para name="Definition">Information about copyright, usage and access rights of the digital objects in Europeana that represent the source cultural heritage object described in the data. Note: This property also exists in the ESE namespace </para>
@@ -860,7 +828,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">1….1 </para>
         </doc>
-        <doc path="/RDF/ore:Aggregation/edm:ugc">
+        <doc path="/edm:RDF/ore:Aggregation/edm:ugc">
             <para name="URI">http://www.europeana.eu/schemas/edm/ugc </para>
             <para name="Label">UGC</para>
             <para name="Definition">Used to identify user generated content.  It should be applied to all digitized or born digital content contributed by the general public and/or collected through a crowdsourcing initiative or project.   Note: This property also exists in the ESE namespace </para>
@@ -875,7 +843,7 @@
 
         <!--  ProvidedCHO-->
 
-        <doc path="/RDF/edm:ProvidedCHO">
+        <doc path="/edm:RDF/edm:ProvidedCHO">
             <para name="Label">ProvidedCHO</para>
             <para name="Definition">
                This class comprises the Cultural Heritage objects that Europeana collects descriptions about.
@@ -890,7 +858,7 @@
             </para>
         </doc>
 
-        <doc path="/RDF/edm:ProvidedCHO/dc:contributor">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:contributor">
 
              <para name="Label">Contributor</para>
             <para name="Missing">Missing</para>
@@ -898,7 +866,7 @@
         </doc>
 
 
-        <doc path="/RDF/edm:ProvidedCHO/dc:coverage">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:coverage">
             <para name="URI">http://purl.org/dc/elements/1.1/coverage </para>
             <para name="Label">Coverage </para>
             <para name="Definition">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.  This may be a named place, a location, a spatial coordinate, a period, date, date range or a named administrative entity. </para>
@@ -910,7 +878,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0…n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:creator">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:creator">
             <para name="URI">http://purl.org/dc/elements/1.1/creator </para>
             <para name="Label">Creator</para>
             <para name="Definition">An entity primarily responsible for making the resource. This may be a person, organization or a service. </para>
@@ -923,7 +891,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0…n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:date">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:date">
             <para name="URI">http://purl.org/dc/elements/1.1/date</para>
             <para name="Label">Date</para>
             <para name="Definition">A point or period of time associated with an event in the lifecycle of the resource. </para>
@@ -936,7 +904,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
 		</doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:description">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:description">
             <para name="URI">http://purl.org/dc/elements/1.1/description</para>
             <para name="Label">Description </para>
             <para name="Definition">An account of the resource </para>
@@ -946,7 +914,7 @@
             <para name="Value type">literal or ref </para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:format">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:format">
             <para name="URI">http://purl.org/dc/elements/1.1/format </para>
             <para name="Label">Format </para>
             <para name="Definition">The file format, physical medium or dimensions of the resource. </para>
@@ -958,7 +926,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:identifier">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:identifier">
             <para name="URI">http://purl.org/dc/elements/1.1/identifier </para>
             <para name="Label">Identifier</para>
             <para name="Definition">An unambiguous reference to the resource within a given context.</para>
@@ -969,7 +937,7 @@
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:language">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:language">
             <para name="URI">http://purl.org/dc/elements/1.1/language </para>
             <para name="Label">Language </para>
             <para name="Definition">A language of the resource </para>
@@ -977,12 +945,12 @@
             <para name="Range">The recommended best practice is to use a controlled vocabulary such as RFC 4646 (http://www.rfc-archive.org/getrfc.php?rfc=4646) which, in conjunction with ISO 639, defines two- and three-letter primary language tags. Either a coded value or text string can be represented here. </para>
             <para name="Obligation and Occurrence">Mandatory for Text objects. Strongly recommended for other object types if there is a language aspect. (Minimum: 0, Maximum: unbounded) </para>
             <para name="Example">Italian is represented by “it” in the ISO two letter code</para>
-            <para name="Comment">Use this element for the language of textual objects and also where there is a language aspect to other objects e.g. sound recordings, posters, newspapers etc). Repeat for multiple languages. If there is no language aspect to the digital object (e.g. a photograph), please ignore this element.  This element is not for the language of the metadata of a resource, which may be described as a language tag (xml:lang attribute in RDF/XML).</para>
+            <para name="Comment">Use this element for the language of textual objects and also where there is a language aspect to other objects e.g. sound recordings, posters, newspapers etc). Repeat for multiple languages. If there is no language aspect to the digital object (e.g. a photograph), please ignore this element.  This element is not for the language of the metadata of a resource, which may be described as a language tag (xml:lang attribute in edm:RDF/XML).</para>
             <para name="Note"><![CDATA[The language of text CHOs and also for other types of CHO if there is a language aspect. Mandatory for TEXT objects, strongly recommended for other object types with a language element. Best practice is to use ISO 639 two- or three-letter primary language tags3. Repeat for multiple languages.  <dc:language>it</dc:language>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:publisher">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:publisher">
             <para name="URI">http://purl.org/dc/elements/1.1/publisher </para>
             <para name="Label">Publisher</para>
             <para name="Definition">An entity responsible for making the resource available. Examples of a publisher include a person, an organization and a service.</para>
@@ -994,7 +962,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:relation">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:relation">
             <para name="URI">http://purl.org/dc/elements/1.1/relation </para>
             <para name="Label">Relation</para>
             <para name="Definition">A related resource. The recommended best practice is to identify the resource using a formal identification scheme.</para>
@@ -1005,7 +973,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:rights">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:rights">
             <para name="URI">http://purl.org/dc/elements/1.1/rights </para>
             <para name="Label">Rights </para>
             <para name="Definition">Information about rights held in and over the resource. </para>
@@ -1016,7 +984,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:source">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:source">
             <para name="URI">http://purl.org/dc/elements/1.1/source </para>
             <para name="Label">Source</para>
             <para name="Definition">A related resource from which the described resource is derived in whole or in part. </para>
@@ -1029,7 +997,7 @@
             <para name="Cardinality">0….n </para>
 
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:subject">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:subject">
             <para name="URI">http://purl.org/dc/elements/1.1/subject </para>
             <para name="Label">Subject </para>
             <para name="Definition">The topic of the resource </para>
@@ -1041,18 +1009,18 @@
             <para name="Value type">literal or ref </para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:title">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:title">
             <para name="URI">http://purl.org/dc/elements/1.1/title </para>
             <para name="Label">Title</para>
             <para name="Definition">A name given to the resource. Typically, a Title will be a name by which the resource is formally known.</para>
             <para name="Obligation and Occurrence">Mandatory to supply either dc:description or dc:title (Minimum: 0, Maximum: unbounded)</para>
             <para name="Example">“Gulliver’s Travels” (with “en” as language tag) and “Les Voyages de Gulliver” (with “fr” as language tag) are two dc:title for a same work by Jonathan Swift. </para>
-            <para name="Comment">The title of the original analog or born digital object.  Use language tags (xml:lang attributes in RDF/XML) to represent exact translations handle titles in different languages.</para>
+            <para name="Comment">The title of the original analog or born digital object.  Use language tags (xml:lang attributes in edm:RDF/XML) to represent exact translations handle titles in different languages.</para>
             <para name="Note"><![CDATA[The title of the CHO.  Either dc:title or dc:description must be provided. Exact translations of the title can be provided using appropriate xml language attributes <dc:title xml:lang=“en”>Eight Weeks</dc:title> <dc:title xml:lang=“it”>Ocho semanas</ dc:title>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dc:type">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dc:type">
             <para name="URI">http://purl.org/dc/elements/1.1/type </para>
             <para name="Label">Type</para>
             <para name="Definition">The nature or genre of the resource.  Type includes terms describing general categories, functions, genres, or aggregation levels for content.   </para>
@@ -1065,7 +1033,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:alternative">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:alternative">
             <para name="URI">http://purl.org/dc/terms/alternative </para>
             <para name="Label">Alternative Title </para>
             <para name="Definition">An alternative name for the resource. This can be any form of the title that is used as a substitute or an alternative to the formal title of the resource including abbreviations or translations of the title. </para>
@@ -1073,12 +1041,12 @@
             <para name="Range">In current practice, this term is used primarily with literal values; however, there are important uses with non-literal values as well. As of December 2007, the DCMI Usage Board is leaving this range unspecified pending an investigation of options.</para>
             <para name="Obligation and Occurrence">Optional (Minimum: 0, Maximum: unbounded) </para>
             <para name="Example">The title “Travels into Several Remote Nations of Example the World, in Four Parts” is a dcterms:alternative to the book entitled “Gulliver’s Travels”. </para>
-            <para name="Comment">Translations of a metadata statement (such as a dc:title statement) is done by creating new statements with the same property and different language tags (xml:lang attributes in RDF/XML). dc:alternative should not be used to represent the translation of a dc:title. </para>
+            <para name="Comment">Translations of a metadata statement (such as a dc:title statement) is done by creating new statements with the same property and different language tags (xml:lang attributes in edm:RDF/XML). dc:alternative should not be used to represent the translation of a dc:title. </para>
             <para name="Note"><![CDATA[Any alternative title of the CHO including abbreviations or translations that may not be exact.  <dcterms:alternativexml:lang=“en”>Eight weeks: a novel</dcterms:alternative> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:conformsTo">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:conformsTo">
             <para name="URI">http://purl.org/dc/terms/conformsTo </para>
             <para name="Label">Conforms To </para>
             <para name="Definition">An established standard to which the described resource conforms </para>
@@ -1091,7 +1059,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:created">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:created">
             <para name="URI">http://purl.org/dc/terms/created </para>
             <para name="Label">Date Created </para>
             <para name="Definition">Date of creation of the resource </para>
@@ -1104,7 +1072,7 @@
             <para name="Value type">literal or ref </para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:extent">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:extent">
             <para name="URI">http://purl.org/dc/terms/extent</para>
             <para name="Label">Extent</para>
             <para name="Definition">The size or duration of the resource. </para>
@@ -1115,7 +1083,7 @@
             <para name="Value type">literal or ref </para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:hasFormat">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:hasFormat">
             <para name="URI">http://purl.org/dc/terms/hasFormat </para>
             <para name="Label">Has Format </para>
             <para name="Definition">A related resource that is substantially the same as the pre-existing described resource, but in another format.   </para>
@@ -1127,7 +1095,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:hasPart">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:hasPart">
             <para name="URI">http://purl.org/dc/terms/hasPart </para>
             <para name="Label">Has Part </para>
             <para name="Definition">A related resource that is included either physically or logically in the described resource. </para>
@@ -1139,7 +1107,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
 		</doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:hasVersion">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:hasVersion">
             <para name="URI">http://purl.org/dc/terms/hasVersion </para>
             <para name="Label">Has Version </para>
             <para name="Definition">A related resource that is a version, edition, or adaptation of the described resource. Changes in version imply substantive changes in content rather than differences in format.</para>
@@ -1151,7 +1119,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:isFormatOf">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:isFormatOf">
             <para name="URI">http://purl.org/dc/terms/isFormatOf </para>
             <para name="Label">Is Format Of </para>
             <para name="Definition">A related resource that is substantially the same as the described resource, but in another format.   </para>
@@ -1162,7 +1130,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:isPartOf">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:isPartOf">
             <para name="URI">http://purl.org/dc/terms/isPartOf </para>
             <para name="Label">Is Part Of </para>
             <para name="Definition">A related resource in which the described resource is physically or logically included. </para>
@@ -1174,7 +1142,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:isReferencedBy">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:isReferencedBy">
             <para name="URI">http://purl.org/dc/terms/isReferencedBy </para>
             <para name="Label">Is Referenced By </para>
             <para name="Definition">A related resource that references, cites, or otherwise points to the described resource. </para>
@@ -1185,7 +1153,7 @@
             <para name="Value type">literal or ref </para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:isReplacedBy">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:isReplacedBy">
             <para name="URI">http://purl.org/dc/terms/isReplacedBy </para>
             <para name="Label">Is Replaced By </para>
             <para name="Definition">A related resource that supplants, displaces, or supersedes the described resource. </para>
@@ -1196,7 +1164,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:isRequiredBy">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:isRequiredBy">
             <para name="URI">http://purl.org/dc/terms/isRequiredBy </para>
             <para name="Label">Is Required By </para>
             <para name="Definition">A related resource that requires the described resource to support its function, delivery or coherence.  </para>
@@ -1207,7 +1175,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:issued">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:issued">
             <para name="URI">http://purl.org/dc/terms/issued </para>
             <para name="Label">Date Issued </para>
             <para name="Definition">Date of formal issuance (e.g., publication) of the resource. </para>
@@ -1219,7 +1187,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:isVersionOf">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:isVersionOf">
             <para name="URI">http://purl.org/dc/terms/isVersionOf</para>
             <para name="Label">Is Version Of </para>
             <para name="Definition">A related resource of which the described resource is a version, edition, or adaptation. Changes in version imply substantive changes in content rather than differences in format </para>
@@ -1230,7 +1198,7 @@
             <para name="Value type">literal or ref </para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:medium">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:medium">
             <para name="URI">http://purl.org/dc/terms/medium </para>
             <para name="Label">Medium </para>
             <para name="Definition">The material or physical carrier of the resource.</para>
@@ -1242,7 +1210,7 @@
             <para name="Value type">literal or ref </para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:provenance">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:provenance">
             <para name="URI">http://purl.org/dc/terms/provenance </para>
             <para name="Label">Provenance </para>
             <para name="Definition">A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity and interpretation. This may include a description of any changes successive custodians made to the resource. </para>
@@ -1253,7 +1221,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:references">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:references">
             <para name="URI">http://purl.org/dc/terms/references </para>
             <para name="Label">References </para>
             <para name="Definition">A related resource that is referenced, cited, or otherwise pointed to by the described resource </para>
@@ -1264,7 +1232,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:replaces">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:replaces">
             <para name="URI">http://purl.org/dc/terms/replaces </para>
             <para name="Label">Replaces</para>
             <para name="Definition">A related resource that is supplanted, displaced, or superseded by the described resource.</para>
@@ -1275,7 +1243,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:requires">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:requires">
             <para name="URI">http://purl.org/dc/terms/requires </para>
             <para name="Label">Requires </para>
             <para name="Definition">A related resource that is required by the described resource to support its function, delivery or coherence.  </para>
@@ -1285,7 +1253,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:spatial">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:spatial">
             <para name="URI">http://purl.org/dc/terms/spatial </para>
             <para name="Label">Spatial Coverage </para>
             <para name="Definition">Spatial characteristics of the resource </para>
@@ -1298,7 +1266,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:tableOfContents">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:tableOfContents">
             <para name="URI">http://purl.org/dc/terms/tableOfContents </para>
             <para name="Label">Table Of Contents </para>
             <para name="Definition">A list of subunits of the resource. </para>
@@ -1309,7 +1277,7 @@
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/dcterms:temporal">
+        <doc path="/edm:RDF/edm:ProvidedCHO/dcterms:temporal">
             <para name="URI">http://purl.org/dc/terms/temporal </para>
             <para name="Label">Temporal Coverage </para>
             <para name="Definition">Temporal characteristics of the resource </para>
@@ -1321,7 +1289,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:type">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:type">
             <para name="URI">http://www.europeana.eu/schemas/edm/type </para>
             <para name="Label">Europeana Type </para>
             <para name="Definition">The Europeana material type of the resource Note: This property also exists in the ESE namespace </para>
@@ -1334,7 +1302,7 @@
             <para name="Value type">literal</para>
             <para name="Cardinality">1….1 </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:currentLocation">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:currentLocation">
             <para name="URI">http://www.europeana.eu/schemas/edm/currentLocation </para>
             <para name="Label">Current Location </para>
             <para name="Definition">The geographic location and/or name of the repository, building, site, or other entity whose boundaries presently include the resource.</para>
@@ -1348,7 +1316,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:hasMet">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:hasMet">
             <para name="URI">http://www.europeana.eu/schemas/edm/hasMet </para>
             <para name="Label">Has Met</para>
             <para name="Definition">edm:hasMet relates a resource with the objects or phenomena that have happened to or have happened together with the resource under consideration. We can abstractly think of history and the present as a series of “meetings” between people and other things in space-time. Therefore we name this relationship as the things the object “has met” in the course of its existence. These meetings are events in the proper sense, in which other people and things participate in any role. </para>
@@ -1360,7 +1328,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:hasType">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:hasType">
             <para name="URI">http://www.europeana.eu/schemas/edm/hasType </para>
             <para name="Label">Has Type </para>
             <para name="Definition">This property relates a resource with the concepts it belongs to in a suitable type system such as MIME or any thesaurus that captures categories of objects in a given field (e.g., the “Objects” facet in Getty’s Art and Architecture Thesaurus). It does not capture aboutness</para>
@@ -1375,7 +1343,7 @@
             <para name="Value type">ref or literal</para>
             <para name="Cardinality">0….0</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:incorporates">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:incorporates">
             <para name="URI">http://www.europeana.eu/schemas/edm/incorporates </para>
             <para name="Label">Incorporates </para>
             <para name="Definition">This property captures the use of some resource to add value to another resource. Such resources may be nested, such as performing a theater play text, and then recording the performance, or creating an artful edition of a collection of poems or just aggregating various poems in an anthology. There may be no single part that contains ultimately the incorporated object, which may be dispersed in the presentation. Therefore, incorporated resources do in general not form proper parts. Incorporated resources are not part of the same resource, but are taken from other resources, and have an independent history. Therefore edm:incorporates is not a sub-property of dcterm:hasPart.</para>
@@ -1387,7 +1355,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:isDerivativeOf">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:isDerivativeOf">
             <para name="URI">http://www.europeana.eu/schemas/edm/isDerivativeOf </para>
             <para name="Label">Is Derivative Of </para>
             <para name="Definition">This property captures a narrower notion of derivation than edm:isSimilarTo, in the sense that it relates a resource to another one, obtained by reworking, reducing, expanding, parts or the whole contents of the former, and possibly adding some minor parts. Versions have an even narrower meaning, in that it requires common identity between the related resources. Translations, summaries, abstractions etc. do not qualify as versions, but do qualify as derivatives. </para>
@@ -1399,7 +1367,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:isNextInSequence">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:isNextInSequence">
             <para name="URI">http://www.europeana.eu/schemas/edm/isNextInSequence </para>
             <para name="Label">Is Next In Sequence To </para>
             <para name="Definition">edm:isNextInSequence relates two resources S and R that are ordered parts of the same resource A, and such that S comes immediately after R in the order created by their being parts of A.</para>
@@ -1411,7 +1379,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:isRelatedTo">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:isRelatedTo">
             <para name="URI">http://www.europeana.eu/schemas/edm/isRelatedTo </para>
             <para name="Label">Is Related To </para>
             <para name="Definition">edm:isRelatedTo is the most general contextual property in EDM. Contextual properties have typically to do either with the things that have happened to or together with the object under consideration, or what the object refers to by its shape, form or features in a figural or encoded form. For sake of simplicity, we include in the contextual relationships also the scholarly classification, which may have either to do with the role and cultural connections of the object in the past, or its kind of structure, substance or contents as it can be verified at present. </para>
@@ -1422,7 +1390,7 @@
             <para name="Value type">ref or literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:isRepresentationOf">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:isRepresentationOf">
             <para name="URI">http://www.europeana.eu/schemas/edm/isRepresentationOf</para>
             <para name="Label">Is Representation Of </para>
             <para name="Definition">This property associates a resource to another resource that it represents. </para>
@@ -1434,7 +1402,7 @@
             <para name="Value type">ref or literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:isSimilarTo">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:isSimilarTo">
             <para name="URI">http://www.europeana.eu/schemas/edm/isSimilarTo </para>
             <para name="Label">Is Similar To </para>
             <para name="Definition">The most generic derivation property, covering also the case of questionable derivation. Is Similar To asserts that parts of the contents of one resource exhibit common features with respect to ideas, shapes, structures, colors, words, plots, topics with the contents of the related resource. Those common features may be attributed to a common origin or influence (in particular for derivation), but also to more generic cultural or psychological factors.</para>
@@ -1447,7 +1415,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….0</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:isSuccessorOf">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:isSuccessorOf">
             <para name="URI">http://www.europeana.eu/schemas/edm/isSuccessorOf </para>
             <para name="Label">Is Successor Of </para>
             <para name="Definition">This property captures the relation between the continuation of a resource and that resource. This applies to a story, a serial etc. No content of the successor resource is identical or has a similar form with that of the precursor. The similarity is only in the context, subjects and figures of a plot. Successors typically form part of a common whole – such as a trilogy, a journal, etc.</para>
@@ -1459,7 +1427,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/edm:realizes">
+        <doc path="/edm:RDF/edm:ProvidedCHO/edm:realizes">
             <para name="URI">http://www.europeana.eu/schemas/edm/realizes</para>
             <para name="Label">Realizes </para>
             <para name="Definition">This property describes a relation between a physical thing and the information resource that is contained in it, visible at it or otherwise carried by it, if applicable</para>
@@ -1479,7 +1447,7 @@
 
         <!--WebResource-->
 
-        <doc path="/RDF/edm:WebResource">
+        <doc path="/edm:RDF/edm:WebResource">
             <para name="URI">http://www.europeana.eu/schemas/edm/WebResource </para>
             <para name="Label">Web Resource</para>
             <para name="Definition">Information Resources that have at least one Web Representation and at least a URI. </para>
@@ -1489,7 +1457,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dc:creator">
+        <doc path="/edm:RDF/edm:WebResource/dc:creator">
             <para name="URI">http://purl.org/dc/elements/1.1/creator </para>
             <para name="Label">Creator </para>
             <para name="Definition">An entity primarily responsible for making the resource. This may be a person, organization or a service. </para>
@@ -1502,7 +1470,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dc:format">
+        <doc path="/edm:RDF/edm:WebResource/dc:format">
             <para name="URI">http://purl.org/dc/elements/1.1/format </para>
             <para name="Label">Format</para>
             <para name="Definition">The file format, physical medium or dimensions of the resource. </para>
@@ -1514,7 +1482,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dcterms:created">
+        <doc path="/edm:RDF/edm:WebResource/dcterms:created">
             <para name="URI">http://purl.org/dc/terms/created </para>
             <para name="Label">Date Created </para>
             <para name="Definition">Date of creation of the resource </para>
@@ -1527,7 +1495,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dcterms:isPartOf">
+        <doc path="/edm:RDF/edm:WebResource/dcterms:isPartOf">
             <para name="URI">http://purl.org/dc/terms/isPartOf </para>
             <para name="Label">Is Part Of </para>
             <para name="Definition">A related resource in which the described resource is physically or logically included. </para>
@@ -1539,25 +1507,25 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:WebResource/owl:sameAs">
+        <doc path="/edm:RDF/edm:WebResource/owl:sameAs">
             <para name="Label">Same As </para>
             <para name="Note"><![CDATA[Provide the URI of another web representation of the same resource.   <owl:sameAs rdf:resource=”urn:soundcloud:150424305]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-   <!--     <doc path="/RDF/edm:WebResource/rdf:type">
+   <!--     <doc path="/edm:RDF/edm:WebResource/rdf:type">
             <para name="Note"><![CDATA[    ]]></para>
             <para name="Value type"></para>
             <para name="Cardinality"></para>
         </doc>-->
 
-     <!--   <doc path="/RDF/edm:WebResource/edm:codecName">
+     <!--   <doc path="/edm:RDF/edm:WebResource/edm:codecName">
             <para name="Note"><![CDATA[    ]]></para>
             <para name="Value type"></para>
             <para name="Cardinality"></para>
         </doc>-->
 
-        <doc path="/RDF/edm:WebResource/dc:description">
+        <doc path="/edm:RDF/edm:WebResource/dc:description">
             <para name="URI">http://purl.org/dc/elements/1.1/description </para>
             <para name="Label">Description </para>
             <para name="Definition">An account of the resource </para>
@@ -1567,7 +1535,7 @@
             <para name="Value type">literal or ref </para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dc:rights">
+        <doc path="/edm:RDF/edm:WebResource/dc:rights">
 			<para name="URI">http://purl.org/dc/elements/1.1/rights </para>
             <para name="Label">Rights </para>
             <para name="Definition">Information about rights held in and over the resource. </para>
@@ -1578,7 +1546,7 @@
             <para name="Value type">literal or ref</para>
 			<para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dc:source">
+        <doc path="/edm:RDF/edm:WebResource/dc:source">
             <para name="URI">http://purl.org/dc/elements/1.1/source </para>
             <para name="Label">Source</para>
             <para name="Definition">A related resource from which the described resource is derived in whole or in part. </para>
@@ -1590,7 +1558,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dcterms:extent">
+        <doc path="/edm:RDF/edm:WebResource/dcterms:extent">
 			<para name="URI">http://purl.org/dc/terms/extent</para>
             <para name="Label">Extent</para>
             <para name="Definition">The size or duration of the resource. </para>
@@ -1601,7 +1569,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dcterms:issued">
+        <doc path="/edm:RDF/edm:WebResource/dcterms:issued">
             <para name="URI">http://purl.org/dc/terms/issued </para>
             <para name="Label">Date Issued </para>
             <para name="Definition">Date of formal issuance (e.g., publication) of the resource. </para>
@@ -1613,7 +1581,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dcterms:conformsTo">
+        <doc path="/edm:RDF/edm:WebResource/dcterms:conformsTo">
             <para name="URI">http://purl.org/dc/terms/conformsTo </para>
             <para name="Label">Conforms To </para>
             <para name="Definition">An established standard to which the described resource conforms </para>
@@ -1626,7 +1594,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dcterms:isFormatOf">
+        <doc path="/edm:RDF/edm:WebResource/dcterms:isFormatOf">
             <para name="URI">http://purl.org/dc/terms/isFormatOf </para>
             <para name="Label">Is Format Of </para>
             <para name="Definition">A related resource that is substantially the same as the described resource, but in another format.   </para>
@@ -1637,7 +1605,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/edm:rights">
+        <doc path="/edm:RDF/edm:WebResource/edm:rights">
             <para name="URI">http://www.europeana.eu/schemas/edm/rights </para>
             <para name="Label">Standardized  Rights Statement </para>
             <para name="Definition">Information about copyright, usage and access rights of the digital objects in Europeana that represent the source cultural heritage object described in the data. Note: This property also exists in the ESE namespace</para>
@@ -1649,7 +1617,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/dcterms:hasPart">
+        <doc path="/edm:RDF/edm:WebResource/dcterms:hasPart">
             <para name="URI">http://purl.org/dc/terms/hasPart </para>
             <para name="Label">Has Part </para>
             <para name="Definition">A related resource that is included either physically or logically in the described resource. </para>
@@ -1661,7 +1629,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:WebResource/edm:isNextInSequence">
+        <doc path="/edm:RDF/edm:WebResource/edm:isNextInSequence">
             <para name="URI">http://www.europeana.eu/schemas/edm/isNextInSequence </para>
             <para name="Label">Is Next In Sequence To </para>
             <para name="Definition">edm:isNextInSequence relates two resources S and R that are ordered parts of the same resource A, and such that S comes immediately after R in the order created by their being parts of A.</para>
@@ -1673,7 +1641,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:ProvidedCHO/owl:sameAs">
+        <doc path="/edm:RDF/edm:ProvidedCHO/owl:sameAs">
             <para name="Label">Same As</para>
             <para name="Note"><![CDATA[ Use to point to your own (linked data) representation of the object, if you have already minted a URI identifier for it.  It is also possible to provide URIs minted by third-parties for the object.5 <owl:sameAs rdf:resource=“http://www.identifier/SameResourceElsewhere”]]></para>
             <para name="Value type">ref</para>
@@ -1686,7 +1654,7 @@
 
 
 
-        <doc path="/RDF/edm:Agent">
+        <doc path="/edm:RDF/edm:Agent">
             <para name="URI">http://www.europeana.eu/schemas/edm/Agent </para>
             <para name="Label">Agent </para>
             <para name="Definition">This class comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible. </para>
@@ -1698,7 +1666,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:Agent/edm:hasMet">
+        <doc path="/edm:RDF/edm:Agent/edm:hasMet">
             <para name="URI">http://www.europeana.eu/schemas/edm/hasMet </para>
             <para name="Label">Has Met </para>
             <para name="Definition">edm:hasMet relates a resource with the objects or phenomena that have happened to or have happened together with the resource under consideration. We can abstractly think of history and the present as a series of “meetings” between people and other things in space-time. Therefore we name this relationship as the things the object “has met” in the course of its existence. These meetings are events in the proper sense, in which other people and things participate in any role. </para>
@@ -1710,7 +1678,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Agent/edm:isRelatedTo">
+        <doc path="/edm:RDF/edm:Agent/edm:isRelatedTo">
             <para name="URI">http://www.europeana.eu/schemas/edm/isRelatedTo </para>
             <para name="Label">Is Related To </para>
             <para name="Definition">edm:isRelatedTo is the most general contextual property in EDM. Contextual properties have typically to do either with the things that have happened to or together with the object under consideration, or what the object refers to by its shape, form or features in a figural or encoded form. For sake of simplicity, we include in the contextual relationships also the scholarly classification, which may have either to do with the role and cultural connections of the object in the past, or its kind of structure, substance or contents as it can be verified at present. </para>
@@ -1721,37 +1689,37 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:Agent/skos:prefLabel">
+        <doc path="/edm:RDF/edm:Agent/skos:prefLabel">
             <para name="Label">Preferred Label</para>
             <para name="Note"><![CDATA[The preferred form of the name of the agent. Although the maximum number of occurences is set at 1, it can be interpreted as 1 per language tag. <skos:prefLabel xml:lang="fr">Courtois neveu aîné</skos:prefLabel> <skos:prefLabel xml:lang="en">Courtois’eldest nephew</skos:prefLabel>]]> </para>
             <para name="Value type">literal</para>
             <para name="Cardinality"> 0…1</para>
         </doc>
-        <doc path="/RDF/edm:Agent/skos:altLabel">
+        <doc path="/edm:RDF/edm:Agent/skos:altLabel">
             <para name="Label">Alternative Label</para>
             <para name="Note"><![CDATA[Alternative forms of the name of the agent. <skos:altLabel xml:lang="en">Courtois</skos:altLabel> <skos:altLabel xml:lang="fr">Augte. Courtois aîné</skos:altLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:Agent/skos:note">
+        <doc path="/edm:RDF/edm:Agent/skos:note">
             <para name="Label">Note</para>
             <para name="Note"><![CDATA[A note about the agent e.g. biographical notes. <skos:note> Courtois neveu aîné started a company of the same name manufacturing brass instruments  in Paris in 1803</skos:note> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:Agent/owl:sameAs">
+        <doc path="/edm:RDF/edm:Agent/owl:sameAs">
             <para name="Label">Same As</para>
             <para name="Note"><![CDATA[Another URI of the same agent. <owl:sameAs rdf:resource=“http://www.identifier/sameResourceElsewhere”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….0</para>
         </doc>
-        <doc path="/RDF/edm:Agent/foaf:name">
+        <doc path="/edm:RDF/edm:Agent/foaf:name">
             <para name="Label">Name</para>
             <para name="Note"><![CDATA[The name of the agent as a simple textual string. <foaf:name>Auguste Courtois</foaf:name> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Agent/dc:date">
+        <doc path="/edm:RDF/edm:Agent/dc:date">
             <para name="URI">http://purl.org/dc/elements/1.1/date </para>
             <para name="Label">Date </para>
             <para name="Definition">A point or period of time associated with an event in the lifecycle of the resource. </para>
@@ -1764,7 +1732,7 @@
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:Agent/dc:identifier">
+        <doc path="/edm:RDF/edm:Agent/dc:identifier">
             <para name="URI">http://purl.org/dc/elements/1.1/identifier </para>
             <para name="Label">Identifier </para>
             <para name="Definition">An unambiguous reference to the resource within a given context. </para>
@@ -1775,7 +1743,7 @@
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:Agent/dcterms:hasPart">
+        <doc path="/edm:RDF/edm:Agent/dcterms:hasPart">
             <para name="URI">http://purl.org/dc/terms/hasPart </para>
             <para name="Label">Has Part </para>
             <para name="Definition">A related resource that is included either physically or logically in the described resource. </para>
@@ -1787,7 +1755,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Agent/dcterms:isPartOf">
+        <doc path="/edm:RDF/edm:Agent/dcterms:isPartOf">
             <para name="URI">http://purl.org/dc/terms/isPartOf </para>
             <para name="Label">Is Part Of </para>
             <para name="Definition">A related resource in which the described resource is physically or logically included. </para>
@@ -1799,61 +1767,61 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Agent/rdaGr2:dateOfBirth">
+        <doc path="/edm:RDF/edm:Agent/rdaGr2:dateOfBirth">
             <para name="Label">Date of Birth</para>
             <para name="Note"><![CDATA[The date the agent (person) was born.  <rdaGr2:dateOfBirth>1795</rdaGr2:dateOfBirth>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
-        <doc path="/RDF/edm:Agent/rdaGr2:dateOfDeath">
+        <doc path="/edm:RDF/edm:Agent/rdaGr2:dateOfDeath">
             <para name="Label">Date of Death</para>
             <para name="Note"><![CDATA[The date the agent (person) died. <rdaGr2:dateOfDeath>1895</rdaGr2:dateOfDeath>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
-        <doc path="/RDF/edm:Agent/rdaGr2:dateOfEstablishment">
+        <doc path="/edm:RDF/edm:Agent/rdaGr2:dateOfEstablishment">
             <para name="Label">Date of Establishment</para>
             <para name="Note"><![CDATA[The date on which the agent (corporate body) was established or founded. <rdaGr2:dateOfEstablishment>1795</rdaGr2:dateOfEstablishment> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:Agent/rdaGr2:dateOfTermination">
+        <doc path="/edm:RDF/edm:Agent/rdaGr2:dateOfTermination">
             <para name="Label">Date of Termination</para>
             <para name="Note"><![CDATA[The date on which the agent (corporate body) was terminated or dissolved. <rdaGr2:dateOfTermination>1895</rdaGr2:dateOfTermination> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
-        <doc path="/RDF/edm:Agent/rdaGr2:gender">
+        <doc path="/edm:RDF/edm:Agent/rdaGr2:gender">
             <para name="Label">Gender</para>
             <para name="Note"><![CDATA[The gender with which the agent identifies. <rdaGr2:gender>Female</rdaGr2:gender>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:Agent/rdaGr2:placeOfBirth">
+        <doc path="/edm:RDF/edm:Agent/rdaGr2:placeOfBirth">
             <para name="Label">Place of Birth</para>
             <para name="Note"><![CDATA[The town, city, province, state, and/or country in which a person was born. <rdaGr2:placeOfBirth>Lusaka, Northern Rhodesia</rdaGr2:placeOfBirth> <rdaGr2:placeOfBirth rdf:resource=”http://sws.geonames.org/909137/”/> ]]></para>
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:Agent/dcterms:rdaGr2:placeOfDeath">
+        <doc path="/edm:RDF/edm:Agent/dcterms:rdaGr2:placeOfDeath">
             <para name="Label">Place of Death</para>
             <para name="Note"><![CDATA[The town, city, province, state, and/or country in which a person died. <rdaGr2:placeOfDeath>London, United Kingdom</rdaGr2:placeOfDeath> <rdaGr2:placeOfDeath rdf:resource=“http://sws.geonames.org/2635167/”/> ]]></para>
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:Agent/rdaGr2:professionOrOccupation">
+        <doc path="/edm:RDF/edm:Agent/rdaGr2:professionOrOccupation">
             <para name="Label">Profession or Occupation</para>
             <para name="Note"><![CDATA[The profession or occupation in which the agent works or has worked. <rdaGr2:professionOrOccupation>Instrument Maker</rdaGr2:professionOrOccupation> ]]></para>
             <para name="Value type">literal or ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Agent/rdaGr2:biographicalInformation">
+        <doc path="/edm:RDF/edm:Agent/rdaGr2:biographicalInformation">
             <para name="Label">Bibliographical Information</para>
             <para name="Note"><![CDATA[Information pertaining to the life or history of the agent. <rdaGr2:biographicalInformation>Courtois neveu aîné started a company of the same name manufacturing brass instruments  in Paris in 1803</rdaGr2:biographicalInformation>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Agent/edm:begin">
+        <doc path="/edm:RDF/edm:Agent/edm:begin">
             <para name="URI">http://www.europeana.eu/schemas/edm/begin </para>
             <para name="Label">Begin </para>
             <para name="Definition">This property denotes the start date of a period of time. </para>
@@ -1867,7 +1835,7 @@
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
-        <doc path="/RDF/edm:Agent/edm:end">
+        <doc path="/edm:RDF/edm:Agent/edm:end">
             <para name="URI">http://www.europeana.eu/schemas/edm/end </para>
             <para name="Label">End </para>
             <para name="Definition">This property denotes the end date of a period of time.   </para>
@@ -1886,47 +1854,47 @@
 
 
         <!-- edm:Place -->
-        <doc path="/RDF/edm:Place">
+        <doc path="/edm:RDF/edm:Place">
             <para name="Label">Place</para>
             <para name="Note">A spatial location identified by the provider and named according to some vocabulary or local convention.</para>
         </doc>
-        <doc path="/RDF/edm:Place/wgs84_pos:lat">
+        <doc path="/edm:RDF/edm:Place/wgs84_pos:lat">
             <para name="Label">Latitude</para>
             <para name="Note"><![CDATA[The latitude of a spatial thing (decimal degrees). <wgs84_pos:lat>51.5075</wgs84_pos:lat>]]></para>
             <para name="Value type">Floating point</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:Place/wgs84_pos:long">
+        <doc path="/edm:RDF/edm:Place/wgs84_pos:long">
             <para name="Label">Longitude</para>
             <para name="Note"><![CDATA[The longitude of a spatial thing (decimal degrees) <wgs84_pos:long>-0.1231</wgs84_pos:long>]]></para>
             <para name="Value type">Floating point</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:Place/wgs84_pos:alt">
+        <doc path="/edm:RDF/edm:Place/wgs84_pos:alt">
             <para name="Label">Altitude</para>
             <para name="Note"><![CDATA[The altitude of a spatial thing (decimal metres above the reference) <wgs84_pos:alt>21</wgs84_pos:alt> ]]></para>
             <para name="Value type">Floating point</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:Place/skos:prefLabel">
+        <doc path="/edm:RDF/edm:Place/skos:prefLabel">
             <para name="Label">Preferred Label</para>
             <para name="Note"><![CDATA[The preferred form of the name of the place.  Maximum is 1 per language tag.   <skos:prefLabel xml:lang="en">London</skos:prefLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1 </para>
         </doc>
-        <doc path="/RDF/edm:Place/skos:altLabel">
+        <doc path="/edm:RDF/edm:Place/skos:altLabel">
             <para name="Label">Alternative Label</para>
             <para name="Note"><![CDATA[Alternative forms of the name of the place. <skos:altLabel xml:lang="en">Greater London</skos:altLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Place/skos:note">
+        <doc path="/edm:RDF/edm:Place/skos:note">
             <para name="Label">Note</para>
             <para name="Note"><![CDATA[Information relating to the place. <skos:note xml:lang="en">Pop. 21m</skos:note> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Place/dcterms:hasPart">
+        <doc path="/edm:RDF/edm:Place/dcterms:hasPart">
             <para name="URI">http://purl.org/dc/terms/hasPart </para>
             <para name="Label">Has Part </para>
             <para name="Definition">A related resource that is included either physically or logically in the described resource.</para>
@@ -1938,7 +1906,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Place/dcterms:isPartOf">
+        <doc path="/edm:RDF/edm:Place/dcterms:isPartOf">
             <para name="URI">http://purl.org/dc/terms/isPartOf </para>
             <para name="Label">Is Part Of </para>
             <para name="Definition">A related resource in which the described resource is physically or logically included. </para>
@@ -1950,7 +1918,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:Place/edm:isNextInSequence">
+        <doc path="/edm:RDF/edm:Place/edm:isNextInSequence">
             <para name="URI">http://www.europeana.eu/schemas/edm/isNextInSequence </para>
             <para name="Label">Is Next In Sequence To </para>
             <para name="Definition">edm:isNextInSequence relates two resources S and R that are ordered parts of the same resource A, and such that S comes immediately after R in the order created by their being parts of A.</para>
@@ -1963,7 +1931,7 @@
             <para name="Cardinality">0….n </para>
 
         </doc>
-        <doc path="/RDF/edm:Place/owl:sameAs">
+        <doc path="/edm:RDF/edm:Place/owl:sameAs">
             <para name="Label">Same As</para>
             <para name="Note"><![CDATA[URI of a Place <owl:sameAs rdf:resource=“http://sws.geonames.org/2635167/”/>(London) ]]></para>
             <para name="Value type">ref</para>
@@ -1973,30 +1941,30 @@
 
 
         <!-- edm:TimeSpan -->
-        <doc path="/RDF/edm:TimeSpan">
+        <doc path="/edm:RDF/edm:TimeSpan">
             <para name="Label">Time Span</para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
-        <doc path="/RDF/edm:TimeSpan/skos:prefLabel">
+        <doc path="/edm:RDF/edm:TimeSpan/skos:prefLabel">
             <para name="Label">Preferred Label</para>
             <para name="Note"><![CDATA[The preferred form of the name of the timespan or period.  Although the maximum number of occurrences is set at 1, it can be interpreted as 1 per language tag. <skos:prefLabel xml:lang=“en”>Roman Empire</skos:prefLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
-        <doc path="/RDF/edm:TimeSpan/skos:altLabel">
+        <doc path="/edm:RDF/edm:TimeSpan/skos:altLabel">
             <para name="Label">Alternative Label</para>
             <para name="Note"><![CDATA[Alternative forms of the name of the timespan or period. <skos:altLabel xml:lang=“fr”>Empire romain (27 avant J.-C.-476 après J.-C.)</skos:altLabel > ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/edm:TimeSpan/skos:note">
+        <doc path="/edm:RDF/edm:TimeSpan/skos:note">
             <para name="Label">Note</para>
             <para name="Note"><![CDATA[Information relating to the timespan or period. <skos:note>The Roman Empire (Latin: Imperium Romanum) was the post-Republican period of the ancient Roman civilization, characterised by an autocratic form of government and large territorial holdings around the Mediterranean in Europe, Africa, and Asia.</skos:note> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:TimeSpan/dcterms:hasPart">
+        <doc path="/edm:RDF/edm:TimeSpan/dcterms:hasPart">
             <para name="URI">http://purl.org/dc/terms/hasPart </para>
             <para name="Label">Has Part </para>
             <para name="Definition">A related resource that is included either physically or logically in the described resource. </para>
@@ -2008,7 +1976,7 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:TimeSpan/dcterms:isPartOf">
+        <doc path="/edm:RDF/edm:TimeSpan/dcterms:isPartOf">
             <para name="URI">http://purl.org/dc/terms/isPartOf </para>
             <para name="Label">Is Part Of </para>
             <para name="Definition">A related resource in which the described resource is physically or logically included. </para>
@@ -2020,13 +1988,13 @@
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:TimeSpan/owl:sameAs">
+        <doc path="/edm:RDF/edm:TimeSpan/owl:sameAs">
             <para name="Label">Same As</para>
             <para name="Note"><![CDATA[The URI of a timespan <owl:sameAs rdf:resource=“http://semium.org/time/roman_empire”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/edm:TimeSpan/edm:isNextInSequence">
+        <doc path="/edm:RDF/edm:TimeSpan/edm:isNextInSequence">
             <para name="URI">http://www.europeana.eu/schemas/edm/isNextInSequence </para>
             <para name="Label">Is Next In Sequence To </para>
             <para name="Definition">edm:isNextInSequence relates two resources S and R that are ordered parts of the same resource A, and such that S comes immediately after R in the order created by their being parts of A.</para>
@@ -2042,7 +2010,7 @@
 
 
 
-        <doc path="/RDF/edm:TimeSpan/crm:P79F.beginning_is_qualified_by">
+        <doc path="/edm:RDF/edm:TimeSpan/crm:P79F.beginning_is_qualified_by">
             <para name="Label">Beginning is Qualified By </para>
             <para name="Note">Qualifying information about the start of the timespan – such as degree of certainty,
                 precision, source etc
@@ -2051,7 +2019,7 @@
             <para name="Obligation and Occurrence">min 0, max unbounded</para>
         </doc>
 
-        <doc path="/RDF/edm:TimeSpan/crm:P80F.end_is_qualified_by">
+        <doc path="/edm:RDF/edm:TimeSpan/crm:P80F.end_is_qualified_by">
             <para name="Label">End is Qualified By </para>
             <para name="Note">Qualifying information about the end of the timespan – such as degree of certainty,
                 precision, source etc
@@ -2061,7 +2029,7 @@
         </doc>
 
 
-        <doc path="/RDF/edm:TimeSpan/edm:begin">
+        <doc path="/edm:RDF/edm:TimeSpan/edm:begin">
             <para name="URI">http://www.europeana.eu/schemas/edm/begin </para>
             <para name="Label">Begin </para>
             <para name="Definition">This property denotes the start date of a period of time. </para>
@@ -2075,7 +2043,7 @@
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
-        <doc path="/RDF/edm:TimeSpan/edm:end">
+        <doc path="/edm:RDF/edm:TimeSpan/edm:end">
             <para name="URI">http://www.europeana.eu/schemas/edm/end </para>
             <para name="Label">End</para>
             <para name="Definition">This property denotes the end date of a period of time.   </para>
@@ -2093,285 +2061,92 @@
 
 
         <!-- skos:Concept -->
-        <doc path="/RDF/skos:Concept">
+        <doc path="/edm:RDF/skos:Concept">
             <para name="Label">Concept</para>
             <para name="Note">A unit of thought or meaning that comes from an organised knowledge base (such as subject terms from a thesaurus or controlled vocabulary) where URIs or local identifiers have been created to represent each concept.  In the cultural heritage world there are many such controlled vocabularies such as the Library of Congress Subject Headings or AAT</para>
 
 
 
         </doc>
-        <doc path="/RDF/skos:Concept/skos:prefLabel">
+        <doc path="/edm:RDF/skos:Concept/skos:prefLabel">
             <para name="Label">Preferred Label</para>
             <para name="Note"><![CDATA[The preferred form of the name of the concept.  Maximum instance is 1 per language tag. <skos:prefLabel xml:lang="fr">Buccin</skos:prefLabel>]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….1</para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:altLabel">
+        <doc path="/edm:RDF/skos:Concept/skos:altLabel">
             <para name="Label">Alternative Label</para>
             <para name="Note"><![CDATA[Alternative forms of the name of the concept. <skos:altLabel xml:lang="en">Buccin</skos:altLabel> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:broader">
+        <doc path="/edm:RDF/skos:Concept/skos:broader">
             <para name="Label">Broader</para>
             <para name="Note"><![CDATA[The identifier of a broader concept in the same thesaurus or controlled vocabulary. <skos:broader rdf:resource=“http://www.mimo-db.eu/InstrumentsKeywords/4369_1”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:narrower">
+        <doc path="/edm:RDF/skos:Concept/skos:narrower">
             <para name="Label">Narrower</para>
             <para name="Note"><![CDATA[The identifier of a narrower concept. <skos:narrower rdf:resource=“http://narrower.term/”/>]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n</para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:related">
+        <doc path="/edm:RDF/skos:Concept/skos:related">
             <para name="Label">Related</para>
             <para name="Note"><![CDATA[The identifier of a related concept <skos:related rdf:resource=“http://related.term/”/  ]]></para>
             <para name="Value type"></para>
             <para name="Cardinality"></para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:note">
+        <doc path="/edm:RDF/skos:Concept/skos:note">
             <para name="Label">Note</para>
             <para name="Note"><![CDATA[Information relating to the concept. <skos:note>The buccin is a visually distinctive trombone popularized in military bands in France between 1810–1845 which subsequently faded into obscurity.</skos:note> ]]></para>
             <para name="Value type">literal</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:broadMatch">
+        <doc path="/edm:RDF/skos:Concept/skos:broadMatch">
             <para name="Label">Broad Match</para>
             <para name="Note"><![CDATA[The identifier of a broader, narrower or related matching concepts from other concept schemes. <skos:broadMatch rdf:resource=“http://broadMatch.term/”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:narrowMatch">
+        <doc path="/edm:RDF/skos:Concept/skos:narrowMatch">
             <para name="Label">Narrow Match</para>
             <para name="Note"><![CDATA[The identifier of a broader, narrower or related matching concepts from other concept schemes. <skos:narrowMatch rdf:resource=“http://narrowMatch.term/”/> ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:relatedMatch">
+        <doc path="/edm:RDF/skos:Concept/skos:relatedMatch">
             <para name="Label">Related Match</para>
             <para name="Note"><![CDATA[The identifier of a broader, narrower or related matching concepts from other concept schemes. <skos:relatedMatch rdf:resource=“http://relatedMatch.term/”/>   ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:exactMatch">
+        <doc path="/edm:RDF/skos:Concept/skos:exactMatch">
             <para name="Label">Exact Match</para>
             <para name="Note"><![CDATA[The identifier of close or exactly matching concepts from other concept schemes. <skos:exactMatch rdf:resource=“http://exactMatch.term/”/>  ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:closeMatch">
+        <doc path="/edm:RDF/skos:Concept/skos:closeMatch">
             <para name="Label">Close Match</para>
             <para name="Note"><![CDATA[The identifier of close or exactly matching concepts from other concept schemes. <skos:closeMatch rdf:resource=“http://closeMatch.term/”/>    ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:notation">
+        <doc path="/edm:RDF/skos:Concept/skos:notation">
             <para name="Label">Notation</para>
             <para name="Note"><![CDATA[The notation in which the concept is represented.  This may not be words in natural language for some knowledge organisation systems e.g. algebra <skos:notation rdf:datatype=“http://www.w3.org/2001/XMLSchema#int”>123</skos:notation> ]]></para>
             <para name="Value type">string (+ rdf: datatype attribute) </para>
             <para name="Cardinality">0….n </para>
         </doc>
-        <doc path="/RDF/skos:Concept/skos:inScheme">
+        <doc path="/edm:RDF/skos:Concept/skos:inScheme">
             <para name="Label">In Scheme</para>
             <para name="Note"><![CDATA[The URI of a concept scheme ]]></para>
             <para name="Value type">ref</para>
             <para name="Cardinality">0….n </para>
         </doc>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Norvegiana docs, do nothing with these-->
-        <doc path="/RDF/nave:NorvegianaResource/nave:introduction">
-            <para name="Definition">
-                <![CDATA[Should the input text have both an introductory text and main body of text, map the introduction to abm:introduction and the main body of text to dc:description. Note that for ESE you will need to ensure the abm:introduction is mapped to DC:description before providing it to Europeana.]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:classification">
-            <para name="Definition">
-                <![CDATA[Structural classification  - additional to the information that can be mapped to dc:source  and dc:subject]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:creatorUri">
-            <para name="Definition">
-                <![CDATA[Unique identifier (URI) of the creator]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:category">
-            <para name="Definition">
-                <![CDATA[Select from the predetermined list, relevant for Kultur-og Naturreise prosjekt: Eg. Archeology, Animals, Plant, Place names. Art, Industrial Heritage, Social history. Categorization can be applied to a mapping of a Virtual Collection of Digitalt Fortalt data. This will be “Facetable”.]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-
-        <doc path="/RDF/nave:NorvegianaResource/nave:aboutPerson">
-            <para name="Definition">
-                <![CDATA[A person that is the subject of the described resource, eg. Persons described in documents,  persons depicted in photos, paintings and statues/busts, etc]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:contentProvider">
-            <para name="Definition">
-                <![CDATA[Same as Europeana:dataprovider]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:digitised">
-            <para name="Definition">
-                <![CDATA[Date resource was digitised]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:latLong">
-            <para name="Definition">
-                <![CDATA[ ]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Mandatory if you have lat/long  coordinates]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:polygon_latLong">
-            <para name="Definition">
-                <![CDATA[The abm:latLong field is the combined lat/long fields - used by the Solr GeoSearch. Format the coordinates in this field: lat,long]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:polygon_utm">
-            <para name="Definition">
-                <![CDATA[ ]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:utm">
-            <para name="Definition">
-                <![CDATA[ ]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[ Optional ]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:address">
-            <para name="Definition">
-                <![CDATA[To be given as a text string, if possible  according to a Syntax Encoding Scheme for addresses (yet to be specified),  or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:country">
-            <para name="Definition">
-                <![CDATA[Recommended best practice is to use country names conforming to ISO 3166, like [europeana:country]. Note: This property has to do with the topical coverage of the described resource, whereas [Europeana:country] denotes the country of the provider.]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:county">
-            <para name="Definition">
-                <![CDATA[(Fykesnavn) To be given as a text string, if possible according to a Syntax Encoding Scheme for counties (yet to be specified) - names  conforming  to an authorised list of counties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:countyNr">
-            <para name="Definition">
-                <![CDATA[(Fylkesnummer) numbers conforming  to an authorised list of counties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:estateName">
-            <para name="Definition">
-                <![CDATA[Gårdsnavn : To be given as a text string, if possible according to a Syntax Encoding Scheme for landed properties (yet to be specified) -  name conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points. EXAMPLE: “Hellerud”]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:estateNr">
-            <para name="Definition">
-                <![CDATA[Gårdsnummer: conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points. EXAMPLE: “314”]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:propertyName">
-            <para name="Definition">
-                <![CDATA[Bruksnavn: conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points. EXAMPLE: “Solbakken”]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:propertyNr">
-            <para name="Definition">
-                <![CDATA[Bruksnummer: EXAMPLE: ”013”]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:municipality">
-            <para name="Definition">
-                <![CDATA[(Kommune) To be given as a text string, if possible according to a Syntax Encoding Scheme for municipalities (yet to be specified),]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:municipalityNr">
-            <para name="Definition">
-                <![CDATA[(Kommunenummer) numbers conforming  to an authorised list of counties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
-        <doc path="/RDF/nave:NorvegianaResource/nave:namedPlace">
-            <para name="Definition">
-                <![CDATA[To be given as a text string, if possible according to a Syntax Encoding Scheme for municipalities (yet to be specified), including names conforming  to an authorised list of named places or the syntax encoding scheme DCMI Point for spatial points.  EXAMPLE: Rosenhoff, Sinsen]]>
-            </para>
-            <para name="Requirements">
-                <![CDATA[Optional]]>
-            </para>
-        </doc>
     </docs>
 
 
