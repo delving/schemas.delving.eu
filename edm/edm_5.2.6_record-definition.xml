@@ -539,27 +539,28 @@
             <elem tag="owl:sameAs" attrs="rdf:resource"/>  <!-- ref only -->
             <!-- delving specific --> 
             <elem tag="nave:agentType" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:cemetary" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:deceasedNote" attrs="xml:lang"/>
             <elem tag="nave:firstName" attrs="xml:lang"/>
             <elem tag="nave:surname" attrs="xml:lang"/>
             <elem tag="nave:surnamePrefix" attrs="xml:lang"/>
             <elem tag="nave:dateOfBurial"/>
-            <elem tag="nave:placeOfBurial" attrs="rdf:resource,xml:lang"/>
-            <elem tag="nave:cemetary" attrs="rdf:resource,xml:lang"/>
-            <elem tag="nave:relationNote" attrs="xml:lang"/>
-            <elem tag="nave:creatorLabel" attrs="xml:lang"/>
-            <elem tag="nave:publisherLabel" attrs="xml:lang"/>
-            <elem tag="nave:depictedSubjectLabel" attrs="xml:lang"/>
-            <elem tag="nave:organisationLabel" attrs="xml:lang"/>
-            <elem tag="nave:deceasedLabel" attrs="xml:lang"/>
-            <elem tag="nave:relatedToDeceasedLabel" attrs="xml:lang"/>
             <elem tag="nave:periodOfLife" attrs="xml:lang"/>
-            <elem tag="nave:deceasedNote" attrs="xml:lang"/>
-            <elem tag="nave:corporativeAuthorLabel" attrs="xml:lang"/>
+            <elem tag="nave:placeOfBurial" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:placeOfPublication" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:relationNote" attrs="xml:lang"/>
             <elem tag="nave:relationType" attrs="xml:lang"/>
             <elem tag="nave:relationFirstName" attrs="xml:lang"/>
             <elem tag="nave:relationSurname" attrs="xml:lang"/>
             <elem tag="nave:relationSurnamePrefix" attrs="xml:lang"/>
-            <elem tag="nave:placeOfPublication" attrs="xml:lang"/>
+            <elem tag="nave:creatorLabel" attrs="xml:lang"/>
+            <elem tag="nave:corporativeAuthorLabel" attrs="xml:lang"/>
+            <elem tag="nave:publisherLabel" attrs="xml:lang"/>
+            <elem tag="nave:depictedSubjectLabel" attrs="xml:lang"/>
+            <elem tag="nave:organisationLabel" attrs="xml:lang"/>
+            <elem tag="nave:subjectDepictedLabel" attrs="xml:lang"/>
+            <elem tag="nave:deceasedLabel" attrs="xml:lang"/>
+            <elem tag="nave:relatedToDeceasedLabel" attrs="xml:lang"/>
         </elem>
 
         <!--<elem tag="edm:Organisation" attrs="rdf:about">-->
@@ -592,18 +593,19 @@
             <elem tag="edm:isNextInSequence" attrs="rdf:resource"/> <!-- ref only -->
             <elem tag="owl:sameAs" attrs="rdf:resource"/>
             <!-- delving specific -->
-            <elem tag="nave:continent" attrs="rdf:resource,xml:lang" />
-            <elem tag="nave:country" attrs="rdf:resource,xml:lang" />
-            <elem tag="nave:province" attrs="rdf:resource,xml:lang" />
-            <elem tag="nave:county" attrs="rdf:resource,xml:lang" />
-            <elem tag="nave:municipality" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:address" attrs="xml:lang" />
             <elem tag="nave:city" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:district" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:continent" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:county" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:country" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:municipality" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:postalCode" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:placeOfPublication" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:province" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:specificationPlace" attrs="xml:lang" />
             <elem tag="nave:street" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:streetNr" attrs="rdf:resource,xml:lang" />
-            <elem tag="nave:postalCode" attrs="rdf:resource,xml:lang" />
-            <elem tag="nave:address" attrs="xml:lang" />
-            <elem tag="nave:specificationPlace" attrs="xml:lang" />
         </elem>
 
 
@@ -654,8 +656,6 @@
         <elem tag="nave:BrabantCloudResource">
             <!-- tib -->
             <elem tag="nave:archiveNr"/>
-            <elem tag="nave:citName"/>
-            <elem tag="nave:citOldId"/>
             <elem tag="nave:collection" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:collectionType" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:collectionPart" attrs="rdf:resource,xml:lang"/>
@@ -676,24 +676,29 @@
             <elem tag="nave:documentation"/>
             <elem tag="nave:event" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:exhibition" />
+            <elem tag="nave:exhibitionDateEnd" />
+            <elem tag="nave:exhibitionDateStart" />
+            <elem tag="nave:exhibitionNotes" attrs="xml:lang"/>
+            <elem tag="nave:exhibitionOrganiser" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:exhibitionVenue" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:formatted"/>
             <elem tag="nave:geojson"/>
+            <elem tag="nave:inscription" />
+            <elem tag="nave:inscriptionMethod" />
+            <elem tag="nave:inscriptionPosition" />
+            <elem tag="nave:inscriptionType" />
             <elem tag="nave:inventoryNr"/>
             <elem tag="nave:issn"/>
             <elem tag="nave:isbn"/>
             <elem tag="nave:issueNr"/>
             <elem tag="nave:location" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:material" />
-            <elem tag="nave:materialAatLabel" />
-            <elem tag="nave:materialAatLink" />
+            <elem tag="nave:notes1" attrs="xml:lang"/>
+            <elem tag="nave:notes2" attrs="xml:lang"/>
             <elem tag="nave:notes"/>
-            <elem tag="nave:note1" />
-            <elem tag="nave:note2" />
+            <elem tag="nave:objectCategory" attrs="xml:lang"/>
             <elem tag="nave:objectNumber"/>
             <elem tag="nave:objectSoort" />
-            <elem tag="nave:objectCategory" />
-            <elem tag="nave:objectnameAatLabel" />
-            <elem tag="nave:objectnameAatLink" />
             <elem tag="nave:pageEnd"/>
             <elem tag="nave:pageStart"/>
             <elem tag="nave:numberOfPages"/>
@@ -706,9 +711,14 @@
             <elem tag="nave:productionStart"/>
             <elem tag="nave:physicalDetails"/>
             <elem tag="nave:region" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:schoolStyle" attrs="rdf:resource,xml:lang"/>
             <elem tag="nave:rightsNote" attrs="xml:lang"/>
             <elem tag="nave:condition" attrs="xml:lang"/>
             <elem tag="nave:conditionNote" attrs="xml:lang"/>
+            <elem tag="nave:objectnameAatLink" attrs="rdf:resource"/>
+            <elem tag="nave:objectnameAatLabel" attrs="xml:lang"/>
+            <elem tag="nave:materialAatLink" attrs="rdf:resource"/>
+            <elem tag="nave:materialAatLabel" attrs="xml:lang"/>
             <elem tag="nave:subjectAatLink" attrs="rdf:resource"/>
             <elem tag="nave:subjectAatLabel" attrs="xml:lang"/>
             <elem tag="nave:subjectDepicted" attrs="rdf:resource,xml:lang"/>
