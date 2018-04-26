@@ -5,7 +5,7 @@
         <namespace prefix="dcterms" uri="http://purl.org/dc/terms/" />
         <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#" />
         <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#" />
-        <namespace prefix="ebucore" uri="urn:ebu:metadata-schema:ebuCore_2014" />
+        <namespace prefix="ebucore" uri="http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#" />
         <namespace prefix="edm" uri="http://www.europeana.eu/schemas/edm/" />
         <namespace prefix="ore" uri="http://www.openarchives.org/ore/terms/" />
         <namespace prefix="skos" uri="http://www.w3.org/2004/02/skos/core#" />
