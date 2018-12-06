@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    targetNamespace="http://www.w3.org/2003/01/geo/wgs84_pos#" elementFormDefault="qualified"
+    attributeFormDefault="qualified">
+
+    <annotation>
+        <documentation>
+            NAA First Implementation Schema: HG
+        </documentation>
+    </annotation>
+
+    <import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="RDF.xsd"/>
+
+    <xs:element name="hg:sameHgConcept" type="xs:string"/>
+    <xs:element name="hg:containsHgConcept" type="xs:string"/>
+    <xs:element name="hg:withinHgConcept" type="xs:string"/>
+    <xs:element name="hg:intersectsHgConcept" type="xs:string"/>
+    <xs:element name="hg:absorbed" type="xs:string"/>
+    <xs:element name="hg:absorbedBy" type="xs:string"/>
+    <xs:element name="hg:originated" type="xs:string"/>
+    <xs:element name="hg:originatedFrom" type="xs:string"/>
+    <xs:element name="hg:contains" type="xs:string"/>
+    <xs:element name="hg:liesIn" type="xs:string"/>
+
+
+</schema>
+

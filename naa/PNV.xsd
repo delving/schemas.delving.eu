@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    targetNamespace="http://www.w3.org/2003/01/geo/wgs84_pos#" elementFormDefault="qualified"
+    attributeFormDefault="qualified">
+
+    <annotation>
+        <documentation>
+            NAA First Implementation Schema: PNV
+        </documentation>
+    </annotation>
+
+    <import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="RDF.xsd"/>
+
+    <xs:element name="pnv:hasName" type="xs:string"/>
+    <xs:element name="pnv:disambiguatingDescription" type="xs:string"/>
+    <xs:element name="pnv:literalName" type="xs:string"/>
+    <xs:element name="pnv:PersonName" type="xs:string"/>
+    <xs:element name="pnv:prefix" type="xs:string"/>
+    <xs:element name="pnv:givenName" type="xs:string"/>
+    <xs:element name="pnv:givenNameSuffix" type="xs:string"/>
+    <xs:element name="pnv:firstName" type="xs:string"/>
+    <xs:element name="pnv:patronym" type="xs:string"/>
+    <xs:element name="pnv:infixTitle" type="xs:string"/>
+    <xs:element name="pnv:surnamePrefix" type="xs:string"/>
+    <xs:element name="pnv:baseSurname" type="xs:string"/>
+    <xs:element name="pnv:infix" type="xs:string"/>
+    <xs:element name="pnv:surname" type="xs:string"/>
+    <xs:element name="pnv:trailingPatronym" type="xs:string"/>
+    <xs:element name="pnv:suffix" type="xs:string"/>
+    <xs:element name="pnv:honorificSuffix" type="xs:string"/>
+
+
+</schema>
+

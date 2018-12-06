@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://archief.nl/def/"
+    xmlns:naa="http://archief.nl/def/"
+    xmlns:edm="http://www.europeana.eu/schemas/edm/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:enrichment="http://www.europeana.eu/schemas/edm/enrichment/"
+    xmlns:ore="http://www.openarchives.org/ore/terms/"
+    xmlns:rdaGr2="http://rdvocab.info/ElementsGr2/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:bf="http://id.loc.gov/ontologies/bibframe"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:geo="http://www.opengis.net/ont/geosparql#"
+    xmlns:hg="http://rdf.histograph.io/"
+    xmlns:odrl="http://www.w3.org/ns/odrl/2/"
+    xmlns:pnv="http://archief.nl/pnv/def/"
+    xmlns:schema="http://schema.org/"
+    xmlns:sem="http://semanticweb.cs.vu.nl/2009/11/sem/"
+    xmlns:svcs="http://rdfs.org/sioc/services#"
+    xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+    elementFormDefault="qualified">
+
+    <import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="DC.xsd"/>
+    <import namespace="http://www.w3.org/2004/02/skos/core#" schemaLocation="SKOS.xsd"/>
+    <import namespace="http://purl.org/dc/terms/" schemaLocation="DCTERMS.xsd"/>
+    <import namespace="http://www.w3.org/2003/01/geo/wgs84_pos#" schemaLocation="WGS84.xsd"/>
+    <import namespace="http://rdvocab.info/ElementsGr2/" schemaLocation="RDAGR2.xsd" />
+    <import namespace="http://xmlns.com/foaf/0.1/" schemaLocation="FOAF.xsd" />
+    <import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="RDF.xsd"/>
+    <import namespace="http://www.w3.org/2002/07/owl#" schemaLocation="OWL.xsd"/>
+    <import namespace="http://www.w3.org/2004/02/skos/core#" schemaLocation="SKOS.xsd"/>
+    <import namespace="http://www.europeana.eu/schemas/edm/" schemaLocation="EDM-COMMON-MAIN.xsd"/>
+    <import namespace="http://id.loc.gov/ontologies/bibframe" schemaLocation="BF.xsd"/>
+    <import namespace="http://www.w3.org/ns/dcat#" schemaLocation="DCAT.xsd"/>
+    <import namespace="http://www.opengis.net/ont/geosparql#" schemaLocation="GEO.xsd"/>
+    <import namespace="http://rdf.histograph.io/" schemaLocation="HG.xsd"/>
+    <import namespace="http://www.w3.org/ns/odrl/2/" schemaLocation="ODRL.xsd"/>
+    <import namespace="http://archief.nl/pnv/def/" schemaLocation="PNV.xsd"/>
+    <import namespace="http://schema.org/" schemaLocation="SCHEMA.xsd"/>
+    <import namespace="http://semanticweb.cs.vu.nl/2009/11/sem/" schemaLocation="SEM.xsd"/>
+    <import namespace="http://rdfs.org/sioc/services#" schemaLocation="SVCS.xsd"/>
+
+    <annotation>
+        <documentation> NAA First Implementation Schema: Main schema in the NAA namespace, to be
+            wrapped up in RDF </documentation>
+    </annotation>
+
+
+    <!--  Base NAA Type Entities Declaration-->
+    <complexType name="ore:Aggregation">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="naa:isAggregationType" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:title" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:description" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:catalogReferenceNumber" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:identifier" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:isShownAt" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="foaf:primaryTopic" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="ore:isAggregatedBy" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="ore:aggregates" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:issued" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:modified" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcat:keyword" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcat:landingPage" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:coverage" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:creator" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:date" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:language" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:publisher" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="RecordAggregation">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="rdf:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:title" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:catalogReferenceNumber" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:identifier" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:isShownAt" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="foaf:primaryTopic" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:isShownBy" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:landingPage" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="ore:isAggregatedBy" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="ore:aggregates" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:creator" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:isAggregationType" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:created" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:modified" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="ArchivalEntity">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="rdf:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:isEntityType" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:catalogReferenceNumber" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:fileNumber" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:inventoryNumber" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:identifier" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:persistentIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:hasView" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="ore:isAggregatedBy" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:description" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:additionalDescription" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:relation" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:date" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:date" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:relation" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="bf:otherEdition" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:publisher" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:publisher" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:license" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:license" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="bf:scale" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:format" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="odrl:hasPolicy" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:note" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="ArchivalReference">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="rdf:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:isEntityType" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="ore:isAggregatedBy" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="foaf:primaryTopic" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:description" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:additionalDescription" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:subject" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:subject" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="foaf:primaryTopic" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:coverage" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:coverage" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:spatial" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:relation" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:date" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:date" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:relation" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="bf:otherEdition" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:creator" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="foaf:maker" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:creator" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:created" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:publisher" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:publisher" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:comment" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:begin" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:end" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:prepositionDate" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:docketRecordNumber" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+
+    <complexType name="edm:WebResourceType">
+        <annotation>
+            <documentation>Base class for WebResource implementations</documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="dc:identifier" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="ebucore:filename" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:creator" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:description" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:format" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:source" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:conformsTo" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="svcs:has_service" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="pnv:Person">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="dc:identifier" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:fragmentIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:seeAlso" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="owl:sameAs" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="foaf:made" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="foaf:isPrimaryTopicOf" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="ebucore:hasRole" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:hasProfession" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:description" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:note" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:sex" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:hasReligion" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="schema:birthDate" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="schema:birthPlace" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="schema:deathDate" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="schema:deathPlace" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:age" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:hasName" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:disambiguatingDescription" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:literalName" maxOccurs="unbounded" minOccurs="0" />
+                </elem>
+            </elem>
+            <element ref="naa:hasResidency" maxOccurs="unbounded" minOccurs="0" />
+            <element ref="naa:wasOwnedBy" maxOccurs="unbounded" minOccurs="0" />
+
+        </sequence>
+    </extension>
+</complexContent>
+    </complexType>
+
+    <complexType name="pnv:hasName">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="pnv:PersonName" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="pnv:PersonName">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="skos:definition" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:prefix" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:givenName" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:givenNameSuffix" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:firstName" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:patronym" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:infixTitle" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:surnamePrefix" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:baseSurname" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:infix" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:surname" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:trailingPatronym" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:suffix" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="pnv:honorificSuffix" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+
+    <complexType name="edm:TimeSpan">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:coverage" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:description" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:begin" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="edm:end" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="hg:PlaceInTime">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="dcterms:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="sem:hasEarliestBeginTimeStamp" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="sem:hasLatestBeginTimeStamp" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="sem:hasEarliestEndTimeStamp" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="sem:hasLatestEndTimeStamp" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="naa:lastKnownName" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="owl:sameAs" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="schema:name" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="geo:hasGeometry" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:sameHgConcept" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:containsHgConcept" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:withinHgConcept" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:intersectsHgConcept" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:absorbed" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:absorbedBy" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:originated" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:originatedFrom" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:contains" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="hg:liesIn" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="odrl:Policy">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="dc:type" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="odrl:permission" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="foaf:primaryTopic" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:rights" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:rightsHolder" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="skos:Concept">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:inScheme" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="owl:sameAs" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="rdfs:seeAlso" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="dcat:Dataset">
+        <annotation>
+            <documentation></documentation>
+        </annotation>
+        <complexContent>
+            <extension base="rdf:AboutType">
+                <sequence>
+                    <element ref="rdfs:label" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:prefLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="skos:altLabel" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:title" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:description" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:issued" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:modified" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcterms:identifier" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcat:keyword" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dcat:landingPage" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:coverage" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:creator" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:date" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:language" maxOccurs="unbounded" minOccurs="0" />
+                    <element ref="dc:publisher" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <!-- elements  -->
+    <xs:element name="naa:additionalDescription" type="xs:string"/>
+    <xs:element name="naa:age" type="xs:string"/>
+    <xs:element name="naa:catalogReferenceNumber" type="xs:string"/>
+    <xs:element name="naa:docketRecordNumber" type="xs:string"/>
+    <xs:element name="naa:fileNumber" type="xs:string"/>
+    <xs:element name="naa:fragmentIdentifier" type="xs:string"/>
+    <xs:element name="naa:hasProfession" type="xs:string"/>
+    <xs:element name="naa:hasReligion" type="xs:string"/>
+    <xs:element name="naa:hasResidency" type="xs:string"/>
+    <xs:element name="naa:inventoryNumber" type="xs:string"/>
+    <xs:element name="naa:isAggregationType" type="xs:string"/>
+    <xs:element name="naa:isEntityType" type="xs:string"/>
+    <xs:element name="naa:lastKnownName" type="xs:string"/>
+    <xs:element name="naa:persistentIdentifier" type="xs:string"/>
+    <xs:element name="naa:prepositionDate" type="xs:string"/>
+    <xs:element name="naa:sex" type="xs:string"/>
+    <xs:element name="naa:wasOwnedBy" type="xs:string"/>
+
+</schema>
+

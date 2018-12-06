@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    targetNamespace="http://www.w3.org/2003/01/geo/wgs84_pos#" elementFormDefault="qualified"
+    attributeFormDefault="qualified">
+
+    <annotation>
+        <documentation>
+            NAA First Implementation Schema: BF
+        </documentation>
+    </annotation>
+
+    <import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="RDF.xsd"/>
+
+    <xs:element name="bf:otherEdition" type="xs:string"/>
+    <xs:element name="bf:scale" type="xs:string"/>
+    <xs:element name="bf:otherEdition" type="xs:string"/>
+
+</schema>
+
