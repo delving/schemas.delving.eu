@@ -783,9 +783,12 @@
         <elem tag="nave:acceptedStateChargesReason" attrs="rdf:resource,xml:lang" />
         <!-- subproperty of skos:prefLabel-->
         <elem tag="nave:rijksCollection" attrs="rdf:resource,xml:lang" />
-        <elem tag="nave:expulsionMeans" attrs="rdf:resource,xml:lang" /> 
+        <elem tag="nave:expulsionMeans" attrs="rdf:resource,xml:lang" />  
         <elem tag="nave:expulsionYear" attrs="rdf:resource,xml:lang" />  
-        <elem tag="nave:legalStatus" attrs="rdf:resource,xml:lang" /> </elem>
+        <elem tag="nave:legalStatus" attrs="rdf:resource,xml:lang" /> 
+            <elem tag="nave:reasonListed" attrs="rdf:resource,xml:lang"/> 
+            <elem tag="nave:yearListed" attrs="rdf:resource,xml:lang"/> 
+    </elem>
         <elem tag="nave:NorvegianaResource">
             <elem tag="nave:municipality" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:municipalityNr" attrs="rdf:resource,xml:lang" />

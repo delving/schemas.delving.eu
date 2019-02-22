@@ -125,6 +125,8 @@
     <xs:element name="province" type="xs:string"/>
     <xs:element name="public" type="xs:string"/>
     <xs:element name="purchasePrice" type="xs:string"/>
+    <xs:element name="nave:reasonListed" type="xs:string"/> 
+    <xs:element name="nave:yearListed" type="xs:string"/> 
     <xs:element name="recordSyncURI" type="xs:anyURI"/>
     <xs:element name="region" type="xs:string"/>
     <xs:element name="religion" type="xs:string"/>
