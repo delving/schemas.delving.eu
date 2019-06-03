@@ -201,6 +201,56 @@
                     <xs:element ref="thumbSmall" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="vindplaats" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="year" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="subcollectionPart" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="productionDateNotes" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="schoolStyle" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="creditLine" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="leadWord" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="shelfMark" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="issue" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="edition" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="illustrations" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="day" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="month" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="seriesNumber" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="seriesTitle" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="sourceTitle" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="sourceTitleArticleLeadword" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Exhibition">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>DelvingType contains Delving elements.</xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:choice>
+                    <xs:element ref="exhibitionTitle" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="exhibitionOrganiser" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="exhibitionDateStart" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="exhibitionDateEnd" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Documentation">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>DelvingType contains Delving elements.</xs:documentation>
+            </xs:annotation>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:choice>
+                    <xs:element ref="documentationAuthor" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="documentationPageReference" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="documentationTitle" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="documentationLeadword" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="documentationPlaceOfPublication" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="documentationYearOfPublication" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="documentationObjectNumber" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:choice>
             </xs:sequence>
         </xs:complexType>

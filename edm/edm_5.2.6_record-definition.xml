@@ -754,6 +754,21 @@
             <elem tag="nave:vindplaats" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:volume" />
             <elem tag="nave:year" />
+            <elem tag="nave:subcollectionPart" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:productionDateNotes" attrs="xml:lang"/>
+            <elem tag="nave:schoolStyle" attrs="xml:lang"/>
+            <elem tag="nave:creditLine" attrs="xml:lang"/>
+            <elem tag="nave:leadWord" attrs="xml:lang"/>
+            <elem tag="nave:shelfMark" attrs="xml:lang"/>
+            <elem tag="nave:issue"/>
+            <elem tag="nave:edition" attrs="xml:lang"/>
+            <elem tag="nave:illustrations" attrs="xml:lang"/>
+            <elem tag="nave:day" attrs="xml:lang"/>
+            <elem tag="nave:month" attrs="xml:lang"/>
+            <elem tag="nave:seriesNumber"/>
+            <elem tag="nave:seriesTitle" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:sourceTitle" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:sourceTitleArticleLeadword" attrs="xml:lang"/>
         </elem>
         <elem tag="nave:DcnResource">
             <elem tag="nave:creatorYearOfBirth" attrs="rdf:resource,xml:lang" />
@@ -779,16 +794,16 @@
             <elem tag="nave:acquisitionMeans" attrs="rdf:resource,xml:lang" />
         </elem>
         <elem tag="nave:RijksCollection">
-        <elem tag="nave:acceptedStateCharges" attrs="rdf:resource,xml:lang" />
-        <elem tag="nave:acceptedStateChargesReason" attrs="rdf:resource,xml:lang" />
-        <!-- subproperty of skos:prefLabel-->
-        <elem tag="nave:rijksCollection" attrs="rdf:resource,xml:lang" />
-        <elem tag="nave:expulsionMeans" attrs="rdf:resource,xml:lang" />  
-        <elem tag="nave:expulsionYear" attrs="rdf:resource,xml:lang" />  
-        <elem tag="nave:legalStatus" attrs="rdf:resource,xml:lang" /> 
+            <elem tag="nave:acceptedStateCharges" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:acceptedStateChargesReason" attrs="rdf:resource,xml:lang" />
+            <!-- subproperty of skos:prefLabel-->
+            <elem tag="nave:rijksCollection" attrs="rdf:resource,xml:lang" />
+            <elem tag="nave:expulsionMeans" attrs="rdf:resource,xml:lang" />  
+            <elem tag="nave:expulsionYear" attrs="rdf:resource,xml:lang" />  
+            <elem tag="nave:legalStatus" attrs="rdf:resource,xml:lang" /> 
             <elem tag="nave:reasonListed" attrs="rdf:resource,xml:lang"/> 
             <elem tag="nave:yearListed" attrs="rdf:resource,xml:lang"/> 
-    </elem>
+        </elem>
         <elem tag="nave:NorvegianaResource">
             <elem tag="nave:municipality" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:municipalityNr" attrs="rdf:resource,xml:lang" />
@@ -825,6 +840,21 @@
             <elem tag="nave:soundUri" uriCheck="true" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:imageUri" uriCheck="true" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:textUri" uriCheck="true" attrs="rdf:resource,xml:lang" />
+        </elem>
+        <elem tag="nave:Exhibition">
+            <elem tag="nave:exhibitionTitle" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:exhibitionOrganiser" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:exhibitionDateStart" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:exhibitionDateEnd" attrs="rdf:resource,xml:lang"/>
+        </elem>
+        <elem tag="nave:Documentation">
+            <elem tag="nave:documentationAuthor" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:documentationPageReference" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:documentationTitle" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:documentationLeadword" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:documentationPlaceOfPublication" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:documentationYearOfPublication" attrs="rdf:resource,xml:lang"/>
+            <elem tag="nave:documentationObjectNumber" attrs="rdf:resource,xml:lang"/>
         </elem>
         <elem tag="nave:DelvingResource">
             <elem tag="nave:excludedFromEuropeana" />
