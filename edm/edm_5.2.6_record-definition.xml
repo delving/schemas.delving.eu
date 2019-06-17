@@ -348,7 +348,8 @@
             </sample-input>
             <groovy-code>
                 <string>def items = it.split("-")</string>
-                <string>if (items.size() 3) {"${items[2]}-${items[1]}-${items[0]}".replace("00-", "")}&lt;/string&gt; &lt;string&gt;else if (items.size() 2) {"${items1}-${items0}".replace("00-", "")}</string>
+                <string>if (items.size() &gt; 3) {"${items[2]}-${items[1]}-${items[0]}".replace("00-", "")}</string> 
+                <string>else if (items.size() &gt; 2) {"${items1}-${items0}".replace("00-", "")}</string>
                 <string>else if (items.size() == 1) {"${items0}".replace("00-", "")}</string>
             </groovy-code>
         </mapping-function>
