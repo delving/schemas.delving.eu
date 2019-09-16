@@ -41,6 +41,7 @@
     <xs:element name="collection" type="xs:string"/>
     <xs:element name="collectionName" type="xs:string"/>
     <xs:element name="collectionPart" type="xs:string"/>
+    <xs:element name="subcollectionPart" type="xs:string"/>
     <xs:element name="collectionTitle" type="xs:string"/>
     <xs:element name="collectionType" type="xs:string"/>
     <xs:element name="color" type="xs:string"/>
@@ -54,6 +55,7 @@
     <xs:element name="country" type="xs:string"/>
     <xs:element name="county" type="xs:string"/>
     <xs:element name="countyNr" type="xs:string"/>
+    <xs:element name="creditLine" type="xs:string"/>
     <xs:element name="creatorBirthYear" type="xs:string"/>
     <xs:element name="creatorDeathYear" type="xs:string"/>
     <xs:element name="creatorRole" type="xs:string"/>
@@ -64,15 +66,28 @@
     <xs:element name="date" type="xs:string"/>
     <xs:element name="dateNote" type="xs:string"/>
     <xs:element name="dateOfBurial" type="xs:string"/>
+    <xs:element name="day" type="xs:string"/>
     <xs:element name="deepZoomUrl" type="xs:anyURI"/>
     <xs:element name="design" type="xs:string"/>
     <xs:element name="digitised" type="xs:string"/>
     <xs:element name="dimension" type="xs:string"/>
     <xs:element name="dimensionNote" type="xs:string"/>
+    <xs:element name="documentationAuthor" type="xs:string"/>
+    <xs:element name="documentationLeadword" type="xs:string"/>
+    <xs:element name="documentationPageReference" type="xs:string"/>
+    <xs:element name="documentationTitle" type="xs:string"/>
+    <xs:element name="documentationPlaceOfPublication" type="xs:string"/>
+    <xs:element name="documentationYearOfPublication" type="xs:string"/>
+    <xs:element name="documentationObjectNumber" type="xs:string"/>
+    <xs:element name="edition" type="xs:string"/>
     <xs:element name="estateName" type="xs:string"/>
     <xs:element name="estateNr" type="xs:string"/>
     <xs:element name="event" type="xs:string"/>
     <xs:element name="exhibition" type="xs:string"/>
+    <xs:element name="exhibitionDateStart" type="xs:string"/>
+    <xs:element name="exhibitionDateEnd" type="xs:string"/>
+    <xs:element name="exhibitionTitle" type="xs:string"/>
+    <xs:element name="exhibitionOrganiser" type="xs:string"/>
     <xs:element name="expulsionMeans" type="xs:string"/>
     <xs:element name="expulsionYear" type="xs:string"/>
     <xs:element name="featured" type="xs:string"/>
@@ -82,19 +97,23 @@
     <xs:element name="fullTextObjectUrl" type="xs:anyURI"/>
     <xs:element name="geojson" type="xs:string"/>
     <xs:element name="geoHash" type="xs:string"/>
+    <xs:element name="illustrations" type="xs:string"/>
     <xs:element name="imageUri" type="xs:anyURI"/>
     <xs:element name="imageUrl" type="xs:string"/>
     <xs:element name="inventoryNr" type="xs:string"/>
     <xs:element name="isbn" type="xs:string"/>
     <xs:element name="issn" type="xs:string"/>
+    <xs:element name="issue" type="xs:string"/>
     <xs:element name="issueNr" type="xs:string"/>
     <xs:element name="introduction" type="xs:string"/>
+    <xs:element name="leadWord" type="xs:string"/>
     <xs:element name="language" type="xs:string"/>
     <xs:element name="latLong" type="xs:string"/>
     <xs:element name="linkedObjectNumber" type="xs:string"/>
     <xs:element name="legalStatus" type="xs:string"/>
     <xs:element name="location" type="xs:string"/>
     <xs:element name="material" type="xs:string"/>
+    <xs:element name="month" type="xs:string"/>
     <xs:element name="municipality" type="xs:string"/>
     <xs:element name="municipalityNr" type="xs:string"/>
     <xs:element name="namedPlace" type="xs:string"/>
@@ -116,6 +135,7 @@
     <xs:element name="polygon_latLong" type="xs:string"/>
     <xs:element name="polygon_utm" type="xs:string"/>
     <xs:element name="postalCode" type="xs:string"/>
+    <xs:element name="productionDateNotes" type="xs:string"/>
     <xs:element name="productionEnd" type="xs:string"/>
     <xs:element name="productionPeriod" type="xs:string"/>
     <xs:element name="productionStart" type="xs:string"/>
@@ -125,16 +145,22 @@
     <xs:element name="province" type="xs:string"/>
     <xs:element name="public" type="xs:string"/>
     <xs:element name="purchasePrice" type="xs:string"/>
-    <xs:element name="nave:reasonListed" type="xs:string"/> 
-    <xs:element name="nave:yearListed" type="xs:string"/> 
+    <xs:element name="reasonListed" type="xs:string"/>
+    <xs:element name="yearListed" type="xs:string"/>
     <xs:element name="recordSyncURI" type="xs:anyURI"/>
     <xs:element name="region" type="xs:string"/>
     <xs:element name="religion" type="xs:string"/>
     <xs:element name="relationNote" type="xs:string"/>
     <xs:element name="rijksCollection" type="xs:string"/>
     <xs:element name="resourceSortOrder" type="xs:string"/>
+    <xs:element name="schoolStyle" type="xs:string"/>
+    <xs:element name="seriesNumber" type="xs:string"/>
+    <xs:element name="seriesTitle" type="xs:string"/>
+    <xs:element name="shelfMark" type="xs:string"/>
     <xs:element name="soundUri" type="xs:anyURI"/>
     <xs:element name="source" type="xs:string"/>
+    <xs:element name="sourceTitle" type="xs:string"/>
+    <xs:element name="sourceTitleArticleLeadword" type="xs:string"/>
     <xs:element name="street" type="xs:string"/>
     <xs:element name="streetNr" type="xs:string"/>
     <xs:element name="subjectDepicted" type="xs:string"/>
