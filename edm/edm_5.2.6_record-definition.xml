@@ -709,6 +709,7 @@
             <elem tag="nave:exhibitionVenue" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:formatted" />
             <elem tag="nave:geojson" />
+	    <elem tag="nave:iconography" attrs="rdf:resource,xml:lang" />
             <elem tag="nave:inscription" />
             <elem tag="nave:inscriptionMethod" />
             <elem tag="nave:inscriptionPosition" />
