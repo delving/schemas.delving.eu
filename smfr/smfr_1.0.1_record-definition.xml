@@ -1,0 +1,941 @@
+<?xml version="1.0"?>
+<record-definition prefix="smfr" version="1.0.1" flat="false">
+
+    <namespaces>
+        <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"/>
+        <namespace prefix="dcterms" uri="http://purl.org/dc/terms/"/>
+        <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#"/>
+        <namespace prefix="nave" uri="http://schemas.delving.eu/nave/terms/"/>
+        <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
+        <namespace prefix="crmsurv" uri="https://takin.solutions/ontologies/crmsurv/"/>
+        <namespace prefix="CRMsci" uri="http://www.ics.forth.gr/isl/CRMsci/"/>
+        <namespace prefix="geo" uri="https://purl.org/geojson/vocab#"/>
+        <namespace prefix="crmaaa" uri=""/>
+        <namespace prefix="xsl" uri=""/>
+        <namespace prefix="CRMdig" uri="http://www.ics.forth.gr/isl/CRMdig/"/>
+        <namespace prefix="la" uri=""/>
+        <namespace prefix="CRMpe" uri="http://parthenos.d4science.org/CRMext/CRMpe.rdfs/"/>
+        <namespace prefix="rdfs" uri=""/>
+
+    </namespaces>
+
+    <functions>
+
+    </functions>
+
+    <attrs>
+        <attr tag="rdf:about" uriCheck="true"/>
+        <attr tag="rdf:resource"/>
+        <attr tag="rdfs:literal"/>
+        <attr tag="rdf:datatype"/>
+        <attr tag="rdf:parseType"/>
+        <attr tag="rdf:type"/>
+        <attr tag="xml:lang"/>
+        <attr tag="geo:geojson"/>
+        <attr tag="xsl:date"/>
+    </attrs>
+
+    <templates>
+        <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="Identified by">
+                    <elem tag="crm:P190_has_symbolic_content" label="Identifier" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="Identifier Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+        <elem tag="crm:P2_has_type" label="Has Type">
+            <elem tag="crm:E52_Type" label="Type" attrs="rdf:about"/>
+        </elem>
+        <elem tag="crm:P138i_has_representation" label="Image">
+                <elem tag="crm:E36_Visual_Image" label="Depicted by Image" attrs="rdf:about"/>
+        </elem>
+        <elem tag="crm:P67i_is_referred_to_by" label="Referred by">
+                <elem tag="crm:E33_Linguistic_Object" label="Statement">
+                    <elem tag="crm:P190_has_symbolic_content" label="" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="Has Type">
+                        <elem tag="crm:E52_Type" label="Statement Type" attrs="rdf:about">
+                            <elem tag="crm:P2_has_type" label="Has type">
+                                <elem tag="crm:E52_Type" label="Getty Type">
+                                    <attr tag="rdf:about">
+                                        <node-mapping inputPath="/constant">
+                                            <groovy-code>
+                                                <string>"http://vocab.getty.edu/aat/300418049"</string>
+                                            </groovy-code>
+                                        </node-mapping>
+                                    </attr>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+            </elem>
+        </elem>
+    </templates>
+
+    <root tag="RDF">
+        <node-mapping inputPath="/input"/>
+
+        <elem tag="crmsurv:U4_Survey_Surface_Unit" label="SEM.1_Survey Unit">
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="Identified by">
+                    <elem tag="crm:P190_has_symbolic_content" label="Identifier" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="Identifier Type"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P2_has_type" label="Has Type">
+                <elem tag="crm:E52_Type" label="Type" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P67i_is_referred_to_by" label="Survey Unit Description">
+                 <elem tag="crm:E33_Linguistic_Object" label="">
+                     <elem tag="crm:P190_has_symbolic_content" label="Statement" attrs="rdfs:literal"/>
+                 </elem>
+                <elem tag="crm:D1_Digital_Object" label="Digital Reference" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P138i_has_representation" label="Image">
+                <elem tag="crm:E36_Visual_Image" label="Depicted by Image" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P43_has_dimension" label="Dimension">
+                <elem tag="crm:E54_Dimension" label="">
+                    <elem tag="crm:P90_has_value" label="Dimension Value" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="Type">
+                        <elem tag="crm:E52_Type" label="Dimension Type" attrs="rdf:about"/>
+                    </elem>
+
+                    <elem tag="crm:P91_has_unit" label="Has unit">
+                        <elem tag="crm:E58_Measurement_Unit" label="Dimension Unit" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crmgeo:q11i_is_approximated_by" label="Place">
+                <elem tag="crmgeo:SP6_Declarative_Place" label="Declarative place">
+                    <elem tag="crmgeo:q10_defined_by" label="">
+                        <elem tag="crmgeo:SP5_Geometric_Place_Expression" label="">
+                            <elem tag="crmgeo:q9_is_expressed_in_terms_of" label="">
+                                <elem tag="crmgeo:SP4_Spatial_Reference_System" label="" attrs="rdf:about" />
+                            </elem>
+                            <elem tag="crm:p1_is_identified_by" label="Identified by">
+                                <elem tag="crm:E33_41_Linguistic_Appellation" label="Place Coordinate" attrs="rdf:resource"/>
+                                <elem tag="crm:p2_has_type" label="Type">
+                                    <elem tag="crm:E55_Type" label="Place Coordinate Type" attrs="rdf:about"/>
+                                </elem>
+                            </elem>
+                            <elem tag="crm:p67i_is_referred_to_by" label="">
+                                <elem tag="crm:E33_Linguistic_Object" label="Place Coordinates Statement" attrs="rdf:about" />
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P89_falls_within" label="Falls within site">
+                <elem tag="crm:E27_Site" label="Unit Part of Site" attrs="rdf:about"/>
+                <elem tag="crmsurv:U4_Survey_Surface_Unit" label="Survey Unit Part"  attrs="rdf:about"/>
+                <elem tag="crm:E53_Place" label="Part of Location" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P168_place_is_defined_by" label="Coordinates">
+                <elem tag="geo:wkt" label="Coordinates WKT" attrs="rdf:resource"/>
+            </elem>
+            <elem tag="crmsurv:up3i_was_collected_by" label="Collector">
+                <elem tag="crm:P9i_forms_part_of" label="">
+                    <elem tag="crmsurv:U1_Archaeological_Survey" label="">
+                        <elem tag="crm:P01i_is_domain_of" label="">
+                            <elem tag="crm:PC14_carried_out_by" label="Survey Activity Carried Out By">
+                                <elem tag="crm:E21_Person" label="Survey Participant"  attrs="rdf:about"/>
+                                <elem tag="crm:P14.1_in_the_role_of" label="Survey Activity Role">
+                                    <elem tag="crm:P2_has_type" label="Has type">
+                                        <elem tag="crm:E52_Type" label="Survey Participant Role" attrs="rdf:about"/>
+                                    </elem>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crmsurv:UP2i_was_surveyed_by" label="Was surveyed by">
+                    <elem tag="crmsurv:U3_Survey_Surface_Unit" label="Surface unit">
+                        <elem tag="crm:P7i_witnessed" label="Witnessed">
+                            <elem tag="crmsurv:U2_Survey_Collection_Activity" label="Activity">
+                                <elem tag="crmsurv:UP3_collected" label="">
+
+                                    <elem tag="crmsurv:U6_Material_Sample" label="SEM.14_Sample" attrs="rdf:about">
+                                        <elem tag="crm:P2_has_type" label="Type">
+                                            <elem tag="crm:E55_Type" label="Survey Collection Type" attrs="rdf:about"></elem>
+                                        </elem>
+                                        <elem tag="crm:P43_has_dimension" label="Has Dimension">
+                                            <elem tag="crm:E54_Dimension" label="Survey Collection  Dimension" attrs="rdf:about">
+                                            </elem>
+                                        </elem>
+                                    </elem>
+                                </elem>
+
+
+                            </elem>
+                        </elem>
+                    </elem>
+            </elem>
+            <elem tag="crmsurv:UP2_was_surveyed_by" label="Surveyor">
+                <elem tag="crmsurv:U3_Survey_Process_Unit" label="">
+                    <elem tag="crm:P01i_is_domain_of" label="">
+                        <elem tag="crm:PC14_carried_out_by" label="">
+                            <elem tag="crm:P02_has_range" label="">
+                                <elem tag="crm:E21_Person" label="Survey Unit Participant"  attrs="rdf:about"/>
+                            </elem>
+                            <elem tag="crm:P14.1_in_the_role_of" label="">
+                                <elem tag="crm:E55_Type" label="surveyor_role" attrs="rdf:about"/>
+                            </elem>
+
+                        </elem>
+                    </elem>
+                    <elem tag="crm:P4_has_time-span" label="">
+                        <elem tag="crm:E52_Time-Span" label="Survey Unit Timespan" attrs="rdf:resource"/>
+                    </elem>
+                    <elem tag="crm:P33_used_specific_technique" label="Survey Technique">
+                        <elem tag="crm:P2_has_type" label="Has type">
+                            <elem tag="crm:E52_Type" label="Survey Technique Type" attrs="rdf:about"/>
+                        </elem>
+                    </elem>
+                    <elem tag="crmsci:O9_observed_property_type" label="Observed Type">
+                        <elem tag="crmsci:S9_Property_Type" label="Survey Artifacts Type" attrs="rdf:about"></elem>
+                    </elem>
+                    <elem tag="crmsci:O16_observed_value" label="Survey Unit Artefacts Count">
+                        <elem tag="crm:E54_Dimension" label="Survey Artifacts Dimension" />
+                    </elem>
+                    <elem tag="crm:P67i_is_referred_to_by" label="Referred to by">
+                        <elem tag="crm:E33_Linguistic_Object" label="" attrs="rdf:about">
+                            <elem tag="P94i_was_created_by" label="">
+                                <elem tag="crm:E65_Creation" label="Survey Process Recording Created By">
+                                    <elem tag="P14_carried_out_by" label="">
+                                        <elem tag="crm:E21_Person" label="Person" attrs="rdf:about"></elem>
+                                    </elem>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+            </elem>
+        </elem>
+        <elem tag="crm:E21_Person" label="SEM.2_Person" attrs="rdf:about"
+            target="crm:P1_is_identified_by,crm:P2_has_type">
+            <elem tag="crm:P67i_is_referred_to_by" label="Referred by">
+                <elem tag="crm:E33_Linguistic_Object" label="Collection Statement">
+                    <elem tag="crm:P190_has_symbolic_content" label="" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="Collection Statement Type">
+                        <elem tag="crm:E52_Type" label="Collection Statement Type" attrs="rdf:about">
+                            <elem tag="crm:P2_has_type" label="P2 has type">
+                                <elem tag="crm:E52_Type" label="Getty Type">
+                                    <attr tag="rdf:about" uriCheck="true">
+                                        <node-mapping inputPath="/constant">
+                                            <groovy-code>
+                                                <string>&quot;http://vocab.getty.edu/aat/300418049&quot;</string>
+                                            </groovy-code>
+                                        </node-mapping>
+                                    </attr>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P107i_is_current_or_former_member_of" label="Member of Group">
+                <elem tag="crm:E74_Group" label="Group" attrs="rdf:about"/>
+            </elem>
+        </elem>
+        <elem tag="CRMdig:D1_Digital_Object" label="SEM.4_Digital Object" attrs="rdf:about"
+            target="crm:P1_is_identified_by,crm:P2_has_type">
+            <elem tag="rdfs:label" label="Digital Object Internal Label" attrs="rdf:resource"/>
+            <elem tag="crm:P129_is_about" label="About" >
+                <elem tag="crm:E73_Information_Object" label="Digital Object File Format" >
+                    <elem tag="dc:format" label="Format" attrs="rdf:resource"/>
+                </elem>
+            </elem>
+        </elem>
+        <elem tag="CRMsci:S13_Sample" label="SEM.5_Collection" attrs="rdf:about">
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="Identified by">
+                    <elem tag="crm:P190_has_symbolic_content" label="Identifier" attrs="rdfs:literal" unmappable="true"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="Identifier Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P2_has_type" label="Has Type">
+                <elem tag="crm:E52_Type" label="Type" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P67i_is_referred_to_by" label="Referred by">
+                <elem tag="crm:E33_Linguistic_Object" label="Collection Statement">
+                    <elem tag="crm:P190_has_symbolic_content" label="" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="Collection Statement Type">
+                        <elem tag="crm:E52_Type" label="Collection Statement Type" attrs="rdf:about">
+                            <elem tag="crm:P2_has_type" label="P2 has type">
+                                <elem tag="crm:E52_Type" label="Getty Type">
+                                    <attr tag="rdf:about" uriCheck="true">
+                                        <node-mapping inputPath="/constant">
+                                            <groovy-code>
+                                                <string>&quot;http://vocab.getty.edu/aat/300418049&quot;</string>
+                                            </groovy-code>
+                                        </node-mapping>
+                                    </attr>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                    </elem>
+            </elem>
+        </elem>
+        <elem tag="crm:E22_Human-Made_Object" label="SEM.6_Artefact" attrs="rdf:about"
+            target="crm:P1_is_identified_by,crm:P2_has_type">
+            <elem tag="crm:P43_has_dimension" label="Dimension">
+                <elem tag="crm:E54_Dimension" label="">
+                    <elem tag="crm:P90_has_value" label="Dimension Value" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="Dimension Type" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P91_has_unit" label="Has unit">
+                        <elem tag="crm:E58_Measurement_Unit" label="Dimension Unit" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P108i_was_produced_by" label="Production" >
+                <elem tag="a crm:E12_Production" label="" >
+                    <elem tag="crm:P32_used_general_technique" label="Production Event Technique">
+                        <elem tag="crm:E55_Type" label="Production Event Technique Type" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crmaaa:ZP55i_is_dating_subject_of" label="" >
+                        <elem tag="a crmaaa:ZE25_Dating_Status" label="" >
+                            <elem tag="crmaaa:zp54_ascribes_date" label="Object Date" >
+                                <elem tag="a crm:E4:Period" label="Object Date" attrs="rdf:about"/>
+                            </elem>
+                            <elem tag="crm:P2_has_type" label="Object Dating Type" >
+                                <elem tag="crm:E55_Type" label="" attrs="rdf:about"/>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:p140i_was_attributed_by" label="Assigned Task" >
+                <elem tag="crm:E13_Attribute_Assignment" label="" >
+                    <elem tag="crm:p141_assigned" label="" >
+                        <elem tag="crm:E29_Design_Or_Procedure" label="" >
+                            <elem tag="crm:p2_has_type" label="Object Task Type" >
+                                <elem tag="crm:E55_Type" label="Type" attrs="rdf:about"/>
+                            </elem>
+                        </elem>
+                    </elem>
+                    <elem tag="crm:p2_has_type" label="" >
+                        <elem tag="crm:E55_Type" label="Object Task Status Type" >
+                            <elem tag="crm:P2_has_type" label="" >
+                                <elem tag="crm:E55_Type" label="Getty Type" >
+                                    <attr tag="rdf:about">
+                                        <node-mapping inputPath="/constant">
+                                            <groovy-code>
+                                                <string>https://linked.art/example/type/S62_2_??????</string>
+                                            </groovy-code>
+                                        </node-mapping>
+                                    </attr>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P67i_is_referred_to_by" label="Referred by">
+                <elem tag="crm:E33_Linguistic_Object" label="">
+                    <elem tag="crm:P190_has_symbolic_content" label="Statement" attrs="rdfs:literal"/>
+                    <elem tag="crm:p94i_was_created_by" label="" >
+                        <elem tag="crm:E65_Creation" label="" >
+                            <elem tag="crm:p14_carried_out_by" label="" >
+                                <elem tag="a crm:E21_Person" label="Documented_By" attrs="rdf:about"/>
+                            </elem>
+                            <elem tag="crm:p4_has_time-span" label="" >
+                                <elem tag="a crm:E52_Time-span" label="Documentation Timespan" attrs="rdf:about"/>
+                            </elem>
+                        </elem>
+                    </elem>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="" attrs="rdf:about">
+                            <elem tag="crm:P2_has_type" label="P2 has type">
+                                <elem tag="crm:E52_Type" label="Getty Type">
+                                    <attr tag="rdf:about">
+                                        <node-mapping inputPath="/constant">
+                                            <groovy-code>
+                                                <string>"http://vocab.getty.edu/aat/300418049"</string>
+                                            </groovy-code>
+                                        </node-mapping>
+                                    </attr>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                <elem tag="crm:D1_Digital_Object" label="Digital Reference" attrs="rdf:about"/>
+                </elem>
+            </elem>
+            <elem tag="crm:P130_shows_features_of" label="Features" >
+                <elem tag="crmsurv:U10_Shape" label="Artefact Vessel Shape" attrs="rdf:about"/>
+                <elem tag="crmsurv:U11_Vessel_Type" label="Artefact Vessel Part" attrs="rdf:about"/>
+                <elem tag="crmsurv:U9_Ware" label="Artefact Ceramic Ware" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P128_carries" label="Carries" >
+                <elem tag="crm:E34_Inscription" label="Artefact Epigraphy" attrs="rdf:resource"/>
+                <elem tag="crm:P2_has_type" label="Artefact Epigraphy Type" >
+                    <elem tag="crm:E55_Type" label="Type" ></elem>
+                </elem>
+            </elem>
+            <elem tag="crmaaa:ZP43i_is_similarity_subject_of" label="Similarity" >
+                <elem tag="crmaaa:ZE14_Similarity_Status" label="Status" >
+                    <elem tag="crmaaa:ZP44_has_similarity_target" label="Target" >
+                        <elem tag="crm:E22_Human-Made_Object" label="Artefact Parallel" attrs="rdf:about"/>
+                        <elem tag="crm:E55_Type" label="Artefact Parallel Type" attrs="rdf:about"/>
+                        <elem tag="crm:E22_Human-Made_Object" label="" >
+                            <elem tag="crm:p67i_is_referred_to_by" label="" >
+                                <elem tag="crm:E33_Linguistic_Object" label="Artefact Parallel Source"  attrs="rdf:about"/>
+                            </elem>
+                        </elem>
+                    </elem>
+
+                </elem>
+            </elem>
+            <elem tag="crm:P138i_has_representation" label="Image">
+                <elem tag="crm:E36_Visual_Image" label="Depicted by Image" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P55_has_current_location" label="Location" >
+                <elem tag="crm:E53_Place" label="Permanent Location" ></elem>
+            </elem>
+            <elem tag="crmsurv:UP2_was_surveyed_by" label="Part of Project" >
+                <elem tag="crmsurv:U3_Survey_Process_Unit" label="Survey" >
+                    <elem tag="crm:P20_had_specific_purpose" label="" >
+                        <elem tag="crmsurv:U2_Archaeological_Survey" label="Archaeological Survey" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P9i_forms_part_of" label="" >
+                        <elem tag="crmpe:PE35_Project" label="Project" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P46i_forms_part_of" label="Part of" >
+                <elem tag="crmsci:S13_Sample" label="Object Part Of Sample" attrs="rdf:about"/>
+                <elem tag="crmsurv:U4_Survey_Surface_Unit" label="Part of Unit" attrs="rdf:about"/>
+                <elem tag="crm:E27_Site" label="Object Part of Site" attrs="rdf:about"/>
+            </elem>
+
+        </elem>
+        <elem tag="crm:E4_Period" label="SEM.7_Period" attrs="rdf:about"
+            target="crm:P67i_is_referred_to_by">
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="E42 Identifier">
+                    <elem tag="crm:P190_has_symbolic_content" label="LAF.10_identifier_content" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="LAF.10_identifier_Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+                <elem tag="crm:E33_E41_Linguistic_Appellation" label="" >
+                    <elem tag="crm:P2_has_type" label="" >
+                        <elem tag="crm:E55_Type" label="Name Type" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="rdfs:label" label="preferred terms" attrs="rdf:resource"/>
+                    <elem tag="crm:P190_has_symbolic_content" label="Name" attrs="rdfs:literal"/>
+                </elem>
+            </elem>
+            <elem tag="crm:P4_has_time-span" label="TimeSpan" >
+                <elem tag="crm:E52_Time-Span" label="" >
+                    <elem tag="crm:P82a_begin_of_the_begin" label="Begin of the Begin" attrs="xsl:date"/>
+                    <elem tag="crm:P82b_end_of_the_end" label="End of the End" attrs="xsl:date"/>
+                </elem>
+            </elem>
+
+        </elem>
+        <elem tag="crm:E25_Human_Made_Feature" label="SEM.8_Feature" attrs="rdf:about"
+              target="crm:P2_has_type,crm:P138i_has_representation,crm:P67i_is_referred_to_by" >
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="E42 Identifier">
+                    <elem tag="crm:P190_has_symbolic_content" label="LAF.10_identifier_content" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="LAF.10_identifier_Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+                <elem tag="crm:E33_E41_Linguistic_Appellation" label="Appellation" >
+                    <elem tag="crm:P2_has_type" label="Name Type">
+                        <elem tag="crm:E52_Type" label="Getty Type">
+                            <attr tag="rdf:about">
+                                <node-mapping inputPath="/constant">
+                                    <groovy-code>
+                                        <string>"http://vocab.getty.edu/page/aat/300404670"</string>
+                                    </groovy-code>
+                                </node-mapping>
+                            </attr>
+                        </elem>
+                    </elem>
+                    <elem tag="rdfs:label" label="preferred terms" attrs="rdf:resource"/>
+                    <elem tag="crm:P190_has_symbolic_content" label="Name" attrs="rdfs:literal"/>
+                </elem>
+            </elem>
+            <elem tag="crm:P43_has_dimension" label="Dimension">
+                <elem tag="crm:E54_Dimension" label="Value">
+                    <elem tag="crm:P90_has_value" label="Dimension Value" attrs="rdfs:literal"/>
+
+                    <elem tag="crm:P2_has_type" label="Type">
+                        <elem tag="crm:E52_Type" label="Dimension Type" attrs="rdf:about"/>
+                    </elem>
+
+                    <elem tag="crm:P91_has_unit" label="Has unit">
+                        <elem tag="crm:E58_Measurement_Unit" label="Dimension Unit" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P89_falls_within" label="Part of Location">
+                <elem tag="crm:E53_Place" label="Place" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:p45_consists_of" label="Made of" >
+                <elem tag="crm:E57_Material" label="Material" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P46i_forms_part_of" label="Part of Site" >
+                <elem tag="crm:E27_Site" label="Site" attrs="rdf:about" />
+            </elem>
+            <elem tag="crmsci:O19i_was_encountered_by" label="Encountered" >
+                <elem tag="crmsurv:U3_Survey_Process_Unit" label="Process unit" attrs="rdf:about">
+                    <elem tag="crm:P7_took_place_at" label="" >
+                        <elem tag="crmsurv:U4_Survey_Surface_Unit" label="Surface unit" attrs="rdf:about"></elem>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crmdig:L1_was_digitized_by" label="Digitization" >
+                <elem tag="crmsurv:U5_Digitization_Process_Unit" label="" >
+                    <elem tag="crm:P32_used_general_technique" label="Digital Recording Technique" >
+                        <elem tag="crm:E55_Type" label="Type" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P125_used_object_of_type" label="Digital Recording Instrument" >
+                        <elem tag="crm:E55_Type" label="Type" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P14_carried_out_by" label="Digital Recording Carried By" >
+                        <elem tag="a crm:E21_Person" label="Person" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+        </elem>
+        <elem tag="CRMdig:D1_Digital_Object" label="SEM.9_Image" attrs="rdf:about"
+            target="crm:P1_is_identified_by,crm:P2_has_type">
+            <elem tag="crm:p94i_was_created_by" label="Creation" >
+                <elem tag="crm:E65_Creation" label="" >
+                    <elem tag="crm:p01i_is_domain_of" label="Domain" >
+                        <elem tag="crm:PC14_Carried_Out_By" label="Created By" >
+                            <elem tag="crm:p02_has_range" label="" >
+                                <elem tag="crm:E21_Person" label="Person" attrs="rdf:about"/>
+                            </elem>
+                            <elem tag="crm:p14.1_in_the_role_of" label="Created Role" >
+                                <elem tag="crm:E55_Type" label="Role" attrs="rdf:about"/>
+                            </elem>
+                        </elem>
+                    </elem>
+                    <elem tag="crm:P4_has_time-span" label="TimeSpan" >
+                        <elem tag="crm:E52_Time-Span" label="Date" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P138_represents" label="Depicts Entity" >
+                <elem tag="crm:E1_CRM_Entity" label="Entity" attrs="rdf:about"/>
+            </elem>
+            <elem tag="la:digitally_carried_by" label="Digitally Shown By" >
+                <elem tag="crm:D1_Digital_Object" label="Digital Object" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P128i_is_carried_by" label="Carried by" >
+                <elem tag="crm:E22_Human-Made_Object" label="Human Made Object" attrs="rdf:about"/>
+            </elem>
+
+        </elem>
+        <elem tag="crm:E27_Site" label="SEM.10_Site" attrs="rdf:about"
+              target="crm:P2_has_type,crm:P67i_is_referred_to_by">
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="E42 Identifier">
+                    <elem tag="crm:P190_has_symbolic_content" label="Identifier" attrs="rdfs:literal"/>
+                    <elem tag="rdfs:label" label="preferred terms" attrs="rdf:resource"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="Identifier Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+                <elem tag="crm:E33_E41_Linguistic_Appellation" label="Appellation" >
+                    <elem tag="rdfs:label" label="preferred terms" attrs="rdf:resource"/>
+                    <elem tag="crm:P190_has_symbolic_content" label="Name" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="Name Type">
+                        <elem tag="crm:E52_Type" label="Getty Type">
+                            <attr tag="rdf:about">
+                                <node-mapping inputPath="/constant">
+                                    <groovy-code>
+                                        <string>"http://vocab.getty.edu/page/aat/300404670"</string>
+                                    </groovy-code>
+                                </node-mapping>
+                            </attr>
+                        </elem>
+                    </elem>
+                </elem>
+                <elem tag="crm:P67i_is_referred_to_by" label="" >
+                    <elem tag="crm:E33_Linguistic_Object" label="Source Reference Work for Identifier" attrs="rdf:about"/>
+                </elem>
+                <elem tag="crm:P141i_was_assigned_by" label="" >
+                    <elem tag="crm:E13_Attribute_Assignment" label="Identifier Data Assignment" attrs="rdf:about"/>
+                </elem>
+            </elem>
+            <elem tag="crm:P89_falls_within" label="Part of Location">
+                <elem tag="crm:E53_Place" label="Place" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crmsurv:UP2_was_surveyed_by" label="Surveyor">
+                <elem tag="crmsurv:U3_Survey_Process_Unit" label="">
+                    <elem tag="crmsci:O19_encountered_object" label="" >
+                        <elem tag="crm:E22_Human-Made_Object" label="Human-Made Object" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P108i_was_produced_by" label="" >
+                        <elem tag="crm:E12_Production" label="Production" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:p10_falls_within" label="" >
+                        <elem tag="crm:E4:Period" label="Period" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P9_consists_of" label="" >
+                        <elem tag="crm:E14_Condition_Assessment" label="Condition Assessment" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P35_has_identified" label="" >
+                        <elem tag="crm:E3_Condition_State" label="Condition State" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crmaaa:ZP55i_is_dating_subject_of" label="" >
+                        <elem tag="crmaaa:ZE25_Dating_Status" label="" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+        </elem>
+            <elem tag="crm:P16i_was_used_for" label="Land use">
+                <elem tag="crm:E7_Activity" label="">
+                    <elem tag="crm:P2_has_type" label="">
+                        <elem tag="crm:E55_Type" label="Land use type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P16i_was_used_for" label="Site Interpretation Uncertainty">
+                <elem tag="crm:E7_Activity" label="">
+                    <elem tag="crm:P2_has_type" label="">
+                        <elem tag="crm:E55_Type" label="Type" attrs="rdf:about">
+                            <elem tag="crm:P2_has_type" label="">
+                                <elem tag="crm:E55_Type" label="Type" attrs="rdf:about" />
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+            </elem>
+        </elem>
+        <elem tag="CRMsci:S4_Observation" label="SEM.11_Observation" attrs="rdf:about"
+          target="crm:P1_is_identified_by,crm:P2_has_type,crm:P67i_is_referred_to_by">
+            <elem tag="crm:P7_took_place_at" label="Location of Activity">
+                <elem tag="crm:E53_Place" label="Place" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crmsci:O8_observed" label="Observed Feature">
+                <elem tag="crm:E24_Physical_Human-Made_Thing" label="">
+                    <elem tag="crm:P2_has_type" label="Observed Feature Type">
+                        <elem tag="crm:E55_Type" label="Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:p9_consists_of" label="Observation Sample Part">
+                <elem tag="crmsurv:U2_Survey_Collection_Activity" label="">
+                    <elem tag="crmsurv:up3_collected" label="">
+                        <elem tag="crmaaa:U6_Material_Sample" label="SEM.14_Sample" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crmsci:O9_observed_property_of_type" label="Observation Property Type">
+                <elem tag="crmsci:S9_Property_Type" label="Type" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crmsci:O16_observed_value" label="Observation Property Value">
+                <elem tag="crm:E55_Type" label="Type" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crmaaa:ZP42_intentionally_initiates" label="Observed Period">
+                <elem tag="crmaaa:ZE25_Dating_Status" label="">
+                    <elem tag="crmaaa:ZP54_ascribes_date" label="">
+                        <elem tag="crm:E4_Period" label="SEM.7_Period" attrs="rdf:about"/>
+                        <elem tag="crm:P2_has_type" label="Observed Period Uncertainty">
+                            <elem tag="crm:E55_Type" label="Type" attrs="rdf:about">
+                                <elem tag="crm:P2_has_type" label="">
+                                    <elem tag="crm:E55_Type" label="Type" attrs="rdf:about"/>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+            </elem>
+        </elem>
+        <elem tag="CRMpe:PE35_Project" label="SEM.12_Project" attrs="rdf:about">
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="E42 Identifier">
+                    <elem tag="crm:P190_has_symbolic_content" label="LAF.10_identifier_content" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="LAF.10_identifier_Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+                <elem tag="crm:E33_E41_Linguistic_Appellation" label="Appellation" >
+                    <elem tag="crm:P2_has_type" label="Name Type">
+                        <elem tag="crm:E52_Type" label="Getty Type">
+                            <attr tag="rdf:about">
+                                <node-mapping inputPath="/constant">
+                                    <groovy-code>
+                                        <string>"http://vocab.getty.edu/page/aat/300404670"</string>
+                                    </groovy-code>
+                                </node-mapping>
+                            </attr>
+                        </elem>
+                    </elem>
+                    <elem tag="rdfs:label" label="preferred terms" attrs="rdf:resource"/>
+                    <elem tag="crm:P190_has_symbolic_content" label="Name" attrs="rdfs:literal"/>
+                </elem>
+            </elem>
+            <elem tag="crm:P67i_is_referred_to_by" label="Referred by">
+                <elem tag="crm:E33_Linguistic_Object" label="Statement">
+                    <elem tag="crm:P190_has_symbolic_content" label="" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="">
+                        <elem tag="crm:E52_Type" label="Statement Type" attrs="rdf:about">
+                            <elem tag="crm:P2_has_type" label="P2 has type">
+                                <elem tag="crm:E52_Type" label="Getty Type">
+                                    <attr tag="rdf:about">
+                                        <node-mapping inputPath="/constant">
+                                            <groovy-code>
+                                                <string>"http://vocab.getty.edu/aat/300418049"</string>
+                                            </groovy-code>
+                                        </node-mapping>
+                                    </attr>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+                <elem tag="crm:E33_Linguistic_Object" label="Source Reference Work" attrs="rdf:about"/>
+            </elem>
+            <elem tag="" label="Activity Part Type">
+                <elem tag="crm:E7_Activity" label="">
+                    <elem tag="crm:p2_has_type" label="">
+                        <elem tag="" label="Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P9_consists_of" label="Activity Technique">
+                <elem tag="crm:E7_Activity" label="">
+                    <elem tag="crm:P32_used_general_technique" label="">
+                        <elem tag="crm:E55_Type" label="Activity Technique Type"></elem>
+                    </elem>
+                </elem>
+            </elem>
+        </elem>
+        <elem tag="crm:E33_Linguistic_Object" label="SEM.13_Bibliography" attrs="rdf:about"
+          target="crm:P67i_is_referred_to_by">
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="E42 Identifier">
+                    <elem tag="crm:P190_has_symbolic_content" label="LAF.10_identifier_content" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="LAF.10_identifier_Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+                <elem tag="crm:E33_E41_Linguistic_Appellation" label="Appellation" >
+                    <elem tag="crm:P2_has_type" label="Name Type">
+                        <elem tag="crm:E52_Type" label="Getty Type">
+                            <attr tag="rdf:about">
+                                <node-mapping inputPath="/constant">
+                                    <groovy-code>
+                                        <string>"http://vocab.getty.edu/page/aat/300404670"</string>
+                                    </groovy-code>
+                                </node-mapping>
+                            </attr>
+                        </elem>
+                    </elem>
+                    <elem tag="rdfs:label" label="preferred terms" attrs="rdf:resource"/>
+                    <elem tag="crm:P190_has_symbolic_content" label="Name" attrs="rdfs:literal"/>
+                </elem>
+            </elem>
+            <elem tag="crm:p94i_was_created_by" label="Creation" >
+                <elem tag="crm:E65_Creation" label="" >
+                    <elem tag="crm:p14_carried_out_by" label="" >
+                        <elem tag="crm:E39_Actor" label="Creator" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:p4_has_time-span" label="" >
+                        <elem tag="a crm:E52_Time-span" label="TimeSpan of Curation Event" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P2_has_type" label="">
+                        <elem tag="crm:E55_Type" label="Creation Event Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+        </elem>
+        <elem tag="crmsurv:U6_Material_Sample" label="SEM.14_Sample" attrs="rdf:about" unmappable="true">
+            <elem tag="crm:P1_is_identified_by" label="Identified by" unmappable="true">
+                <elem tag="crm:E42_Identifier" label="Identified by" unmappable="true">
+                    <elem tag="crm:P190_has_symbolic_content" label="Identifier" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type" unmappable="true">
+                        <elem tag="crm:E52_Type" label="Identifier Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P2_has_type" label="Has Type">
+                <elem tag="crm:E52_Type" label="Type" attrs="rdf:about"/>
+            </elem>
+            <elem tag="crm:P67i_is_referred_to_by" label="Referred by">
+                <elem tag="crm:E33_Linguistic_Object" label="Statement">
+                    <elem tag="crm:P190_has_symbolic_content" label="" attrs="rdfs:literal"/>
+                        <elem tag="crm:P2_has_type" label="Has Type">
+                            <elem tag="crm:E52_Type" label="Statement Type" attrs="rdf:about">
+                                <elem tag="crm:P2_has_type" label="Has type">
+                                    <elem tag="crm:E52_Type" label="Getty Type">
+                                        <attr tag="rdf:about">
+                                            <node-mapping inputPath="/constant">
+                                                <groovy-code>
+                                                    <string>"http://vocab.getty.edu/aat/300418049"</string>
+                                               </groovy-code>
+                                            </node-mapping>
+                                        </attr>
+                                    </elem>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+            </elem>
+
+            <elem tag="crm:P43_has_dimension" label="Dimension">
+                <elem tag="crm:E54_Dimension" label="Value">
+                    <elem tag="crm:P90_has_value" label="Dimension Value" attrs="rdfs:literal" />
+                    <elem tag="crm:P2_has_type" label="Has Type">
+                        <elem tag="crm:E52_Type" label="Dimension Type" attrs="rdf:about"/>
+                    </elem>
+
+                    <elem tag="crm:P91_has_unit" label="Has Unit">
+                        <elem tag="crm:E58_Measurement_Unit" label="Dimension Unit" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+            <elem tag="crm:P46i_forms_part_of" label="Part of" >
+                <elem tag="crm:E27_Site" label="Object Part of Site" attrs="rdf:about" />
+                <elem tag="crmsurv:U4_Survey_Surface_Unit" label="Part of Unit" attrs="rdf:about" />
+            </elem>
+            <elem tag="crmsurv:up3i_was_collected_by" label="Collector">
+                <elem tag="crm:P9i_forms_part_of" label="">
+                    <elem tag="crmsurv:U1_Archaeological_Survey" label="">
+                        <elem tag="crm:P01i_is_domain_of" label="">
+                            <elem tag="crm:PC14_carried_out_by" label="Survey Activity Carried Out By">
+                                <elem tag="crm:E21_Person" label="Survey Activity Carried Out By (SEM.2_Person)"  attrs="rdf:about"/>
+                                <elem tag="crm:P14.1_in_the_role_of" label="Survey Activity Role">
+                                    <elem tag="crm:P2_has_type" label="Has Role">
+                                        <elem tag="crm:E52_Type" label="Survey Participant Role" attrs="rdf:about"/>
+                                    </elem>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+                <elem tag="crm:P4_has_time-span" label="Timespan">
+                    <elem tag="" label="">
+                        <elem tag="crm:E52_Time-Span" label="Sampling Timespan (SEM.7_Period)" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+            </elem>
+
+        </elem>
+        <elem tag="crm:E74_Group" label="SEM.15_Institution" attrs="rdf:about"
+            target="crm:P67i_is_referred_to_by">
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="E42 Identifier">
+                    <elem tag="crm:P190_has_symbolic_content" label="LAF.10_identifier_content" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="LAF.10_identifier_Type" attrs="rdf:about"/>
+                    </elem>
+                </elem>
+                <elem tag="crm:E33_E41_Linguistic_Appellation" label="Appellation" >
+                    <elem tag="crm:P2_has_type" label="Name Type">
+                        <elem tag="crm:E52_Type" label="Getty Type">
+                            <attr tag="rdf:about">
+                                <node-mapping inputPath="/constant">
+                                    <groovy-code>
+                                        <string>"http://vocab.getty.edu/page/aat/300404670"</string>
+                                    </groovy-code>
+                                </node-mapping>
+                            </attr>
+                        </elem>
+                    </elem>
+                    <elem tag="rdfs:label" label="preferred terms" attrs="rdf:resource"/>
+                    <elem tag="crm:P190_has_symbolic_content" label="Name" attrs="rdfs:literal"/>
+                </elem>
+            </elem>
+        </elem>
+        <elem tag="crm:E53_Place" label="SEM.16_Place" attrs="rdf:about"
+            target="crm:P138i_has_representation">
+            <elem tag="crm:P1_is_identified_by" label="Identified by">
+                <elem tag="crm:E42_Identifier" label="E42 Identifier">
+                    <elem tag="crm:P190_has_symbolic_content" label="LAF.10_identifier_content" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="P2 has type">
+                        <elem tag="crm:E52_Type" label="LAF.10_identifier_Type" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P67i_is_referred_to_by" label="Source Reference Work for Identifier">
+                        <elem tag="crm:E33_Linguistic_Object" label="SEM.13_Bibliography" attrs="rdf:about"/>
+                    </elem>
+                    <elem tag="crm:P141i_was_assigned_by" label="Place Identifier Assignment">
+                        <elem tag="crm:E13_Attribute_Assignment" label="SEM.16_Place"  />
+                    </elem>
+                </elem>
+                <elem tag="crm:E33_E41_Linguistic_Appellation" label="Appellation" >
+                    <elem tag="crm:P2_has_type" label="Name Type">
+                        <elem tag="crm:E52_Type" label="Getty Type">
+                            <attr tag="rdf:about">
+                                <node-mapping inputPath="/constant">
+                                    <groovy-code>
+                                        <string>"http://vocab.getty.edu/page/aat/300404670"</string>
+                                    </groovy-code>
+                                </node-mapping>
+                            </attr>
+                        </elem>
+                    </elem>
+                    <elem tag="rdfs:label" label="preferred terms" attrs="rdf:resource"/>
+                    <elem tag="crm:P190_has_symbolic_content" label="Name" attrs="rdfs:literal"/>
+                </elem>
+            </elem>
+            <elem tag="crm:P67i_is_referred_to_by" label="Referred by">
+                <elem tag="crm:E33_Linguistic_Object" label="Statement" attrs="rdf:about">
+                    <elem tag="crm:P190_has_symbolic_content" label="" attrs="rdfs:literal"/>
+                    <elem tag="crm:P2_has_type" label="">
+                        <elem tag="crm:E52_Type" label="Statement Type" attrs="rdf:about">
+                            <elem tag="crm:P2_has_type" label="P2 has type">
+                                <elem tag="crm:E52_Type" label="Getty Type">
+                                    <attr tag="rdf:about">
+                                        <node-mapping inputPath="/constant">
+                                            <groovy-code>
+                                                <string>"http://vocab.getty.edu/aat/300418049"</string>
+                                            </groovy-code>
+                                        </node-mapping>
+                                    </attr>
+                                </elem>
+                            </elem>
+                        </elem>
+                    </elem>
+                </elem>
+        </elem>
+            <elem tag="crm:P168_place_is_defined_by" label="Coordinates">
+                <elem tag="geo:wkt" label="Coordinates WKT" attrs="rdf:resource"/>
+            </elem>
+        </elem>
+
+
+    </root>
+
+    <field-markers/>
+
+    <opts>
+    </opts>
+
+    <docs>
+<doc path="/RDF/crmsurv:U4_Survey_Surface_Unit/crm:P1_is_identified_by/crm:E42_Identifier/crm:P190_has_symbolic_content/rdfs:literal">
+	<para name="Label">Unit identifier</para>
+	<para name="Semafora Description">for this refer to the column in which individual unit ids are given</para>
+	<para name="Airtable Description">This field is used to record an identifier attributed to the documented entity.</para>
+	<para name="Expected Target Type">String</para>
+	<para name="Required">TRUE</para>
+</doc>
+
+    </docs>
+
+</record-definition>
+
+
+
+
+
